@@ -3,6 +3,34 @@ var vendedores = document.getElementById("vendedores");
 var botaovendedor  = document.getElementById("vendedorbutton");
 var txtmotoboy = document.getElementById("txtmaquinasdevenda");
 var motoboycounter = document.getElementById("maquinasdevenda");
+var motoboybutton = document.getElementById("maquinadevendabutton");
+var txtcarros = document.getElementById("txtcarros");
+var carroscounter = document.getElementById("carroscounter");
+var carrosbutton = document.getElementById("carrosbutton");
+var txtpipa = document.getElementById("txtpipa");
+var pipacounter = document.getElementById("pipacounter");
+var pipabutton = document.getElementById("pipabutton");
+var txtfabrica = document.getElementById("txtfabrica");
+var fabricacounter = document.getElementById("fabricacounter");
+var fabricabutton = document.getElementById("fabricabutton");
+var txtpolo = document.getElementById("txtpolo");
+var polocounter = document.getElementById("polocounter");
+var polobutton = document.getElementById("polobutton");
+var txtasteroides = document.getElementById("txtasteroides");
+var asteroidecounter = document.getElementById("asteroidecounter");
+var asteroidebutton = document.getElementById("asteroidebutton");
+var txtplanetas = document.getElementById("txtplanetas");
+var planetascounter = document.getElementById("planetascounter");
+var planetasbutton = document.getElementById("planetasbutton");
+var txtgalaxias = document.getElementById("txtgalaxias");
+var galaxiascounter = document.getElementById("galaxiascounter");
+var galaxiasbutton = document.getElementById("galaxiasbutton");
+var txtuniversos = document.getElementById("txtuniversos");
+var universoscounter = document.getElementById("universoscounter");
+var universosbutton = document.getElementById("universosbutton");
+var txttempo = document.getElementById("txttempo");
+var tempocounter = document.getElementById("tempocounter");
+var tempobutton = document.getElementById("tempobutton");
 var dinheiro = 0;
 var vendedores = 0;
 var motoboy = 0;
@@ -27,13 +55,12 @@ var precogalaxia = 10**10;
 var precouniverso = 10**11;
 var precotempo = 10**12;
 var aux;
-var aux1 = 1;
-var aux2 = 1;
-var aux3 = 1;
-var aux4 = 1;
+var aux1 = true;
+var aux2 = true;
+var aux3 = true;
 var clicks = 0;
 var clickmodifier = 1;
-var agenciaespacial = 0;
+var agenciaespacial = false;
 //funções
 function verificador() {
     if(preco<1000000){
@@ -101,69 +128,69 @@ function atualizarmaquinadevenda() {
     txtmotoboy.innerHTML = "Contratar motoboy";
     motoboycounter.innerHTML = motoboy;
     verificador();
-    document.getElementById("maquinadevendabutton").innerHTML = "R$" + preco + " " + aux;
+    motoboybutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarcarros() {
     preco=precocarros;
-    document.getElementById("txtcarros").innerHTML = "Comprar carro da água.";
-    document.getElementById("carroscounter").innerHTML = carros;
-    document.getElementById("carrosbutton").innerHTML = "R$" + preco + " " + aux;
+    txtcarros.innerHTML = "Comprar carro da água.";
+    carroscounter.innerHTML = carros;
+    carrosbutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarpipa() {
     preco=precopipa;
-    document.getElementById("txtpipa").innerHTML = "Comprar caminhão pipa.";
-    document.getElementById("pipacounter").innerHTML = pipas;
+    txtpipa.innerHTML = "Comprar caminhão pipa.";
+    pipacounter.innerHTML = pipas;
     verificador();
-    document.getElementById("pipabutton").innerHTML = "R$" + preco + " " + aux;
+    pipabutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarfabrica() {
     preco=precofabrica;
-    document.getElementById("txtfabrica").innerHTML = "Fábrica de garrafas d'água.";
-    document.getElementById("fabricacounter").innerHTML = fabricas;
+    txtfabrica.innerHTML = "Fábrica de garrafas d'água.";
+    fabricacounter.innerHTML = fabricas;
     verificador();
-    document.getElementById("fabricabutton").innerHTML = "R$" + preco + " " + aux;
+    fabricabutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarpolos() {
     preco=precopolo;
-    document.getElementById("txtpolo").innerHTML = "Construir um polo industrial.";
-    document.getElementById("polocounter").innerHTML = polos;
+    txtpolo.innerHTML = "Construir um polo industrial.";
+    polocounter.innerHTML = polos;
     verificador();
-    document.getElementById("polobutton").innerHTML = "R$" + preco + " " + aux;
+    polobutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarasteroides() {
     preco=precoasteroide;
-    document.getElementById("txtasteroides").innerHTML = "Minerar asteroides de gelo.";
-    document.getElementById("asteroidecounter").innerHTML = asteroides;
+    txtasteroides.innerHTML = "Minerar asteroides de gelo.";
+    asteroidecounter.innerHTML = asteroides;
     verificador();
-    document.getElementById("asteroidebutton").innerHTML = "R$" + preco + " " + aux;
+    asteroidebutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarplanetas() {
     preco=precoplaneta;
-    document.getElementById("txtplanetas").innerHTML = "Naves inter-planetárias.";
-    document.getElementById("planetascounter").innerHTML = planetas;
+    txtplanetas.innerHTML = "Naves inter-planetárias.";
+    planetascounter.innerHTML = planetas;
     verificador();
-    document.getElementById("planetasbutton").innerHTML = "R$" + preco + " " + aux;
+    planetasbutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizargalaxias() {
     preco=precogalaxia;
-    document.getElementById("txtgalaxias").innerHTML = "Naves inter-galácticas.";
-    document.getElementById("galaxiascounter").innerHTML = galaxias;
+    txtgalaxias.innerHTML = "Naves inter-galácticas.";
+    galaxiascounter.innerHTML = galaxias;
     verificador();
-    document.getElementById("galaxiasbutton").innerHTML = "R$" + preco + " " + aux;
+    galaxiasbutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizaruniversos() {
     preco=precouniverso;
-    document.getElementById("txtuniversos").innerHTML = "Naves inter-universais.";
-    document.getElementById("universoscounter").innerHTML = universos;
+    txtuniversos.innerHTML = "Naves inter-universais.";
+    universoscounter.innerHTML = universos;
     verificador();
-    document.getElementById("universosbutton").innerHTML = "R$" + preco + " " + aux;
+    universosbutton.innerHTML = "R$" + preco + " " + aux;
 }
 function atualizardelorean() {
     preco=precotempo;
-    document.getElementById("txttempo").innerHTML = "Comprar máquinas do tempo.";
-    document.getElementById("tempocounter").innerHTML = tempo;
+    txttempo.innerHTML = "Comprar máquinas do tempo.";
+    tempocounter.innerHTML = tempo;
     verificador();
-    document.getElementById("tempobutton").innerHTML = "R$" + preco + " " + aux;
+    tempobutton.innerHTML = "R$" + preco + " " + aux;
 }
 function spaceerrorbox() {
     let errorbox = document.createElement("div");
@@ -219,7 +246,7 @@ function verificarloja() {
         document.getElementById("loja").appendChild(firstevent);
         firstevent.appendChild(firsteventbutton);
         firsteventbutton.innerHTML = "R$1500";
-        aux1 = 0;
+        aux1 = false;
         firsteventbutton.onclick = function() {
             if(dinheiro>=1500){
                 dinheiro-=1500;
@@ -238,7 +265,7 @@ function verificarloja() {
         secondclickevent.innerHTML = "Alugar outdoor";
         secondclickevent.appendChild(secondclickeventbutton);
         secondclickeventbutton.innerHTML = "R$6000";
-        aux3 = 0;
+        aux3 = false;
         secondclickeventbutton.onclick = function() {
             if(dinheiro>=6000){
                 dinheiro-=6000;
@@ -257,7 +284,7 @@ function verificarloja() {
         document.getElementById("loja").appendChild(espacialevent);
         espacialevent.appendChild(espacialeventbutton);
         espacialeventbutton.innerHTML = "R$350 Milhões";
-        aux2 = 0;
+        aux2 = false;
         espacialeventbutton.onclick = function() {
             if(dinheiro>=350000000){
                 dinheiro-=350000000;
