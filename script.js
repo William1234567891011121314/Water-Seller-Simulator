@@ -8,7 +8,7 @@ var txt = [document.getElementById("txtmaquinasdevenda"), document.getElementByI
 var counter = [document.getElementById("vendedores"), document.getElementById("maquinasdevenda"), document.getElementById("carroscounter"), document.getElementById("pipacounter"), document.getElementById("fabricacounter"), document.getElementById("polocounter"), document.getElementById("asteroidecounter"), document.getElementById("planetascounter"), document.getElementById("galaxiascounter"), document.getElementById("universoscounter"), document.getElementById("tempocounter")];
 var button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var lojabool = [true, true, true, true, true];
+var auxbool = [true, true, true, true, true, true];
 var moneytime = 1000;
 var multiplicadordecompra = 1;
 var dinheiro = 0;
@@ -88,7 +88,7 @@ function atualizarvendedor() {
     button[0].innerHTML = "R$" + preco + " ";
 }
 function atualizarmaquinadevenda() {
-    if(vendedores==0){
+    if(dinheiro<=precosbase[1]){
         return;
     }
     preco=precos[1]*multiplicadordecompra;
@@ -98,7 +98,7 @@ function atualizarmaquinadevenda() {
     button[1].innerHTML = "R$" + preco + " ";
 }
 function atualizarcarros() {
-    if(motoboy==0){
+    if(dinheiro<=precosbase[2]){
         return;
     }
     preco=precos[2]*multiplicadordecompra;
@@ -108,7 +108,7 @@ function atualizarcarros() {
     button[2].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarpipa() {
-    if(carros==0){
+    if(dinheiro<=precosbase[3]){
         return;
     }
     preco=precos[3]*multiplicadordecompra;
@@ -118,7 +118,7 @@ function atualizarpipa() {
     button[3].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarfabrica() {
-    if(pipas==0){
+    if(dinheiro<=precosbase[4]){
         return;
     }
     preco=precos[4]*multiplicadordecompra;
@@ -128,7 +128,7 @@ function atualizarfabrica() {
     button[4].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarpolos() {
-    if(fabricas==0){
+    if(dinheiro<=precosbase[5]){
         return;
     }
     preco=precos[5]*multiplicadordecompra;
@@ -138,7 +138,7 @@ function atualizarpolos() {
     button[5].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarasteroides() {
-    if(polos==0){
+    if(dinheiro<=precosbase[6]){
         return;
     }
     preco=precos[6]*multiplicadordecompra;
@@ -148,7 +148,7 @@ function atualizarasteroides() {
     button[6].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarplanetas() {
-    if(asteroides==0){
+    if(dinheiro<=precosbase[7]){
         return;
     }
     preco=precos[7]*multiplicadordecompra;
@@ -158,7 +158,7 @@ function atualizarplanetas() {
     button[7].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizargalaxias() {
-    if(planetas==0){
+    if(dinheiro<=precosbase[8]){
         return;
     }
     preco=precos[8]*multiplicadordecompra;
@@ -168,7 +168,7 @@ function atualizargalaxias() {
     button[8].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizaruniversos() {
-    if(galaxias==0){
+    if(dinheiro<=precosbase[9]){
         return;
     }
     preco=precos[9]*multiplicadordecompra;
@@ -178,7 +178,7 @@ function atualizaruniversos() {
     button[9].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizardelorean() {
-    if(universos==0){
+    if(dinheiro<=precosbase[10]){
         return;
     }
     preco=precos[10]*multiplicadordecompra;
@@ -188,60 +188,68 @@ function atualizardelorean() {
     button[10].innerHTML = "R$" + preco + " " + aux;
 }
 function spaceerrorbox() {
-    let errorbox = document.createElement("div");
-    let txterrorbox = document.createElement("p");
-    let errorboxbutton = document.createElement("button");
-    let errorboxdiv = document.createElement("div");
-    document.querySelector("body").appendChild(errorbox);
-    errorbox.appendChild(txterrorbox);
-    errorbox.appendChild(errorboxdiv);
-    errorboxdiv.appendChild(errorboxbutton);
-    txterrorbox.innerHTML = "Você não tem uma agência espacial para explorar o espaço!"
-    errorboxbutton.innerHTML = "Ok"
-    errorbox.style.border = "1px solid black";
-    errorbox.style.display = "inline";
-    errorbox.style.position = "absolute";
-    errorboxdiv.style.display = "flex";
-    errorboxdiv.style.justifyContent = "space-around";
-    errorbox.style.top = "35%";
-    errorbox.style.left  = "35%";
-    errorbox.style.backgroundColor = "white";
-    errorboxbutton.onclick = function() {
-        document.querySelector("body").removeChild(errorbox);
+    if(auxbool){
+        auxbool[5] = false;
+        let errorbox = document.createElement("div");
+        let txterrorbox = document.createElement("p");
+        let errorboxbutton = document.createElement("button");
+        let errorboxdiv = document.createElement("div");
+        document.querySelector("body").appendChild(errorbox);
+        errorbox.appendChild(txterrorbox);
+        errorbox.appendChild(errorboxdiv);
+        errorboxdiv.appendChild(errorboxbutton);
+        txterrorbox.innerHTML = "Você não tem uma agência espacial para explorar o espaço!"
+        errorboxbutton.innerHTML = "Ok"
+        errorbox.style.border = "1px solid black";
+        errorbox.style.display = "inline";
+        errorbox.style.position = "absolute";
+        errorboxdiv.style.display = "flex";
+        errorboxdiv.style.justifyContent = "space-around";
+        errorbox.style.top = "35%";
+        errorbox.style.left  = "35%";
+        errorbox.style.backgroundColor = "white";
+        errorboxbutton.onclick = function() {
+            document.querySelector("body").removeChild(errorbox);
+            auxbool[5] = true;
+        }
     }
 }
 function moneyerrorbox() {
-    let errorbox = document.createElement("div");
-    let txterrorbox = document.createElement("p");
-    let errorboxbutton = document.createElement("button");
-    let errorboxdiv = document.createElement("div");
-    document.querySelector("body").appendChild(errorbox);
-    errorbox.appendChild(txterrorbox);
-    errorbox.appendChild(errorboxdiv);
-    errorboxdiv.appendChild(errorboxbutton);
-    txterrorbox.innerHTML = "Você não tem dinheiro suficiente para efetuar essa compra!"
-    errorboxbutton.innerHTML = "Ok"
-    errorbox.style.border = "1px solid black";
-    errorbox.style.display = "inline";
-    errorbox.style.position = "absolute";
-    errorboxdiv.style.display = "flex";
-    errorboxdiv.style.justifyContent = "space-around";
-    errorbox.style.top = "35%";
-    errorbox.style.left  = "35%";
-    errorbox.style.backgroundColor = "white";
-    errorboxbutton.onclick = function() {
-        document.querySelector("body").removeChild(errorbox);
+    if(auxbool[5]){
+        auxbool[5] = false;
+        let errorbox = document.createElement("div");
+        let txterrorbox = document.createElement("p");
+        let errorboxbutton = document.createElement("button");
+        let errorboxdiv = document.createElement("div");
+        document.querySelector("body").appendChild(errorbox);
+        errorbox.appendChild(txterrorbox);
+        errorbox.appendChild(errorboxdiv);
+        errorboxdiv.appendChild(errorboxbutton);
+        txterrorbox.innerHTML = "Você não tem dinheiro suficiente para efetuar essa compra!"
+        errorboxbutton.innerHTML = "Ok"
+        errorbox.style.border = "1px solid black";
+        errorbox.style.display = "inline";
+        errorbox.style.position = "absolute";
+        errorboxdiv.style.display = "flex";
+        errorboxdiv.style.justifyContent = "space-around";
+        errorbox.style.top = "35%";
+        errorbox.style.left  = "35%";
+        errorbox.style.backgroundColor = "white";
+        errorboxbutton.onclick = function() {
+            document.querySelector("body").removeChild(errorbox);
+            auxbool[5] = true;
+        }
     }
 }
 function verificarloja() {
-    if(clicks>=400 && lojabool[0]){
+    if(clicks>=400 && auxbool[0]){
         let firstevent = document.createElement("div");
         let firsteventbutton = document.createElement("button");
         firstevent.innerHTML = "Comprar curso do metaforando";
         document.getElementById("loja").appendChild(firstevent);
         firstevent.appendChild(firsteventbutton);
         firsteventbutton.innerHTML = "R$1500";
-        lojabool[0] = false;
+        auxbool[0] = false;
         firsteventbutton.onclick = function() {
             if(dinheiro>=1500){
                 dinheiro-=1500;
@@ -253,14 +261,14 @@ function verificarloja() {
             moneyerrorbox();
         }
     }
-    if(clicks>=1200 && lojabool[1]){
+    if(clicks>=1200 && auxbool[1]){
         let secondclickevent = document.createElement("div");
         let secondclickeventbutton = document.createElement("button");
         document.getElementById("loja").appendChild(secondclickevent);
         secondclickevent.innerHTML = "Pagar comissão para os vendedores";
         secondclickevent.appendChild(secondclickeventbutton);
         secondclickeventbutton.innerHTML = "R$6000";
-        lojabool[1] = false;
+        auxbool[1] = false;
         secondclickeventbutton.onclick = function() {
             if(dinheiro>=6000){
                 dinheiro-=6000;
@@ -272,14 +280,14 @@ function verificarloja() {
             moneyerrorbox();
         }
     }
-    if(polos>=1 && lojabool[2]){
+    if(polos>=1 && auxbool[2]){
         let espacialevent = document.createElement("div");
         let espacialeventbutton = document.createElement("button");
         espacialevent.innerHTML = "Fundar agência espacial";
         document.getElementById("loja").appendChild(espacialevent);
         espacialevent.appendChild(espacialeventbutton);
         espacialeventbutton.innerHTML = "R$350 Milhões";
-        lojabool[2] = false;
+        auxbool[2] = false;
         espacialeventbutton.onclick = function() {
             if(dinheiro>=350000000){
                 dinheiro-=350000000;
@@ -291,14 +299,14 @@ function verificarloja() {
             moneyerrorbox();
         }
     }
-    if(clicks>=1500 && lojabool[3]){
+    if(clicks>=1500 && auxbool[3]){
         let multiplicadorevent = document.createElement("div");
         let multiplicadoreventbutton = document.createElement("button");
         multiplicadorevent.innerHTML = "Comprar um botão multiplicador de compras.";
         document.getElementById("loja").appendChild(multiplicadorevent);
         multiplicadorevent.appendChild(multiplicadoreventbutton);
         multiplicadoreventbutton.innerHTML = "R$10000";
-        lojabool[3] = false;
+        auxbool[3] = false;
         multiplicadoreventbutton.onclick = function() {
             if(dinheiro>=10000){
                 dinheiro-=10000;
@@ -311,14 +319,14 @@ function verificarloja() {
             moneyerrorbox();
         }
     }
-    if(clicks>=2200 && lojabool[4]){
+    if(clicks>=2200 && auxbool[4]){
         let thirdclickevent = document.createElement("div");
         let thirdclickeventbutton = document.createElement("button");
         thirdclickevent.innerHTML = "Investir em propaganda na internet";
         document.getElementById("loja").appendChild(thirdclickevent);
         thirdclickevent.appendChild(thirdclickeventbutton);
         thirdclickeventbutton.innerHTML = "R$50000";
-        lojabool[4] = false;
+        auxbool[4] = false;
         thirdclickeventbutton.onclick = function() {
             if(dinheiro>=50000){
                 dinheiro-=50000;
@@ -383,17 +391,17 @@ dinheirobutton.onclick = function() {
     atualizarcontador();
     setTimeout(() => {
         garrafa.style.transform = "scale(100%)";
-    }, 50)
-    garrafa.style.transform = "scale(65%)";
+    }, 100)
+    garrafa.style.transform = "scale(75%)";
 }
 button[0].onclick = function() {
     if(dinheiro>=precos[0]){
         vendedores+=multiplicadordecompra;
-        dinheiro-=precos[0]*multiplicadordecompra;
-        atualizarcontador();
         precos[0]=precosbase[0] * (vendedores+1);
         atualizarvendedor();
         atualizarmaquinadevenda();
+        dinheiro-=precos[0]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
@@ -401,11 +409,11 @@ button[0].onclick = function() {
 button[1].onclick = function() {
     if(dinheiro>=precos[1]){
         motoboy+=multiplicadordecompra;
-        dinheiro-=precos[1]*multiplicadordecompra;
-        atualizarcontador();
         precos[1]=precosbase[1] * (motoboy+1);
         atualizarmaquinadevenda();
         atualizarcarros();
+        dinheiro-=precos[1]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
@@ -413,12 +421,12 @@ button[1].onclick = function() {
 button[2].onclick = function() {
     if(dinheiro>=precos[2]){
         carros+=multiplicadordecompra;
-        dinheiro-=precos[2]*multiplicadordecompra;
-        atualizarcontador();
         precos[2]=precosbase[2] * (carros+1);
         atualizarmaquinadevenda();
         atualizarcarros();
         atualizarpipa();
+        dinheiro-=precos[2]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
@@ -426,13 +434,13 @@ button[2].onclick = function() {
 button[3].onclick = function() {
     if(dinheiro>=precos[3]){
         pipas+=multiplicadordecompra;
-        dinheiro-=precos[3]*multiplicadordecompra;
-        atualizarcontador();
         precos[3]=precosbase[3] * (pipas+1);
         atualizarmaquinadevenda();
         atualizarcarros();
         atualizarpipa();
         atualizarfabrica();
+        dinheiro-=precos[3]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
@@ -440,14 +448,14 @@ button[3].onclick = function() {
 button[4].onclick = function() {
     if(dinheiro>=precos[4]){
         fabricas+=multiplicadordecompra;
-        dinheiro-=precos[4]*multiplicadordecompra;
-        atualizarcontador();
         precos[4]=precosbase[4] * (fabricas+1);
         atualizarmaquinadevenda();
         atualizarcarros();
         atualizarpipa();
         atualizarfabrica();
         atualizarpolos();
+        dinheiro-=precos[4]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
@@ -455,8 +463,6 @@ button[4].onclick = function() {
 button[5].onclick = function() {
     if(dinheiro>=precos[5]){
         polos+=multiplicadordecompra;
-        dinheiro-=precos[5]*multiplicadordecompra;
-        atualizarcontador();
         precos[5]=precosbase[5] * (polos+1);
         atualizarmaquinadevenda();
         atualizarcarros();
@@ -464,6 +470,8 @@ button[5].onclick = function() {
         atualizarfabrica();
         atualizarpolos();
         atualizarasteroides();
+        dinheiro-=precos[5]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
@@ -472,8 +480,6 @@ button[6].onclick = function() {
     if(dinheiro>=precos[6]){
         if(agenciaespacial){
             asteroides+=multiplicadordecompra;
-            dinheiro-=precos[6]*multiplicadordecompra;
-            atualizarcontador();
             precos[6]=precosbase[6] * (asteroides+1);
             atualizarmaquinadevenda();
             atualizarcarros();
@@ -482,6 +488,8 @@ button[6].onclick = function() {
             atualizarpolos();
             atualizarasteroides();
             atualizarplanetas();
+            dinheiro-=precos[6]*multiplicadordecompra;
+            atualizarcontador();
             return;
         }
         spaceerrorbox();
@@ -493,8 +501,6 @@ button[7].onclick = function() {
     if(dinheiro>=precos[7]){
         if(agenciaespacial){
             planetas+=multiplicadordecompra;
-            dinheiro-=precos[7]*multiplicadordecompra;
-            atualizarcontador();
             precos[7]=precosbase[7] * (planetas+1);
             atualizarmaquinadevenda();
             atualizarcarros();
@@ -504,6 +510,8 @@ button[7].onclick = function() {
             atualizarasteroides();
             atualizarplanetas();
             atualizargalaxias();
+            dinheiro-=precos[7]*multiplicadordecompra;
+            atualizarcontador();
             return;
         }
         spaceerrorbox();
@@ -515,8 +523,6 @@ button[8].onclick = function() {
     if(dinheiro>=precos[8]){
         if(agenciaespacial){
             galaxias+=multiplicadordecompra;
-            dinheiro-=precos[8]*multiplicadordecompra;
-            atualizarcontador();
             precos[8]=precosbase[8] * (galaxias+1);
             atualizarmaquinadevenda();
             atualizarcarros();
@@ -527,6 +533,8 @@ button[8].onclick = function() {
             atualizarplanetas();
             atualizargalaxias();
             atualizaruniversos();
+            dinheiro-=precos[8]*multiplicadordecompra;
+            atualizarcontador();
             return;
         }
         spaceerrorbox();
@@ -538,8 +546,6 @@ button[9].onclick = function() {
     if(dinheiro>=precos[9]){
         if(agenciaespacial){
             universos+=multiplicadordecompra;
-            dinheiro-=precos[9]*multiplicadordecompra;
-            atualizarcontador();
             precos[9]=precosbase[9] * (universos+1);
             atualizarmaquinadevenda();
             atualizarcarros();
@@ -551,6 +557,8 @@ button[9].onclick = function() {
             atualizargalaxias();
             atualizaruniversos();
             atualizardelorean();
+            dinheiro-=precos[9]*multiplicadordecompra;
+            atualizarcontador();
             return;
         }
         spaceerrorbox();
@@ -561,8 +569,6 @@ button[9].onclick = function() {
 button[10].onclick = function() {
     if(dinheiro>=precos[10]){
         tempo+=multiplicadordecompra;
-        dinheiro-=precos[10]*multiplicadordecompra;
-        atualizarcontador();
         precos[10]=precosbase[10] * (tempo+1);
         atualizarmaquinadevenda();
         atualizarcarros();
@@ -574,6 +580,8 @@ button[10].onclick = function() {
         atualizargalaxias();
         atualizaruniversos();
         atualizardelorean();
+        dinheiro-=precos[10]*multiplicadordecompra;
+        atualizarcontador();
         return;
     }
     moneyerrorbox();
