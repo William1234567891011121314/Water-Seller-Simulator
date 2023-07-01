@@ -10,6 +10,7 @@ var button = [document.getElementById("vendedorbutton"), document.getElementById
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var auxbool = [true, true, true, true, true, true];
 var moneytime = 1000;
+var preco;
 var multiplicadordecompra = 1;
 var dinheiro = 0;
 var vendedores = 0;
@@ -31,8 +32,7 @@ var agenciaespacial = false;
 function verificador() {
     if(preco<1000000){
         aux = "";
-        preco = preco;
-        return
+        return;
     }
     if(preco>=1000000 && preco<1000000000){
         if(preco==1000000){
@@ -88,7 +88,7 @@ function atualizarvendedor() {
     button[0].innerHTML = "R$" + preco + " ";
 }
 function atualizarmaquinadevenda() {
-    if(dinheiro<=precosbase[1]){
+    if(dinheiro<precosbase[1]){
         return;
     }
     preco=precos[1]*multiplicadordecompra;
@@ -98,7 +98,7 @@ function atualizarmaquinadevenda() {
     button[1].innerHTML = "R$" + preco + " ";
 }
 function atualizarcarros() {
-    if(dinheiro<=precosbase[2]){
+    if(dinheiro<precosbase[2]){
         return;
     }
     preco=precos[2]*multiplicadordecompra;
@@ -108,7 +108,7 @@ function atualizarcarros() {
     button[2].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarpipa() {
-    if(dinheiro<=precosbase[3]){
+    if(dinheiro<precosbase[3]){
         return;
     }
     preco=precos[3]*multiplicadordecompra;
@@ -118,7 +118,7 @@ function atualizarpipa() {
     button[3].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarfabrica() {
-    if(dinheiro<=precosbase[4]){
+    if(dinheiro<precosbase[4]){
         return;
     }
     preco=precos[4]*multiplicadordecompra;
@@ -128,7 +128,7 @@ function atualizarfabrica() {
     button[4].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarpolos() {
-    if(dinheiro<=precosbase[5]){
+    if(dinheiro<precosbase[5]){
         return;
     }
     preco=precos[5]*multiplicadordecompra;
@@ -138,7 +138,7 @@ function atualizarpolos() {
     button[5].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarasteroides() {
-    if(dinheiro<=precosbase[6]){
+    if(dinheiro<precosbase[6]){
         return;
     }
     preco=precos[6]*multiplicadordecompra;
@@ -148,7 +148,7 @@ function atualizarasteroides() {
     button[6].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizarplanetas() {
-    if(dinheiro<=precosbase[7]){
+    if(dinheiro<precosbase[7]){
         return;
     }
     preco=precos[7]*multiplicadordecompra;
@@ -158,7 +158,7 @@ function atualizarplanetas() {
     button[7].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizargalaxias() {
-    if(dinheiro<=precosbase[8]){
+    if(dinheiro<precosbase[8]){
         return;
     }
     preco=precos[8]*multiplicadordecompra;
@@ -168,7 +168,7 @@ function atualizargalaxias() {
     button[8].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizaruniversos() {
-    if(dinheiro<=precosbase[9]){
+    if(dinheiro<precosbase[9]){
         return;
     }
     preco=precos[9]*multiplicadordecompra;
@@ -178,7 +178,7 @@ function atualizaruniversos() {
     button[9].innerHTML = "R$" + preco + " " + aux;
 }
 function atualizardelorean() {
-    if(dinheiro<=precosbase[10]){
+    if(dinheiro<precosbase[10]){
         return;
     }
     preco=precos[10]*multiplicadordecompra;
@@ -400,7 +400,7 @@ button[0].onclick = function() {
         precos[0]=precosbase[0] * (vendedores+1);
         atualizarvendedor();
         atualizarmaquinadevenda();
-        dinheiro-=precos[0]*multiplicadordecompra;
+        dinheiro-=precos[0]*multiplicadordecompra-precosbase[0];
         atualizarcontador();
         return;
     }
@@ -411,8 +411,8 @@ button[1].onclick = function() {
         motoboy+=multiplicadordecompra;
         precos[1]=precosbase[1] * (motoboy+1);
         atualizarmaquinadevenda();
+        dinheiro-=precos[1]*multiplicadordecompra-precosbase[1];
         atualizarcarros();
-        dinheiro-=precos[1]*multiplicadordecompra;
         atualizarcontador();
         return;
     }
@@ -422,10 +422,10 @@ button[2].onclick = function() {
     if(dinheiro>=precos[2]*multiplicadordecompra){
         carros+=multiplicadordecompra;
         precos[2]=precosbase[2] * (carros+1);
-        atualizarmaquinadevenda();
         atualizarcarros();
+        dinheiro-=precos[2]*multiplicadordecompra-precosbase[2];
+        atualizarmaquinadevenda();
         atualizarpipa();
-        dinheiro-=precos[2]*multiplicadordecompra;
         atualizarcontador();
         return;
     }
@@ -435,11 +435,11 @@ button[3].onclick = function() {
     if(dinheiro>=precos[3]*multiplicadordecompra){
         pipas+=multiplicadordecompra;
         precos[3]=precosbase[3] * (pipas+1);
+        atualizarpipa();
+        dinheiro-=precos[3]*multiplicadordecompra-precosbase[3];
         atualizarmaquinadevenda();
         atualizarcarros();
-        atualizarpipa();
         atualizarfabrica();
-        dinheiro-=precos[3]*multiplicadordecompra;
         atualizarcontador();
         return;
     }
@@ -449,12 +449,12 @@ button[4].onclick = function() {
     if(dinheiro>=precos[4]*multiplicadordecompra){
         fabricas+=multiplicadordecompra;
         precos[4]=precosbase[4] * (fabricas+1);
+        atualizarfabrica();
+        dinheiro-=precos[4]*multiplicadordecompra-precosbase[4];
         atualizarmaquinadevenda();
         atualizarcarros();
         atualizarpipa();
-        atualizarfabrica();
         atualizarpolos();
-        dinheiro-=precos[4]*multiplicadordecompra;
         atualizarcontador();
         return;
     }
@@ -464,13 +464,13 @@ button[5].onclick = function() {
     if(dinheiro>=precos[5]*multiplicadordecompra){
         polos+=multiplicadordecompra;
         precos[5]=precosbase[5] * (polos+1);
+        atualizarpolos();
+        dinheiro-=precos[5]*multiplicadordecompra-precosbase[5];
         atualizarmaquinadevenda();
         atualizarcarros();
         atualizarpipa();
         atualizarfabrica();
-        atualizarpolos();
         atualizarasteroides();
-        dinheiro-=precos[5]*multiplicadordecompra;
         atualizarcontador();
         return;
     }
@@ -478,17 +478,17 @@ button[5].onclick = function() {
 }
 button[6].onclick = function() {
     if(dinheiro>=precos[6]){
-        if(agenciaespacia*multiplicadordecompra){
+        if(agenciaespacial){
             asteroides+=multiplicadordecompra;
             precos[6]=precosbase[6] * (asteroides+1);
+            atualizarasteroides();
+            dinheiro-=precos[6]*multiplicadordecompra-precosbase[6];
             atualizarmaquinadevenda();
             atualizarcarros();
             atualizarpipa();
             atualizarfabrica();
             atualizarpolos();
-            atualizarasteroides();
             atualizarplanetas();
-            dinheiro-=precos[6]*multiplicadordecompra;
             atualizarcontador();
             return;
         }
@@ -502,15 +502,15 @@ button[7].onclick = function() {
         if(agenciaespacial){
             planetas+=multiplicadordecompra;
             precos[7]=precosbase[7] * (planetas+1);
+            atualizarplanetas();
+            dinheiro-=precos[7]*multiplicadordecompra-precosbase[7];
             atualizarmaquinadevenda();
             atualizarcarros();
             atualizarpipa();
             atualizarfabrica();
             atualizarpolos();
             atualizarasteroides();
-            atualizarplanetas();
             atualizargalaxias();
-            dinheiro-=precos[7]*multiplicadordecompra;
             atualizarcontador();
             return;
         }
@@ -524,6 +524,8 @@ button[8].onclick = function() {
         if(agenciaespacial){
             galaxias+=multiplicadordecompra;
             precos[8]=precosbase[8] * (galaxias+1);
+            atualizargalaxias();
+            dinheiro-=precos[8]*multiplicadordecompra-precosbase[8];
             atualizarmaquinadevenda();
             atualizarcarros();
             atualizarpipa();
@@ -531,9 +533,7 @@ button[8].onclick = function() {
             atualizarpolos();
             atualizarasteroides();
             atualizarplanetas();
-            atualizargalaxias();
             atualizaruniversos();
-            dinheiro-=precos[8]*multiplicadordecompra;
             atualizarcontador();
             return;
         }
@@ -547,6 +547,8 @@ button[9].onclick = function() {
         if(agenciaespacial){
             universos+=multiplicadordecompra;
             precos[9]=precosbase[9] * (universos+1);
+            atualizaruniversos();
+            dinheiro-=precos[9]*multiplicadordecompra-precosbase[9];
             atualizarmaquinadevenda();
             atualizarcarros();
             atualizarpipa();
@@ -555,9 +557,7 @@ button[9].onclick = function() {
             atualizarasteroides();
             atualizarplanetas();
             atualizargalaxias();
-            atualizaruniversos();
             atualizardelorean();
-            dinheiro-=precos[9]*multiplicadordecompra;
             atualizarcontador();
             return;
         }
@@ -570,6 +570,8 @@ button[10].onclick = function() {
     if(dinheiro>=precos[10]*multiplicadordecompra){
         tempo+=multiplicadordecompra;
         precos[10]=precosbase[10] * (tempo+1);
+        atualizardelorean();
+        dinheiro-=precos[10]*multiplicadordecompra- precosbase[10];
         atualizarmaquinadevenda();
         atualizarcarros();
         atualizarpipa();
@@ -579,8 +581,6 @@ button[10].onclick = function() {
         atualizarplanetas();
         atualizargalaxias();
         atualizaruniversos();
-        atualizardelorean();
-        dinheiro-=precos[10]*multiplicadordecompra;
         atualizarcontador();
         return;
     }
