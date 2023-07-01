@@ -395,7 +395,7 @@ dinheirobutton.onclick = function() {
     garrafa.style.transform = "scale(75%)";
 }
 button[0].onclick = function() {
-    if(dinheiro>=precos[0]){
+    if(dinheiro>=precos[0]*multiplicadordecompra){
         vendedores+=multiplicadordecompra;
         precos[0]=precosbase[0] * (vendedores+1);
         atualizarvendedor();
@@ -407,7 +407,7 @@ button[0].onclick = function() {
     moneyerrorbox();
 }
 button[1].onclick = function() {
-    if(dinheiro>=precos[1]){
+    if(dinheiro>=precos[1]*multiplicadordecompra){
         motoboy+=multiplicadordecompra;
         precos[1]=precosbase[1] * (motoboy+1);
         atualizarmaquinadevenda();
@@ -419,7 +419,7 @@ button[1].onclick = function() {
     moneyerrorbox();
 }
 button[2].onclick = function() {
-    if(dinheiro>=precos[2]){
+    if(dinheiro>=precos[2]*multiplicadordecompra){
         carros+=multiplicadordecompra;
         precos[2]=precosbase[2] * (carros+1);
         atualizarmaquinadevenda();
@@ -432,7 +432,7 @@ button[2].onclick = function() {
     moneyerrorbox();
 }
 button[3].onclick = function() {
-    if(dinheiro>=precos[3]){
+    if(dinheiro>=precos[3]*multiplicadordecompra){
         pipas+=multiplicadordecompra;
         precos[3]=precosbase[3] * (pipas+1);
         atualizarmaquinadevenda();
@@ -446,7 +446,7 @@ button[3].onclick = function() {
     moneyerrorbox();
 }
 button[4].onclick = function() {
-    if(dinheiro>=precos[4]){
+    if(dinheiro>=precos[4]*multiplicadordecompra){
         fabricas+=multiplicadordecompra;
         precos[4]=precosbase[4] * (fabricas+1);
         atualizarmaquinadevenda();
@@ -461,7 +461,7 @@ button[4].onclick = function() {
     moneyerrorbox();
 }
 button[5].onclick = function() {
-    if(dinheiro>=precos[5]){
+    if(dinheiro>=precos[5]*multiplicadordecompra){
         polos+=multiplicadordecompra;
         precos[5]=precosbase[5] * (polos+1);
         atualizarmaquinadevenda();
@@ -478,7 +478,7 @@ button[5].onclick = function() {
 }
 button[6].onclick = function() {
     if(dinheiro>=precos[6]){
-        if(agenciaespacial){
+        if(agenciaespacia*multiplicadordecompra){
             asteroides+=multiplicadordecompra;
             precos[6]=precosbase[6] * (asteroides+1);
             atualizarmaquinadevenda();
@@ -498,7 +498,7 @@ button[6].onclick = function() {
     moneyerrorbox();
 }
 button[7].onclick = function() {
-    if(dinheiro>=precos[7]){
+    if(dinheiro>=precos[7]*multiplicadordecompra){
         if(agenciaespacial){
             planetas+=multiplicadordecompra;
             precos[7]=precosbase[7] * (planetas+1);
@@ -520,7 +520,7 @@ button[7].onclick = function() {
     moneyerrorbox();
 }
 button[8].onclick = function() {
-    if(dinheiro>=precos[8]){
+    if(dinheiro>=precos[8]*multiplicadordecompra){
         if(agenciaespacial){
             galaxias+=multiplicadordecompra;
             precos[8]=precosbase[8] * (galaxias+1);
@@ -543,7 +543,7 @@ button[8].onclick = function() {
     moneyerrorbox();
 }
 button[9].onclick = function() {
-    if(dinheiro>=precos[9]){
+    if(dinheiro>=precos[9]*multiplicadordecompra){
         if(agenciaespacial){
             universos+=multiplicadordecompra;
             precos[9]=precosbase[9] * (universos+1);
@@ -567,7 +567,7 @@ button[9].onclick = function() {
     moneyerrorbox();
 }
 button[10].onclick = function() {
-    if(dinheiro>=precos[10]){
+    if(dinheiro>=precos[10]*multiplicadordecompra){
         tempo+=multiplicadordecompra;
         precos[10]=precosbase[10] * (tempo+1);
         atualizarmaquinadevenda();
