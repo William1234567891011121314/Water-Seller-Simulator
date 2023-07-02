@@ -51,7 +51,7 @@ function verificador() {
             return;
         }
         aux = "Bilhões";
-        preco=preco/1000000000;
+        preco = preco/1000000000;
         return;
     }
     if(preco>=1000000000000 && preco<1000000000000000){
@@ -76,7 +76,10 @@ function verificador() {
     }
 }
 function atualizarcontador() {
-    contador.innerHTML = dinheiro;
+    preco=dinheiro;
+    verificador();
+    contador.innerHTML = Math.floor(preco) + " " + aux;
+    document.querySelector("title").innerHTML = "R$" + Math.floor(preco) + " " + aux + " -Water Seller Simulator";
 }
 function atualizardinheiro() {
     moneyloop = setInterval(() => {dinheiro += vendedores + (motoboy * 10) + (carros * 100) + (pipas * 500) + (fabricas * 10000) + (polos * 100000) + (asteroides * 500000) + (planetas * 10**7) + (galaxias * 10**8) + (universos * 10**9) + (tempo * 10**10), atualizarcontador()}, moneytime)
