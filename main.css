@@ -1,5 +1,9 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4vw;
+}
+button{
+    cursor: pointer;
 }
 body>div>div{
     display: flex;
@@ -21,6 +25,9 @@ div.menu:hover{
 }
 div#divcontador{
     border-left: 1px solid black;
+    font-size: 2rem;
+}
+span#contador{
     font-size: 2rem;
 }
 div#main{
@@ -58,20 +65,17 @@ div.divisor{
 img#garrafa{
     position: absolute;
     top: 8%;
-    height: 80%;
+    height: 30vw;
     transition: .1s;
 }
 div#loja{
     display: none;
-    grid-template-rows: repeat(10, 1fr);
     width: 400%;
-    min-height: 33.2vw;
 }
 div#loja div{
-    border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
-div #multiplicador {
+button#multiplicador {
     display: none;
 }

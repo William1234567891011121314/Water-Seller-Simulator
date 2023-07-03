@@ -8,7 +8,7 @@ var txt = [document.getElementById("txtmaquinasdevenda"), document.getElementByI
 var counter = [document.getElementById("vendedores"), document.getElementById("maquinasdevenda"), document.getElementById("carroscounter"), document.getElementById("pipacounter"), document.getElementById("fabricacounter"), document.getElementById("polocounter"), document.getElementById("asteroidecounter"), document.getElementById("planetascounter"), document.getElementById("galaxiascounter"), document.getElementById("universoscounter"), document.getElementById("tempocounter")];
 var button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var auxbool = [true, true, true, true, true, true];
+var auxbool = [true, true, true, true, true, true, true, true];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var moneytime = 1000;
 var multiplicadordecompra = 1;
@@ -181,8 +181,8 @@ function moneyerrorbox() {
         errorbox.style.position = "absolute";
         errorboxdiv.style.display = "flex";
         errorboxdiv.style.justifyContent = "space-around";
-        errorbox.style.top = "35%";
-        errorbox.style.left  = "35%";
+        errorbox.style.top = "18vw";
+        errorbox.style.left  = "31vw";
         errorbox.style.backgroundColor = "white";
         errorboxbutton.onclick = function() {
             document.querySelector("body").removeChild(errorbox);
@@ -193,56 +193,140 @@ function moneyerrorbox() {
 function verificarloja() {
     if(clicks>=400 && auxbool[0]){
         let firstevent = document.createElement("div");
+        let firsteventinformationdiv = document.createElement("div");
         let firsteventbutton = document.createElement("button");
-        firstevent.innerHTML = "Comprar curso do metaforando.";
+        let firsteventinformation = document.createElement("img");
+        let firsteventinformationtext = document.createElement("p");
+        let firsteventinformationdes = document.createElement("div");
+        firsteventinformationtext.innerHTML = "Comprar curso do metaforando.";
         document.getElementById("loja").appendChild(firstevent);
+        firstevent.appendChild(firsteventinformationdiv);
         firstevent.appendChild(firsteventbutton);
+        firsteventinformationdiv.appendChild(firsteventinformation);
+        firsteventinformationdiv.appendChild(firsteventinformationtext);
+        firstevent.appendChild(firsteventinformationdes);
+        firsteventinformation.setAttribute("src", "./assets/Information.png");
+        firsteventinformationdiv.setAttribute("class", "ultimo");
+        firsteventinformationdes.innerHTML = "Aumenta a quantidade de dinheiro ganho por click para 4."
         firsteventbutton.innerHTML = "R$1500";
+        firstevent.style.position = "relative";
+        firsteventinformation.style.height = "3vw";
+        firsteventinformation.style.margin = "1vw";
+        firsteventinformation.style.cursor = "pointer";
+        firsteventinformationdes.style.border = "1px solid black";
+        firsteventinformationdes.style.backgroundColor = "white"
+        firsteventinformationdes.style.position = "absolute";
+        firsteventinformationdes.style.display = "none";
+        firsteventinformationtext.style.fontSize = "1.4vw";
+        firsteventinformation.addEventListener('mouseover', function() {
+            firsteventinformationdes.style.display = "block";
+        });
+        firsteventinformation.addEventListener('mouseout', function() {
+            firsteventinformationdes.style.display = "none";
+        });
         auxbool[0] = false;
+        auxbool[7] = false;
         firsteventbutton.onclick = function() {
             if(dinheiro>=1500){
                 dinheiro-=1500;
                 atualizarcontador();
                 clickmodifier += 3;
                 document.getElementById("loja").removeChild(firstevent);
+                auxbool[7] = true;
                 return
             }
             moneyerrorbox();
         }
     }
     if(clicks>=1200 && auxbool[1]){
-        let secondclickevent = document.createElement("div");
-        let secondclickeventbutton = document.createElement("button");
-        document.getElementById("loja").appendChild(secondclickevent);
-        secondclickevent.innerHTML = "Pagar comissão para os vendedores.";
-        secondclickevent.appendChild(secondclickeventbutton);
-        secondclickeventbutton.innerHTML = "R$6000";
+        let secondevent = document.createElement("div");
+        let secondeventbutton = document.createElement("button");
+        let secondeventinformationdiv = document.createElement("div");
+        let secondeventinformation = document.createElement("img");
+        let secondeventinformationtext = document.createElement("p");
+        let secondeventinformationdes = document.createElement("div");
+        document.getElementById("loja").appendChild(secondevent);
+        secondeventinformationtext.innerHTML = "Pagar comissão para os vendedores.";
+        secondevent.appendChild(secondeventinformationdiv);
+        secondevent.appendChild(secondeventbutton);
+        secondeventinformationdiv.appendChild(secondeventinformation);
+        secondeventinformationdiv.appendChild(secondeventinformationtext);
+        secondevent.appendChild(secondeventinformationdes);
+        secondeventinformation.setAttribute("src", "./assets/Information.png");
+        secondeventinformationdiv.setAttribute("class", "ultimo");
+        secondeventinformationdes.innerHTML = "Dobra o lucro dos vendedores.";
+        secondeventbutton.innerHTML = "R$6000";
+        secondevent.style.position = "relative";
+        secondeventinformation.style.height = "3vw";
+        secondeventinformation.style.margin = "1vw";
+        secondeventinformation.style.cursor = "pointer";
+        secondeventinformationdes.style.border = "1px solid black";
+        secondeventinformationdes.style.backgroundColor = "white"
+        secondeventinformationdes.style.position = "absolute";
+        secondeventinformationdes.style.display = "none";
+        secondeventinformationtext.style.fontSize = "1.4vw";
+        secondeventinformation.addEventListener('mouseover', function() {
+            secondeventinformationdes.style.display = "block";
+        });
+        secondeventinformation.addEventListener('mouseout', function() {
+            secondeventinformationdes.style.display = "none";
+        });
         auxbool[1] = false;
-        secondclickeventbutton.onclick = function() {
+        auxbool[7] = false;
+        secondeventbutton.onclick = function() {
             if(dinheiro>=6000){
                 dinheiro-=6000;
                 atualizarcontador();
                 clickmodifier += 28;
-                document.getElementById("loja").removeChild(secondclickevent);
+                document.getElementById("loja").removeChild(secondevent);
+                auxbool[7] = true;
                 return
             }
             moneyerrorbox();
         }
     }
-    if(objetos[4]>=1 && auxbool[2]){
+    if(objetos[5]>=1 && auxbool[2]){
         let espacialevent = document.createElement("div");
         let espacialeventbutton = document.createElement("button");
-        espacialevent.innerHTML = "Fundar agência espacial";
+        let espacialeventinformationdiv = document.createElement("div");
+        let espacialeventinformation = document.createElement("img");
+        let espacialeventinformationtext = document.createElement("p");
+        let espacialeventinformationdes = document.createElement("div");
+        espacialeventinformationtext.innerHTML = "Fundar agência espacial";
         document.getElementById("loja").appendChild(espacialevent);
+        espacialevent.appendChild(espacialeventinformationdiv);
         espacialevent.appendChild(espacialeventbutton);
         espacialeventbutton.innerHTML = "R$350 Milhões";
+        espacialeventinformationdiv.appendChild(espacialeventinformation);
+        espacialeventinformationdiv.appendChild(espacialeventinformationtext);
+        espacialevent.appendChild(espacialeventinformationdes);
+        espacialeventinformation.setAttribute("src", "./assets/Information.png");
+        espacialeventinformationdiv.setAttribute("class", "ultimo");
+        espacialeventinformationdes.innerHTML = "Permite vender água no espaço.";
+        espacialevent.style.position = "relative";
+        espacialeventinformation.style.height = "3vw";
+        espacialeventinformation.style.margin = "1vw";
+        espacialeventinformation.style.cursor = "pointer";
+        espacialeventinformationdes.style.border = "1px solid black";
+        espacialeventinformationdes.style.backgroundColor = "white"
+        espacialeventinformationdes.style.position = "absolute";
+        espacialeventinformationdes.style.display = "none";
+        espacialeventinformationtext.style.fontSize = "1.4vw";
+        espacialeventinformation.addEventListener('mouseover', function() {
+            espacialeventinformationdes.style.display = "block";
+        });
+        espacialeventinformation.addEventListener('mouseout', function() {
+            espacialeventinformationdes.style.display = "none";
+        });
         auxbool[2] = false;
+        auxbool[7] = false;
         espacialeventbutton.onclick = function() {
             if(dinheiro>=350000000){
                 dinheiro-=350000000;
                 atualizarcontador();
                 agenciaespacial = true;
                 document.getElementById("loja").removeChild(espacialevent);
+                auxbool[7] = true;
                 return;
             }
             moneyerrorbox();
@@ -251,11 +335,38 @@ function verificarloja() {
     if(clicks>=1500 && auxbool[3]){
         let multiplicadorevent = document.createElement("div");
         let multiplicadoreventbutton = document.createElement("button");
-        multiplicadorevent.innerHTML = "Comprar um botão multiplicador de compras.";
+        let multiplicadoreventinformationdiv = document.createElement("div");
+        let multiplicadoreventinformation = document.createElement("img");
+        let multiplicadoreventinformationtext = document.createElement("p");
+        let multiplicadoreventinformationdes = document.createElement("div");
+        multiplicadoreventinformationtext.innerHTML = "Comprar um botão multiplicador de compras.";
         document.getElementById("loja").appendChild(multiplicadorevent);
+        multiplicadorevent.appendChild(multiplicadoreventinformationdiv);
         multiplicadorevent.appendChild(multiplicadoreventbutton);
         multiplicadoreventbutton.innerHTML = "R$10000";
+        multiplicadoreventinformationdiv.appendChild(multiplicadoreventinformation);
+        multiplicadoreventinformationdiv.appendChild(multiplicadoreventinformationtext);
+        multiplicadorevent.appendChild(multiplicadoreventinformationdes);
+        multiplicadoreventinformation.setAttribute("src", "./assets/Information.png");
+        multiplicadoreventinformationdiv.setAttribute("class", "ultimo");
+        multiplicadoreventinformationdes.innerHTML = "Com esse botão você pode comprar 10 ou 100 itens com um único click!";
+        multiplicadorevent.style.position = "relative";
+        multiplicadoreventinformation.style.height = "3vw";
+        multiplicadoreventinformation.style.margin = "1vw";
+        multiplicadoreventinformation.style.cursor = "pointer";
+        multiplicadoreventinformationdes.style.border = "1px solid black";
+        multiplicadoreventinformationdes.style.backgroundColor = "white"
+        multiplicadoreventinformationdes.style.position = "absolute";
+        multiplicadoreventinformationdes.style.display = "none";
+        multiplicadoreventinformationtext.style.fontSize = "1.4vw";
+        multiplicadoreventinformation.addEventListener('mouseover', function() {
+            multiplicadoreventinformationdes.style.display = "block";
+        });
+        multiplicadoreventinformation.addEventListener('mouseout', function() {
+            multiplicadoreventinformationdes.style.display = "none";
+        });
         auxbool[3] = false;
+        auxbool[7] = false;
         multiplicadoreventbutton.onclick = function() {
             if(dinheiro>=10000){
                 dinheiro-=10000;
@@ -263,6 +374,7 @@ function verificarloja() {
                 multiplicador.style.display = "block";
                 document.getElementById("loja").removeChild(multiplicadorevent);
                 multiplicador.innerHTML = multiplicadordecompra + "x";
+                auxbool[7] = true;
                 return;
             }
             moneyerrorbox();
@@ -270,13 +382,40 @@ function verificarloja() {
     }
     if(clicks>=2200 && auxbool[4]){
         let thirdclickevent = document.createElement("div");
-        let thirdclickeventbutton = document.createElement("button");
-        thirdclickevent.innerHTML = "Investir em propaganda na internet";
+        let thirdeventbutton = document.createElement("button");
+        let thirdeventinformationdiv = document.createElement("div");
+        let thirdeventinformation = document.createElement("img");
+        let thirdeventinformationtext = document.createElement("p");
+        let thirdeventinformationdes = document.createElement("div");
         document.getElementById("loja").appendChild(thirdclickevent);
-        thirdclickevent.appendChild(thirdclickeventbutton);
-        thirdclickeventbutton.innerHTML = "R$50000";
+        thirdeventinformationtext.innerHTML = "Investir em propaganda na internet.";
+        thirdclickevent.appendChild(thirdeventinformationdiv);
+        thirdclickevent.appendChild(thirdeventbutton);
+        thirdeventinformationdiv.appendChild(thirdeventinformation);
+        thirdeventinformationdiv.appendChild(thirdeventinformationtext);
+        thirdclickevent.appendChild(thirdeventinformationdes);
+        thirdeventinformation.setAttribute("src", "./assets/Information.png");
+        thirdeventinformationdiv.setAttribute("class", "ultimo");
+        thirdeventinformationdes.innerHTML = "Recarga de dinheiro 20% mais rápida.";
+        thirdeventbutton.innerHTML = "R$50000";
+        thirdclickevent.style.position = "relative";
+        thirdeventinformation.style.height = "3vw";
+        thirdeventinformation.style.margin = "1vw";
+        thirdeventinformation.style.cursor = "pointer";
+        thirdeventinformationdes.style.border = "1px solid black";
+        thirdeventinformationdes.style.backgroundColor = "white"
+        thirdeventinformationdes.style.position = "absolute";
+        thirdeventinformationdes.style.display = "none";
+        thirdeventinformationtext.style.fontSize = "1.4vw";
+        thirdeventinformation.addEventListener('mouseover', function() {
+            thirdeventinformationdes.style.display = "block";
+        });
+        thirdeventinformation.addEventListener('mouseout', function() {
+            thirdeventinformationdes.style.display = "none";
+        });
         auxbool[4] = false;
-        thirdclickeventbutton.onclick = function() {
+        auxbool[7] = false;
+        thirdeventbutton.onclick = function() {
             if(dinheiro>=50000){
                 dinheiro-=50000;
                 atualizarcontador();
@@ -284,9 +423,29 @@ function verificarloja() {
                 clearInterval(moneyloop);
                 atualizardinheiro();
                 document.getElementById("loja").removeChild(thirdclickevent);
+                auxbool[7] = true;
                 return;
             }
             moneyerrorbox();
+        }
+    }
+    if(auxbool[6] && auxbool[7]){
+        let disponibilidade = document.createElement("div");
+        let disponibilidadetxt = document.createElement("p");
+        let disponibilidadebutton = document.createElement("button");
+        loja.appendChild(disponibilidade);
+        disponibilidade.appendChild(disponibilidadetxt);
+        disponibilidade.appendChild(disponibilidadebutton);
+        disponibilidade.setAttribute("id", "nadanaloja")
+        disponibilidadetxt.innerHTML = "Não há nada disponível por enquanto.";
+        disponibilidadebutton.innerHTML = "Atualizar loja";
+        disponibilidade.style.borderBottom = "0px"
+        auxbool[6] = false;
+        disponibilidadebutton.onclick = function() {
+            verificarloja();
+            if(!auxbool[7]){
+                loja.removeChild(disponibilidade);
+            }
         }
     }
 }
@@ -335,12 +494,14 @@ multiplicador.onclick = function() {
     verificadormultiplicador();
 }
 document.getElementById("menuloja").onclick = function() {
-    loja.style.display = "grid";
+    document.getElementById("main").style.borderBottom = "1px solid black";
+    loja.style.display = "block";
     tresfr.style.display = "none";
     umafr.style.display = "none";
     verificarloja();
 }
 document.getElementById("menumain").onclick = function() {
+    document.getElementById("main").style.borderBottom = "1px solid black";
     loja.style.display = "none";
     tresfr.style.display = "grid";
     umafr.style.display = "flex";
