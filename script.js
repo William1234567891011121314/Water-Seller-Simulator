@@ -9,6 +9,7 @@ var counter = [document.getElementById("vendedores"), document.getElementById("m
 var button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var auxbool = [true, true, true, true, true, true, true, true];
+var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var moneytime = 1000;
 var multiplicadordecompra = 1;
@@ -70,7 +71,7 @@ function atualizarcontador() {
 }
 function atualizardinheiro() {
     moneyloop = setInterval(() => {
-        dinheiro += objetos[0] + (objetos[1] * 10) + (objetos[2] * 100) + (objetos[3] * 500) + (objetos[4] * 10000) + (objetos[5] * 100000) + (objetos[6] * 500000) + (objetos[7] * 10**7) + (objetos[8] * 10**8) + (objetos[9] * 10**9) + (objetos[10] * 10**10);
+        dinheiro += objetos[0] * multiplicadores[0] + (objetos[1] * multiplicadores[1]) + (objetos[2] * multiplicadores[2]) + (objetos[3] * multiplicadores[3]) + (objetos[4] * multiplicadores[4]) + (objetos[5] * multiplicadores[5]) + (objetos[6] * multiplicadores[6]) + (objetos[7] * multiplicadores[7]) + (objetos[8] * multiplicadores[8]) + (objetos[9] * multiplicadores[9]) + (objetos[10] * multiplicadores[10]);
         atualizarcontador();
     }, moneytime);
 }
@@ -154,8 +155,8 @@ function spaceerrorbox() {
         errorbox.style.position = "absolute";
         errorboxdiv.style.display = "flex";
         errorboxdiv.style.justifyContent = "space-around";
-        errorbox.style.top = "35%";
-        errorbox.style.left  = "35%";
+        errorbox.style.top = "18vw";
+        errorbox.style.left  = "31vw";
         errorbox.style.backgroundColor = "white";
         errorboxbutton.onclick = function() {
             document.querySelector("body").removeChild(errorbox);
@@ -277,7 +278,7 @@ function verificarloja() {
             if(dinheiro>=6000){
                 dinheiro-=6000;
                 atualizarcontador();
-                clickmodifier += 28;
+                multiplicadores[0] = 2;
                 document.getElementById("loja").removeChild(secondevent);
                 auxbool[7] = true;
                 return
