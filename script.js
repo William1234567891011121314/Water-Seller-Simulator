@@ -2,13 +2,13 @@
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 //variáveis
 var contador = document.getElementById("contador");
-var dinheirobutton = document.getElementById("umafr");
+var dinheirobutton = document.getElementById("garrafa");
 var multiplicador = document.getElementById("multiplicador");
 var txt = [document.getElementById("txtmaquinasdevenda"), document.getElementById("txtcarros"), document.getElementById("txtpipa"), document.getElementById("txtfabrica"), document.getElementById("txtpolo"), document.getElementById("txtasteroides"), document.getElementById("txtplanetas"), document.getElementById("txtgalaxias"), document.getElementById("txtuniversos"), document.getElementById("txttempo")];
 var counter = [document.getElementById("vendedores"), document.getElementById("maquinasdevenda"), document.getElementById("carroscounter"), document.getElementById("pipacounter"), document.getElementById("fabricacounter"), document.getElementById("polocounter"), document.getElementById("asteroidecounter"), document.getElementById("planetascounter"), document.getElementById("galaxiascounter"), document.getElementById("universoscounter"), document.getElementById("tempocounter")];
 var button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var auxbool = [true, true, true, true, true, true, true, true];
+var aux = true;
 var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var moneytime = 1000;
@@ -18,51 +18,54 @@ var prefixo = "";
 var clicks = 0;
 var clickmodifier = 1;
 var agenciaespacial = false;
+var motordedobra = false;
+var motorinterdimensional = false;
+var delorean = false;
 //funções
-function verificador(preco) {
-    if(preco<1000000){
+function verificador(verificadorinput) {
+    if(verificadorinput<1000000){
         prefixo = "";
-        return preco;
+        return verificadorinput;
     }
-    if(preco>=1000000 && preco<1000000000){
-        if(preco==1000000){
+    if(verificadorinput>=1000000 && verificadorinput<1000000000){
+        if(verificadorinput==1000000){
             prefixo = "Milhão";
-            preco = preco/1000000;
-            return preco;
+            verificadorinput = verificadorinput/1000000;
+            return verificadorinput;
         }
         prefixo = "Milhões";
-        preco = preco/1000000;
-        return preco;
+        verificadorinput = verificadorinput/1000000;
+        return verificadorinput;
     }
-    if(preco>=1000000000 && preco<1000000000000){
-        if(preco==1000000000){
+    if(verificadorinput>=1000000000 && verificadorinput<1000000000000){
+        if(verificadorinput==1000000000){
             prefixo = "Bilhão";
-            preco = preco/1000000000;
-            return preco;
+            verificadorinput = verificadorinput/1000000000;
+            return verificadorinput;
         }
         prefixo = "Bilhões";
-        preco = preco/1000000000;
-        return preco;
+        verificadorinput = verificadorinput/1000000000;
+        return verificadorinput;
     }
-    if(preco>=1000000000000 && preco<1000000000000000){
-        if(preco==1000000000000){
+    if(verificadorinput>=1000000000000 && verificadorinput<1000000000000000){
+        if(verificadorinput==1000000000000){
             prefixo = "Trilhão";
-            preco = preco/1000000000000;
-            return preco;
+            verificadorinput = verificadorinput/1000000000000;
+            return verificadorinput;
         }
         prefixo = "Trilhões";
-        preco = preco/1000000000000;
-        return preco;
+        verificadorinput = verificadorinput/1000000000000;
+        return verificadorinput;
     }
-    if(preco>=1000000000000000 && preco<1000000000000000000){
-        if(preco==1000000000000000){
+    if(verificadorinput>=1000000000000000 && verificadorinput<1000000000000000000){
+        if(verificadorinput==1000000000000000){
             prefixo = "Quatrilhão";
-            preco = preco/1000000000000000;
-            return preco;
+            verificadorinput = verificadorinput/1000000000000000;
+            return verificadorinput;
         }
         prefixo = "Quatrilhões";
-        preco = preco/1000000000000000;
-        return preco;
+        verificadorinput = verificadorinput/1000000000000000;
+        return verificadorinput;
     }
 }
 function atualizarcontador() {
@@ -77,10 +80,7 @@ function atualizardinheiro() {
 }
 function calculomultiplicador(n1, n2) {
     let auxwhile = 2;
-    while(auxwhile<=multiplicadordecompra){
-        n1+=n2*auxwhile;
-        auxwhile++;
-    }vendedores
+    for(; auxwhile<=multiplicadordecompra; n1+=n2*auxwhile, auxwhile++);
     return n1;
 }
 function atualizarvendedor() {
@@ -137,9 +137,9 @@ function atualizardelorean() {
     counter[10].innerHTML = objetos[10];
     button[10].innerHTML = "R$" + verificador(calculomultiplicador(precos[10], precosbase[10])) + " " + prefixo;
 }
-function spaceerrorbox() {
-    if(auxbool){
-        auxbool[5] = false;
+function errorbox(txt) {
+    if(aux){
+        aux = false;
         let errorbox = document.createElement("div");
         let txterrorbox = document.createElement("p");
         let errorboxbutton = document.createElement("button");
@@ -148,7 +148,7 @@ function spaceerrorbox() {
         errorbox.appendChild(txterrorbox);
         errorbox.appendChild(errorboxdiv);
         errorboxdiv.appendChild(errorboxbutton);
-        txterrorbox.innerHTML = "Você não tem uma agência espacial para explorar o espaço!"
+        txterrorbox.innerHTML = txt;
         errorboxbutton.innerHTML = "Ok"
         errorbox.style.border = "1px solid black";
         errorbox.style.display = "inline";
@@ -159,295 +159,101 @@ function spaceerrorbox() {
         errorbox.style.left  = "31vw";
         errorbox.style.backgroundColor = "white";
         errorboxbutton.onclick = function() {
-            document.querySelector("body").removeChild(errorbox);
-            auxbool[5] = true;
+        document.querySelector("body").removeChild(errorbox);
+        aux = true;
         }
     }
 }
-function moneyerrorbox() {
-    if(auxbool[5]){
-        auxbool[5] = false;
-        let errorbox = document.createElement("div");
-        let txterrorbox = document.createElement("p");
-        let errorboxbutton = document.createElement("button");
-        let errorboxdiv = document.createElement("div");
-        document.querySelector("body").appendChild(errorbox);
-        errorbox.appendChild(txterrorbox);
-        errorbox.appendChild(errorboxdiv);
-        errorboxdiv.appendChild(errorboxbutton);
-        txterrorbox.innerHTML = "Você não tem dinheiro suficiente para efetuar essa compra!"
-        errorboxbutton.innerHTML = "Ok"
-        errorbox.style.border = "1px solid black";
-        errorbox.style.display = "inline";
-        errorbox.style.position = "absolute";
-        errorboxdiv.style.display = "flex";
-        errorboxdiv.style.justifyContent = "space-around";
-        errorbox.style.top = "18vw";
-        errorbox.style.left  = "31vw";
-        errorbox.style.backgroundColor = "white";
-        errorboxbutton.onclick = function() {
-            document.querySelector("body").removeChild(errorbox);
-            auxbool[5] = true;
+function divloja (txt, des, precotxt, preco, modificador) {
+    let event = document.createElement("div");
+    let eventinformationdiv = document.createElement("div");
+    let eventbutton = document.createElement("button");
+    let eventinformation = document.createElement("img");
+    let eventinformationtext = document.createElement("p");
+    let eventinformationdes = document.createElement("div");
+    eventinformationtext.innerHTML = txt;
+    document.getElementById("loja").appendChild(event);
+    event.appendChild(eventinformationdiv);
+    event.appendChild(eventbutton);
+    eventinformationdiv.appendChild(eventinformation);
+    eventinformationdiv.appendChild(eventinformationtext);
+    event.appendChild(eventinformationdes);
+    eventinformation.setAttribute("src", "./assets/Information.png");
+    eventinformationdiv.setAttribute("class", "ultimo");
+    eventinformationdes.innerHTML = des;
+    eventbutton.innerHTML = precotxt;
+    event.style.position = "relative";
+    eventinformation.style.height = "3vw";
+    eventinformation.style.margin = "1vw";
+    eventinformation.style.cursor = "pointer";
+    eventinformationdes.style.border = "1px solid black";
+    eventinformationdes.style.backgroundColor = "white"
+    eventinformationdes.style.position = "absolute";
+    eventinformationdes.style.display = "none";
+    eventinformationtext.style.fontSize = "1.4vw";
+    eventinformation.addEventListener('mouseover', function() {
+        eventinformationdes.style.display = "block";
+    });
+    eventinformation.addEventListener('mouseout', function() {
+        eventinformationdes.style.display = "none";
+    });
+    aux = false;
+    eventbutton.onclick = function() {
+        if(dinheiro>=preco){
+            dinheiro-=preco;
+            atualizarcontador();
+            modificador;
+            document.getElementById("loja").removeChild(event);
+            return;
         }
+        errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
     }
 }
 function verificarloja() {
-    if(clicks>=400 && auxbool[0]){
-        let firstevent = document.createElement("div");
-        let firsteventinformationdiv = document.createElement("div");
-        let firsteventbutton = document.createElement("button");
-        let firsteventinformation = document.createElement("img");
-        let firsteventinformationtext = document.createElement("p");
-        let firsteventinformationdes = document.createElement("div");
-        firsteventinformationtext.innerHTML = "Comprar curso do metaforando.";
-        document.getElementById("loja").appendChild(firstevent);
-        firstevent.appendChild(firsteventinformationdiv);
-        firstevent.appendChild(firsteventbutton);
-        firsteventinformationdiv.appendChild(firsteventinformation);
-        firsteventinformationdiv.appendChild(firsteventinformationtext);
-        firstevent.appendChild(firsteventinformationdes);
-        firsteventinformation.setAttribute("src", "./assets/Information.png");
-        firsteventinformationdiv.setAttribute("class", "ultimo");
-        firsteventinformationdes.innerHTML = "Aumenta a quantidade de dinheiro ganho por click para 4."
-        firsteventbutton.innerHTML = "R$1500";
-        firstevent.style.position = "relative";
-        firsteventinformation.style.height = "3vw";
-        firsteventinformation.style.margin = "1vw";
-        firsteventinformation.style.cursor = "pointer";
-        firsteventinformationdes.style.border = "1px solid black";
-        firsteventinformationdes.style.backgroundColor = "white"
-        firsteventinformationdes.style.position = "absolute";
-        firsteventinformationdes.style.display = "none";
-        firsteventinformationtext.style.fontSize = "1.4vw";
-        firsteventinformation.addEventListener('mouseover', function() {
-            firsteventinformationdes.style.display = "block";
-        });
-        firsteventinformation.addEventListener('mouseout', function() {
-            firsteventinformationdes.style.display = "none";
-        });
-        auxbool[0] = false;
-        auxbool[7] = false;
-        firsteventbutton.onclick = function() {
-            if(dinheiro>=1500){
-                dinheiro-=1500;
-                atualizarcontador();
-                clickmodifier += 3;
-                document.getElementById("loja").removeChild(firstevent);
-                auxbool[7] = true;
-                return
-            }
-            moneyerrorbox();
-        }
+    if(clicks>=400 && aux){
+        divloja("Comprar curso do metaforando.", "Aumenta a quantidade de dinheiro ganho por click para 4.", "R$1500", 1500, clickmodifier =+ 3);
     }
-    if(clicks>=1200 && auxbool[1]){
-        let secondevent = document.createElement("div");
-        let secondeventbutton = document.createElement("button");
-        let secondeventinformationdiv = document.createElement("div");
-        let secondeventinformation = document.createElement("img");
-        let secondeventinformationtext = document.createElement("p");
-        let secondeventinformationdes = document.createElement("div");
-        document.getElementById("loja").appendChild(secondevent);
-        secondeventinformationtext.innerHTML = "Pagar comissão para os vendedores.";
-        secondevent.appendChild(secondeventinformationdiv);
-        secondevent.appendChild(secondeventbutton);
-        secondeventinformationdiv.appendChild(secondeventinformation);
-        secondeventinformationdiv.appendChild(secondeventinformationtext);
-        secondevent.appendChild(secondeventinformationdes);
-        secondeventinformation.setAttribute("src", "./assets/Information.png");
-        secondeventinformationdiv.setAttribute("class", "ultimo");
-        secondeventinformationdes.innerHTML = "Dobra o lucro dos vendedores.";
-        secondeventbutton.innerHTML = "R$6000";
-        secondevent.style.position = "relative";
-        secondeventinformation.style.height = "3vw";
-        secondeventinformation.style.margin = "1vw";
-        secondeventinformation.style.cursor = "pointer";
-        secondeventinformationdes.style.border = "1px solid black";
-        secondeventinformationdes.style.backgroundColor = "white"
-        secondeventinformationdes.style.position = "absolute";
-        secondeventinformationdes.style.display = "none";
-        secondeventinformationtext.style.fontSize = "1.4vw";
-        secondeventinformation.addEventListener('mouseover', function() {
-            secondeventinformationdes.style.display = "block";
-        });
-        secondeventinformation.addEventListener('mouseout', function() {
-            secondeventinformationdes.style.display = "none";
-        });
-        auxbool[1] = false;
-        auxbool[7] = false;
-        secondeventbutton.onclick = function() {
-            if(dinheiro>=6000){
-                dinheiro-=6000;
-                atualizarcontador();
-                multiplicadores[0] = 2;
-                document.getElementById("loja").removeChild(secondevent);
-                auxbool[7] = true;
-                return
-            }
-            moneyerrorbox();
-        }
+    if(objetos[0]>=50 && aux){
+        divloja("Pagar comissão para os vendedores.", "Dobra o lucro dos vendedores.", "R$12000", 12000, multiplicadores[0] *= 2);
     }
-    if(objetos[5]>=1 && auxbool[2]){
-        let espacialevent = document.createElement("div");
-        let espacialeventbutton = document.createElement("button");
-        let espacialeventinformationdiv = document.createElement("div");
-        let espacialeventinformation = document.createElement("img");
-        let espacialeventinformationtext = document.createElement("p");
-        let espacialeventinformationdes = document.createElement("div");
-        espacialeventinformationtext.innerHTML = "Fundar agência espacial";
-        document.getElementById("loja").appendChild(espacialevent);
-        espacialevent.appendChild(espacialeventinformationdiv);
-        espacialevent.appendChild(espacialeventbutton);
-        espacialeventbutton.innerHTML = "R$350 Milhões";
-        espacialeventinformationdiv.appendChild(espacialeventinformation);
-        espacialeventinformationdiv.appendChild(espacialeventinformationtext);
-        espacialevent.appendChild(espacialeventinformationdes);
-        espacialeventinformation.setAttribute("src", "./assets/Information.png");
-        espacialeventinformationdiv.setAttribute("class", "ultimo");
-        espacialeventinformationdes.innerHTML = "Permite vender água no espaço.";
-        espacialevent.style.position = "relative";
-        espacialeventinformation.style.height = "3vw";
-        espacialeventinformation.style.margin = "1vw";
-        espacialeventinformation.style.cursor = "pointer";
-        espacialeventinformationdes.style.border = "1px solid black";
-        espacialeventinformationdes.style.backgroundColor = "white"
-        espacialeventinformationdes.style.position = "absolute";
-        espacialeventinformationdes.style.display = "none";
-        espacialeventinformationtext.style.fontSize = "1.4vw";
-        espacialeventinformation.addEventListener('mouseover', function() {
-            espacialeventinformationdes.style.display = "block";
-        });
-        espacialeventinformation.addEventListener('mouseout', function() {
-            espacialeventinformationdes.style.display = "none";
-        });
-        auxbool[2] = false;
-        auxbool[7] = false;
-        espacialeventbutton.onclick = function() {
-            if(dinheiro>=350000000){
-                dinheiro-=350000000;
-                atualizarcontador();
-                agenciaespacial = true;
-                document.getElementById("loja").removeChild(espacialevent);
-                auxbool[7] = true;
-                return;
-            }
-            moneyerrorbox();
-        }
+    if(objetos[1]>=50 && aux){
+        divloja("Instalar modo turbo nas motos dos motoboys.", "Dobra o lucro dos motoboys.", "R$16000", 16000, multiplicadores[1] *= 2);
     }
-    if(clicks>=1500 && auxbool[3]){
-        let multiplicadorevent = document.createElement("div");
-        let multiplicadoreventbutton = document.createElement("button");
-        let multiplicadoreventinformationdiv = document.createElement("div");
-        let multiplicadoreventinformation = document.createElement("img");
-        let multiplicadoreventinformationtext = document.createElement("p");
-        let multiplicadoreventinformationdes = document.createElement("div");
-        multiplicadoreventinformationtext.innerHTML = "Comprar um botão multiplicador de compras.";
-        document.getElementById("loja").appendChild(multiplicadorevent);
-        multiplicadorevent.appendChild(multiplicadoreventinformationdiv);
-        multiplicadorevent.appendChild(multiplicadoreventbutton);
-        multiplicadoreventbutton.innerHTML = "R$10000";
-        multiplicadoreventinformationdiv.appendChild(multiplicadoreventinformation);
-        multiplicadoreventinformationdiv.appendChild(multiplicadoreventinformationtext);
-        multiplicadorevent.appendChild(multiplicadoreventinformationdes);
-        multiplicadoreventinformation.setAttribute("src", "./assets/Information.png");
-        multiplicadoreventinformationdiv.setAttribute("class", "ultimo");
-        multiplicadoreventinformationdes.innerHTML = "Com esse botão você pode comprar 10 ou 100 itens com um único click!";
-        multiplicadorevent.style.position = "relative";
-        multiplicadoreventinformation.style.height = "3vw";
-        multiplicadoreventinformation.style.margin = "1vw";
-        multiplicadoreventinformation.style.cursor = "pointer";
-        multiplicadoreventinformationdes.style.border = "1px solid black";
-        multiplicadoreventinformationdes.style.backgroundColor = "white"
-        multiplicadoreventinformationdes.style.position = "absolute";
-        multiplicadoreventinformationdes.style.display = "none";
-        multiplicadoreventinformationtext.style.fontSize = "1.4vw";
-        multiplicadoreventinformation.addEventListener('mouseover', function() {
-            multiplicadoreventinformationdes.style.display = "block";
-        });
-        multiplicadoreventinformation.addEventListener('mouseout', function() {
-            multiplicadoreventinformationdes.style.display = "none";
-        });
-        auxbool[3] = false;
-        auxbool[7] = false;
-        multiplicadoreventbutton.onclick = function() {
-            if(dinheiro>=10000){
-                dinheiro-=10000;
-                atualizarcontador();
-                multiplicador.style.display = "block";
-                document.getElementById("loja").removeChild(multiplicadorevent);
-                multiplicador.innerHTML = multiplicadordecompra + "x";
-                auxbool[7] = true;
-                return;
-            }
-            moneyerrorbox();
-        }
+    if(objetos[2]>=50 && aux){
+        divloja("Comprar alto-falante mais alto para os carros.", "Dobra o lucro dos carros.", "R$80000", 80000, multiplicadores[2] *= 2);
     }
-    if(clicks>=2200 && auxbool[4]){
-        let thirdclickevent = document.createElement("div");
-        let thirdeventbutton = document.createElement("button");
-        let thirdeventinformationdiv = document.createElement("div");
-        let thirdeventinformation = document.createElement("img");
-        let thirdeventinformationtext = document.createElement("p");
-        let thirdeventinformationdes = document.createElement("div");
-        document.getElementById("loja").appendChild(thirdclickevent);
-        thirdeventinformationtext.innerHTML = "Investir em propaganda na internet.";
-        thirdclickevent.appendChild(thirdeventinformationdiv);
-        thirdclickevent.appendChild(thirdeventbutton);
-        thirdeventinformationdiv.appendChild(thirdeventinformation);
-        thirdeventinformationdiv.appendChild(thirdeventinformationtext);
-        thirdclickevent.appendChild(thirdeventinformationdes);
-        thirdeventinformation.setAttribute("src", "./assets/Information.png");
-        thirdeventinformationdiv.setAttribute("class", "ultimo");
-        thirdeventinformationdes.innerHTML = "Recarga de dinheiro 20% mais rápida.";
-        thirdeventbutton.innerHTML = "R$50000";
-        thirdclickevent.style.position = "relative";
-        thirdeventinformation.style.height = "3vw";
-        thirdeventinformation.style.margin = "1vw";
-        thirdeventinformation.style.cursor = "pointer";
-        thirdeventinformationdes.style.border = "1px solid black";
-        thirdeventinformationdes.style.backgroundColor = "white"
-        thirdeventinformationdes.style.position = "absolute";
-        thirdeventinformationdes.style.display = "none";
-        thirdeventinformationtext.style.fontSize = "1.4vw";
-        thirdeventinformation.addEventListener('mouseover', function() {
-            thirdeventinformationdes.style.display = "block";
-        });
-        thirdeventinformation.addEventListener('mouseout', function() {
-            thirdeventinformationdes.style.display = "none";
-        });
-        auxbool[4] = false;
-        auxbool[7] = false;
-        thirdeventbutton.onclick = function() {
-            if(dinheiro>=50000){
-                dinheiro-=50000;
-                atualizarcontador();
-                moneytime = 800;
-                clearInterval(moneyloop);
-                atualizardinheiro();
-                document.getElementById("loja").removeChild(thirdclickevent);
-                auxbool[7] = true;
-                return;
-            }
-            moneyerrorbox();
-        }
+    if(objetos[3]>=50 && aux){
+        divloja("Comprar tanque de água maior para os caminhões pipa.", "Dobra o lucro dos caminhões pipa.", "R$200000", 200000, multiplicadores[3] *= 2);
     }
-    if(auxbool[6] && auxbool[7]){
-        let disponibilidade = document.createElement("div");
-        let disponibilidadetxt = document.createElement("p");
-        let disponibilidadebutton = document.createElement("button");
-        loja.appendChild(disponibilidade);
-        disponibilidade.appendChild(disponibilidadetxt);
-        disponibilidade.appendChild(disponibilidadebutton);
-        disponibilidade.setAttribute("id", "nadanaloja")
-        disponibilidadetxt.innerHTML = "Não há nada disponível por enquanto.";
-        disponibilidadebutton.innerHTML = "Atualizar loja";
-        disponibilidade.style.borderBottom = "0px"
-        auxbool[6] = false;
-        disponibilidadebutton.onclick = function() {
-            verificarloja();
-            if(!auxbool[7]){
-                loja.removeChild(disponibilidade);
-            }
-        }
+    if(objetos[4]>=50 && aux){
+        divloja("Forçar seus funcionários a fazer hora extra.", "Dobra o lucro das fábricas.", "R$4 Milhões", 4000000, multiplicadores[4] *= 2);
+    }
+    if(objetos[5]>=50 && aux){
+        divloja("Instalar esteiras entre fábrcas nos polos industriais.", "Dobra o lucro dos polos industriais.", "R$40 Milhões", 40000000, multiplicadores[5] *= 2);
+    }
+    if(objetos[6]>=50 && aux){
+        divloja("Desenvolver velas solares.", "Dobra o lucro dos mineradores de asteroides.", "R$400 Milhões", 400000000, multiplicadores [6] *= 2);
+    }
+    if(objetos[7]>=50 && aux){
+        divloja("Desenvolver motor de antimatéria.", "Dobra o lucro das naves inter-planetárias.", "R$4 Bilhões", 4000000000, multiplicadores[7] *= 2);
+    }
+    if(objetos[7]>0 && aux){
+        divloja("Desenvolver motor de dobra espacial.", "Torna possível viagens inter-galacticas.", "R$50 Bilhões", 50000000000, motordedobra = true);
+    }
+    if(objetos[8]>0 && aux){
+        divloja("Desenvolver propulsores de viagem interdimensional.", "Torna possível viagens entre universos.", "R$40 Bilhões", 40000000000, motorinterdimensional = true);
+    }
+    if(objetos[9]>0 && aux){
+        divloja("Desenvolver máquina de viagem no tempo.", "Torna possível viagens no tempo.", "R$4 Trilhões", 4000000000000, delorean = true);
+    }
+    if(objetos[5]>=1 && aux){
+        divloja("Fundar agência espacial.", "Permite vender água no espaço.", "R$350 Milhões", 350000000, agenciaespacial = true);
+    }
+    if(clicks>=1500 && aux){
+        divloja("Comprar um botão multiplicador de compras.", "Com esse botão você pode comprar 10 ou 100 itens com um único click!", "R$10000", 10000, multiplicador.style.display = "block", multiplicador.innerHTML = multiplicadordecompra + "x");
+    }
+    if(clicks>=2200 && aux){
+        divloja("Investir em propaganda na internet.", "Recarga de dinheiro 20% mais rápida.", "R$50000", 50000, moneytime = 800, clearInterval(moneyloop));
     }
 }
 function verificadormultiplicador() {
@@ -525,7 +331,7 @@ button[0].onclick = function() {
         atualizarcontador();
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[1].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[1], precosbase[1])){
@@ -537,7 +343,7 @@ button[1].onclick = function() {
         atualizarcontador();
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[2].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[2], precosbase[2])){
@@ -549,7 +355,7 @@ button[2].onclick = function() {
         atualizarcontador();
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[3].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[3], precosbase[3])){
@@ -562,7 +368,7 @@ button[3].onclick = function() {
         atualizarcontador();
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[4].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[4], precosbase[4])){
@@ -576,7 +382,7 @@ button[4].onclick = function() {
         atualizarcontador();
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[5].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[5], precosbase[5])){
@@ -591,7 +397,7 @@ button[5].onclick = function() {
         atualizarcontador();
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[6].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[6], precosbase[6])){
@@ -608,10 +414,10 @@ button[6].onclick = function() {
             atualizarcontador();
             return;
         }
-        spaceerrorbox();
+        errorbox("Você não tem uma agência espacial para explorar o espaço!");
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[7].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[7], precosbase[7])){
@@ -629,32 +435,35 @@ button[7].onclick = function() {
             atualizarcontador();
             return;
         }
-        spaceerrorbox();
+        errorbox("Você não tem uma agência espacial para explorar o espaço!");
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[8].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[8], precosbase[8])){
         if(agenciaespacial){
-            objetos[8]+=multiplicadordecompra;
-            dinheiro-=calculomultiplicador(precos[8], precosbase[8]);
-            precos[8]=precosbase[8] * (objetos[8]+1);
-            atualizargalaxias();
-            atualizarcarros();
-            atualizarpipa();
-            atualizarfabrica();
-            atualizarpolos();
-            atualizarasteroides();
-            atualizarplanetas();
-            atualizaruniversos();
-            atualizarcontador();
-            return;
+            if(motordedobra){
+                objetos[8]+=multiplicadordecompra;
+                dinheiro-=calculomultiplicador(precos[8], precosbase[8]);
+                precos[8]=precosbase[8] * (objetos[8]+1);
+                atualizargalaxias();
+                atualizarcarros();
+                atualizarpipa();
+                atualizarfabrica();
+                atualizarpolos();
+                atualizarasteroides();
+                atualizarplanetas();
+                atualizaruniversos();
+                atualizarcontador();
+                return;
+            }
+            errorbox("Você não tem tecnologia o suficiente para viajar entre galáxias!");
         }
-        spaceerrorbox();
+        errorbox("Você não tem uma agência espacial para explorar o espaço!");
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[9].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[9], precosbase[9])){
@@ -674,27 +483,30 @@ button[9].onclick = function() {
             atualizarcontador();
             return;
         }
-        spaceerrorbox();
+        errorbox("Você não tem uma agênica espacial para explorar o espaço!");
         return;
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[10].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[10], precosbase[10])){
-        objetos[10]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[10], precosbase[10]);
-        precos[10]=precosbase[10] * (objetos[10]+1);
-        atualizardelorean();
-        atualizarcarros();
-        atualizarpipa();
-        atualizarfabrica();
-        atualizarpolos();
-        atualizarasteroides();
-        atualizarplanetas();
-        atualizargalaxias();
-        atualizaruniversos();
-        atualizarcontador();
-        return;
+        if(delorean){
+            objetos[10]+=multiplicadordecompra;
+            dinheiro-=calculomultiplicador(precos[10], precosbase[10]);
+            precos[10]=precosbase[10] * (objetos[10]+1);
+            atualizardelorean();
+            atualizarcarros();
+            atualizarpipa();
+            atualizarfabrica();
+            atualizarpolos();
+            atualizarasteroides();
+            atualizarplanetas();
+            atualizargalaxias();
+            atualizaruniversos();
+            atualizarcontador();
+            return;
+        }
+        errorbox("Você não tem tecnologia de viagem no tempo!");
     }
-    moneyerrorbox();
+    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
