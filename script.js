@@ -80,8 +80,9 @@ function atualizardinheiro() {
 }
 function calculomultiplicador(n1, n2) {
     let auxwhile = 2;
-    for(; auxwhile<=multiplicadordecompra; n1+=n2*auxwhile, auxwhile++);
-    return n1;
+    let n3 = n2;
+    for(; auxwhile<=multiplicadordecompra; n1+=n2, n3+=n1, auxwhile++);
+    return n3;
 }
 function atualizarvendedor() {
     counter[0].innerHTML = objetos[0];
