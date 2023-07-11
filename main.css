@@ -5,6 +5,19 @@
 button{
     cursor: pointer;
 }
+img#cadeado{
+    height: 100%;
+}
+div#lojanotificationdiv{
+    display: none;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    border-radius: 50%;
+    width: 3.2vw;
+    height: 3.2vw;
+    background-color: red;
+}
 body>div>div{
     display: flex;
 }
@@ -18,6 +31,7 @@ div.menu{
     border-right: 1px solid black;
     font-size: 2rem;
     transition: .5s;
+    display: flex;
 }
 div.menu:hover{
     background-color: darkgray;

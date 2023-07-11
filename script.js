@@ -8,7 +8,8 @@ var txt = [document.getElementById("txtmaquinasdevenda"), document.getElementByI
 var counter = [document.getElementById("vendedores"), document.getElementById("maquinasdevenda"), document.getElementById("carroscounter"), document.getElementById("pipacounter"), document.getElementById("fabricacounter"), document.getElementById("polocounter"), document.getElementById("asteroidecounter"), document.getElementById("planetascounter"), document.getElementById("galaxiascounter"), document.getElementById("universoscounter"), document.getElementById("tempocounter")];
 var button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var aux = true;
+var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+var lojanotification = 0;
 var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var moneytime = 1000;
@@ -76,7 +77,17 @@ function atualizardinheiro() {
     moneyloop = setInterval(() => {
         dinheiro += objetos[0] * multiplicadores[0] + (objetos[1] * multiplicadores[1]) + (objetos[2] * multiplicadores[2]) + (objetos[3] * multiplicadores[3]) + (objetos[4] * multiplicadores[4]) + (objetos[5] * multiplicadores[5]) + (objetos[6] * multiplicadores[6]) + (objetos[7] * multiplicadores[7]) + (objetos[8] * multiplicadores[8]) + (objetos[9] * multiplicadores[9]) + (objetos[10] * multiplicadores[10]);
         atualizarcontador();
+        verificarloja();
+        atualizarnotifications();
     }, moneytime);
+}
+function atualizarnotifications() {
+    let lojanotificationtxt = document.getElementById("lojanotification");
+    let lojanotificationdiv = document.getElementById("lojanotificationdiv");
+    lojanotificationtxt.innerHTML = lojanotification;
+    if(lojanotification>0){
+        lojanotificationdiv.style.display = "flex";
+    }
 }
 function calculomultiplicador(n1, n2) {
     let auxwhile = 2;
@@ -198,11 +209,14 @@ function divloja (txt, des, precotxt, preco, modificador) {
     eventinformation.addEventListener('mouseout', function() {
         eventinformationdes.style.display = "none";
     });
-    aux = false;
+    lojanotification+=1;
+    atualizarnotifications();
     eventbutton.onclick = function() {
         if(dinheiro>=preco){
             dinheiro-=preco;
+            lojanotification-=1;
             atualizarcontador();
+            atualizarnotifications();
             modificador;
             document.getElementById("loja").removeChild(event);
             return;
@@ -211,50 +225,111 @@ function divloja (txt, des, precotxt, preco, modificador) {
     }
 }
 function verificarloja() {
-    if(clicks>=400 && aux){
-        divloja("Comprar curso do metaforando.", "Aumenta a quantidade de dinheiro ganho por click para 4.", "R$1500", 1500, clickmodifier =+ 3);
+    if(clicks>=400 && aux[0]){
+        divloja("Comprar curso do metaforando.", "Aumenta a quantidade de dinheiro ganho por click para 4.", "R$1500", 1500, clickmodifier += 3);
+        aux[0] = false;
     }
-    if(objetos[0]>=50 && aux){
+    if(objetos[0]>=50 && aux[1]){
         divloja("Pagar comissão para os vendedores.", "Dobra o lucro dos vendedores.", "R$12000", 12000, multiplicadores[0] *= 2);
+        aux[1] = false;
     }
-    if(objetos[1]>=50 && aux){
+    if(objetos[1]>=50 && aux[2]){
         divloja("Instalar modo turbo nas motos dos motoboys.", "Dobra o lucro dos motoboys.", "R$16000", 16000, multiplicadores[1] *= 2);
+        aux[2] = false;
     }
-    if(objetos[2]>=50 && aux){
+    if(objetos[2]>=50 && aux[3]){
         divloja("Comprar alto-falante mais alto para os carros.", "Dobra o lucro dos carros.", "R$80000", 80000, multiplicadores[2] *= 2);
+        aux[3] = false;
     }
-    if(objetos[3]>=50 && aux){
+    if(objetos[3]>=50 && aux[4]){
         divloja("Comprar tanque de água maior para os caminhões pipa.", "Dobra o lucro dos caminhões pipa.", "R$200000", 200000, multiplicadores[3] *= 2);
+        aux[4] = false;
     }
-    if(objetos[4]>=50 && aux){
+    if(objetos[4]>=50 && aux[5]){
         divloja("Forçar seus funcionários a fazer hora extra.", "Dobra o lucro das fábricas.", "R$4 Milhões", 4000000, multiplicadores[4] *= 2);
+        aux[5] = false;
     }
-    if(objetos[5]>=50 && aux){
+    if(objetos[5]>=50 && aux[6]){
         divloja("Instalar esteiras entre fábrcas nos polos industriais.", "Dobra o lucro dos polos industriais.", "R$40 Milhões", 40000000, multiplicadores[5] *= 2);
+        aux[6] = false;
     }
-    if(objetos[6]>=50 && aux){
+    if(objetos[6]>=50 && aux[7]){
         divloja("Desenvolver velas solares.", "Dobra o lucro dos mineradores de asteroides.", "R$400 Milhões", 400000000, multiplicadores [6] *= 2);
+        aux[7] = false;
     }
-    if(objetos[7]>=50 && aux){
+    if(objetos[7]>=50 && aux[8]){
         divloja("Desenvolver motor de antimatéria.", "Dobra o lucro das naves inter-planetárias.", "R$4 Bilhões", 4000000000, multiplicadores[7] *= 2);
+        aux[8] = false;
     }
-    if(objetos[7]>0 && aux){
+    if(objetos[7]>0 && aux[9]){
         divloja("Desenvolver motor de dobra espacial.", "Torna possível viagens inter-galacticas.", "R$50 Bilhões", 50000000000, motordedobra = true);
+        aux[9] = false;
     }
-    if(objetos[8]>0 && aux){
+    if(objetos[8]>0 && aux[10]){
         divloja("Desenvolver propulsores de viagem interdimensional.", "Torna possível viagens entre universos.", "R$40 Bilhões", 40000000000, motorinterdimensional = true);
+        aux[10] = false;
     }
-    if(objetos[9]>0 && aux){
+    if(objetos[9]>0 && aux[11]){
         divloja("Desenvolver máquina de viagem no tempo.", "Torna possível viagens no tempo.", "R$4 Trilhões", 4000000000000, delorean = true);
+        aux[11] = false;
     }
-    if(objetos[5]>=1 && aux){
+    if(objetos[5]>=1 && aux[12]){
         divloja("Fundar agência espacial.", "Permite vender água no espaço.", "R$350 Milhões", 350000000, agenciaespacial = true);
+        aux[12] = false;
     }
-    if(clicks>=1500 && aux){
-        divloja("Comprar um botão multiplicador de compras.", "Com esse botão você pode comprar 10 ou 100 itens com um único click!", "R$10000", 10000, multiplicador.style.display = "block", multiplicador.innerHTML = multiplicadordecompra + "x");
+    if(clicks>=1500 && aux[13]){
+        let event = document.createElement("div");
+        let eventinformationdiv = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Comprar um botão multiplicador de compras.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Com esse botão você pode comprar 10 ou 100 itens com um único click!";
+        eventbutton.innerHTML = "R$10000";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white"
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizarnotifications();
+        aux[13] = false;
+        eventbutton.onclick = function() {
+            if(dinheiro>=10000){
+                dinheiro-=10000;
+                lojanotification-=1;
+                atualizarnotifications();
+                atualizarcontador();
+                multiplicador.style.display = "block";
+                multiplicador.innerHTML = multiplicadordecompra + "x";
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
     }
-    if(clicks>=2200 && aux){
+    if(clicks>=2200 && aux[14]){
         divloja("Investir em propaganda na internet.", "Recarga de dinheiro 20% mais rápida.", "R$50000", 50000, moneytime = 800, clearInterval(moneyloop));
+        aux[14] = false;
     }
 }
 function verificadormultiplicador() {
@@ -356,6 +431,9 @@ button[2].onclick = function() {
         atualizarcontador();
         return;
     }
+    if(objetos[1]<1){
+        return;
+    }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[3].onclick = function() {
@@ -367,6 +445,9 @@ button[3].onclick = function() {
         atualizarcarros();
         atualizarfabrica();
         atualizarcontador();
+        return;
+    }
+    if(objetos[2]<1){
         return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -383,6 +464,9 @@ button[4].onclick = function() {
         atualizarcontador();
         return;
     }
+    if(objetos[3]<1){
+        return;
+    }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[5].onclick = function() {
@@ -396,6 +480,9 @@ button[5].onclick = function() {
         atualizarfabrica();
         atualizarasteroides();
         atualizarcontador();
+        return;
+    }
+    if(objetos[4]<1){
         return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -415,7 +502,13 @@ button[6].onclick = function() {
             atualizarcontador();
             return;
         }
+        if(objetos[5]<1){
+            return;
+        }
         errorbox("Você não tem uma agência espacial para explorar o espaço!");
+        return;
+    }
+    if(objetos[5]<1){
         return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -436,7 +529,13 @@ button[7].onclick = function() {
             atualizarcontador();
             return;
         }
+        if(objetos[6]<1){
+            return;
+        }
         errorbox("Você não tem uma agência espacial para explorar o espaço!");
+        return;
+    }
+    if(objetos[6]<1){
         return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -459,9 +558,18 @@ button[8].onclick = function() {
                 atualizarcontador();
                 return;
             }
+            if(objetos[7]<1){
+                return;
+            }
             errorbox("Você não tem tecnologia o suficiente para viajar entre galáxias!");
         }
+        if(objetos[7]<1){
+            return;
+        }
         errorbox("Você não tem uma agência espacial para explorar o espaço!");
+        return;
+    }
+    if(objetos[7]<1){
         return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -484,7 +592,13 @@ button[9].onclick = function() {
             atualizarcontador();
             return;
         }
+        if(objetos[8]<1){
+            return;
+        }
         errorbox("Você não tem uma agênica espacial para explorar o espaço!");
+        return;
+    }
+    if(objetos[8]<1){
         return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -507,7 +621,13 @@ button[10].onclick = function() {
             atualizarcontador();
             return;
         }
+        if(objetos[9]<1){
+            return;
+        }
         errorbox("Você não tem tecnologia de viagem no tempo!");
+    }
+    if(objetos[9]<1){
+        return;
     }
     errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
