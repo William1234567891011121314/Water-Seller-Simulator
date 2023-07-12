@@ -85,7 +85,7 @@ img#garrafa{
 }
 div#loja{
     display: none;
-    width: 400%;
+    min-height: 35vw;
 }
 div#loja div{
     display: flex;
@@ -93,4 +93,13 @@ div#loja div{
 }
 button#multiplicador {
     display: none;
+}
+div#trofeus{
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+div#trofeus>div{
+    border: 1px solid black;
+    height: 25vw;
 }

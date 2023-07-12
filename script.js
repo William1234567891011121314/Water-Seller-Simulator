@@ -25,31 +25,40 @@ var delorean = false;
 //funções
 function verificador(verificadorinput) {
     if(verificadorinput<1000000){
+        prefixo = "";
         return verificadorinput;
     }
     if(verificadorinput>=1000000 && verificadorinput<1000000000){
-        if(verificadorinput==1000000){
-            return verificadorinput/1000000 + "Milhão";
+        if(verificadorinput===1000000){
+            prefixo = " Milhão"
+            return verificadorinput/1000000;
         }
-        return verificadorinput/1000000 + "Milhões";
+        prefixo = " Milhões"
+        return verificadorinput/1000000;
     }
     if(verificadorinput>=1000000000 && verificadorinput<1000000000000){
-        if(verificadorinput==1000000000){
-            return verificadorinput/1000000000 + "Bilhão";
+        if(verificadorinput===1000000000){
+            prefixo = " Bilhão"
+            return verificadorinput/1000000000;
         }
-        return verificadorinput/1000000000 + "Bilhões";
+        prefixo = " Bilhões"
+        return verificadorinput/1000000000;
     }
     if(verificadorinput>=1000000000000 && verificadorinput<1000000000000000){
-        if(verificadorinput==1000000000000){
-            return verificadorinput/1000000000000 + "Trilhão";
+        if(verificadorinput===1000000000000){
+            prefixo = " Trilhão"
+            return verificadorinput/1000000000000;
         }
-        return verificadorinput/1000000000000 + "Trilhões";
+        prefixo = " Trilhões"
+        return verificadorinput/1000000000000;
     }
     if(verificadorinput>=1000000000000000 && verificadorinput<1000000000000000000){
-        if(verificadorinput==1000000000000000){
-            return verificadorinput/1000000000000000 + "Quatrilhão";
+        if(verificadorinput===1000000000000000){
+            prefixo = " Quatrilhão"
+            return verificadorinput/1000000000000000;
         }
-        return verificadorinput/1000000000000000 + "Quatrilhões";
+        prefixo = " Quatrilhões"
+        return verificadorinput/1000000000000000;
     }
 }
 function calculomultiplicador(n1, n2) {
@@ -60,8 +69,8 @@ function calculomultiplicador(n1, n2) {
 }
 const atualizar = {
     contador() {
-        document.querySelector("title").innerHTML = "R$" + verificador(dinheiro) + " " + " -Water Seller Simulator";
-        contador.innerHTML = verificador(dinheiro);
+        document.querySelector("title").innerHTML = "R$" + Math.round(verificador(dinheiro)) + prefixo + " -Water Seller Simulator";
+        contador.innerHTML = Math.round(verificador(dinheiro)) + prefixo;
     },
     notifications() {
         let lojanotificationtxt = document.getElementById("lojanotification");
@@ -363,16 +372,27 @@ multiplicador.onclick = function() {
 }
 document.getElementById("menuloja").onclick = function() {
     document.getElementById("main").style.borderBottom = "1px solid black";
+    document.getElementById("main").style.display = "block";
     loja.style.display = "block";
     tresfr.style.display = "none";
     umafr.style.display = "none";
-    verificarloja();
+    document.getElementById("trofeus").style.display = "none";
 }
 document.getElementById("menumain").onclick = function() {
     document.getElementById("main").style.borderBottom = "1px solid black";
+    document.getElementById("main").style.display = "grid";
     loja.style.display = "none";
     tresfr.style.display = "grid";
     umafr.style.display = "flex";
+    document.getElementById("trofeus").style.display = "none";
+}
+document.getElementById("menutrofeus").onclick = function() {
+    document.getElementById("main").style.borderBottom = "1px solid black";
+    document.getElementById("main").style.display = "block";
+    loja.style.display = "none";
+    tresfr.style.display = "none";
+    umafr.style.display = "none";
+    document.getElementById("trofeus").style.display = "grid";
 }
 dinheirobutton.onclick = function() {
     clicks++;
