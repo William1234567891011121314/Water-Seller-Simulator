@@ -45,12 +45,12 @@
         "descricao":"Compre seu 1000º caminhão pipa"
     },
     {
-        "trofeu":"100 fabricas",
+        "trofeu":"100 fábricas",
         "titulo":"Sal na água, ações em alta",
         "descricao":"Construa a sua 100ª fábrica"
     },
     {
-        "trofeu":"1000 fabricas",
+        "trofeu":"1000 fábricas",
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica"
     },
@@ -65,12 +65,12 @@
         "descricao":"Construa o seu 1000º polo industrial"
     },
     {
-        "trofeu":"100 asteroides",
+        "trofeu":"100 asteróides",
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides"
     },
     {
-        "trofeu":"1000 asteroides",
+        "trofeu":"1000 asteróides",
         "titulo":"Cadê o cinturão de Küiper?",
         "descricao":"Compre seu 1000º minerador de asteróides"
     },
@@ -105,17 +105,17 @@
         "descricao":"Compre sua 1000ª nave inter-universal"
     },
     {
-        "trofeu":"100 maquinas do tempo",
+        "trofeu":"100 máquinas do tempo",
         "titulo":"Cuidado com plutônio",
         "descricao":"Compre a sua 100ª máquina do tempo"
     },
     {
-        "trofeu":"1000 maquinas do tempo",
+        "trofeu":"1000 máquinas do tempo",
         "titulo":"Perda de tempo",
         "descricao":"Compre a sua 1000ª máquina do tempo"
     },
     {
-        "trofeu":"fabricas x2",
+        "trofeu":"fábricas x2",
         "titulo":"Quem se importa com leis trabalistas?",
         "descricao":"Force os seus funcinários a fazer hora extra"
     },
@@ -125,7 +125,7 @@
         "descricao":"Desenvolva um motor de dobra espacial"
     },
     {
-        "trofeu":"específico  demais",
+        "trofeu":"específico demais",
         "titulo":"Por que?",
         "descricao":"Tenha 59 vendedores, 27 motoboys, 19 carros, 11 caminhões pipas, 6 fábricas e 2 polos"
     },
@@ -145,58 +145,58 @@
         "descricao":"Compre o curso do metaforando"
     },
     {
-        "trofeu":"",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"1 milhão",
+        "titulo":"Show do galão",
+        "descricao":"Alcance o seu primeiro milhão"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"1 quintilhão",
+        "titulo":"São tantos zeros!",
+        "descricao":"Alcance a marca de quintilhão"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"sem espaço",
+        "titulo":"Albert Einstein estava errado",
+        "descricao":"Tenha uma máquina do tempo sem ter explorado o espaço"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"xnovar",
+        "titulo":"Xnovando",
+        "descricao":"Novo verbo desbloqueado: xnovar"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"jogar por 10 horas",
+        "titulo":"10 horas em um jogo clicker?",
+        "descricao":"Jogue durante 10 horas"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"jogar por 100 horas",
+        "titulo":"Você está bem?",
+        "descricao":"Jogue durante 100 horas"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"10000 clicks",
+        "titulo":"Afundando o mouse",
+        "descricao":"Clique 10000 vezes"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"100000 clicks",
+        "titulo":"Auto clicker na certa",
+        "descricao":"Atinga a marca de 100000 clicks"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"1 rebirth",
+        "titulo":"Deja vu",
+        "descricao":"Faça o seu primeiro rebirth"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"10 rebirth",
+        "titulo":"Repetitivo",
+        "descricao":"Faça o seu décimo rebirth"
     },
     {
-        "trofeu":"a",
-        "titulo":"b",
-        "descricao":"c"
+        "trofeu":"compre todos os itens",
+        "titulo":"Zerando o estoque",
+        "descricao":"Compre todos os itens da loja"
     }
 ]

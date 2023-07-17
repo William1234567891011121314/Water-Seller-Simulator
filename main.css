@@ -102,18 +102,26 @@ div#trofeus{
 img.information:hover+div{
     display: block;
 }
+img.information:hover{
+    transform: scale(120%)
+}
 img.information{
     height: 25%;
-    margin-top: 74%;
+    margin: .5vw;
+    cursor: pointer;
 }
 div.informationdiv{
     display: none;
-    height: 5vw;
+    text-align: justify;
+    width: fit-content;
+    height: fit-content;
+    max-width: 24.5vw;
     background-color: white;
     border: 1px solid black;
 }
 div#trofeus>div{
     border: 1px solid black;
+    display: flex;
     height: 24vw;
     background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
     background-size: 100%;
