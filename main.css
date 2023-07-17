@@ -99,7 +99,22 @@ div#trofeus{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
 }
+img.information:hover+div{
+    display: block;
+}
+img.information{
+    height: 25%;
+    margin-top: 74%;
+}
+div.informationdiv{
+    display: none;
+    height: 5vw;
+    background-color: white;
+    border: 1px solid black;
+}
 div#trofeus>div{
     border: 1px solid black;
-    height: 25vw;
+    height: 24vw;
+    background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
+    background-size: 100%;
 }
