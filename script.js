@@ -18,6 +18,7 @@ var dinheiro = 0;
 var prefixo = "";
 var clicks = 0;
 var clickmodifier = 1;
+var tecnologias = [false, false, false, false];
 var agenciaespacial = false;
 var motordedobra = false;
 var motorinterdimensional = false;
@@ -78,7 +79,9 @@ const atualizar = {
         lojanotificationtxt.innerHTML = lojanotification;
         if(lojanotification>0){
             lojanotificationdiv.style.display = "flex";
+            return;
         }
+        lojanotificationdiv.style.display = "none";
     },
     dinheiro() {
         moneyloop = setInterval(() => {
@@ -170,111 +173,648 @@ function errorbox(txt) {
         }
     }
 }
-function divloja (txt, des, precotxt, preco, modificador) {
-    let event = document.createElement("div");
-    let eventinformationdiv = document.createElement("div");
-    let eventbutton = document.createElement("button");
-    let eventinformation = document.createElement("img");
-    let eventinformationtext = document.createElement("p");
-    let eventinformationdes = document.createElement("div");
-    eventinformationtext.innerHTML = txt;
-    document.getElementById("loja").appendChild(event);
-    event.appendChild(eventinformationdiv);
-    event.appendChild(eventbutton);
-    eventinformationdiv.appendChild(eventinformation);
-    eventinformationdiv.appendChild(eventinformationtext);
-    event.appendChild(eventinformationdes);
-    eventinformation.setAttribute("src", "./assets/Information.png");
-    eventinformationdiv.setAttribute("class", "ultimo");
-    eventinformationdes.innerHTML = des;
-    eventbutton.innerHTML = precotxt;
-    event.style.position = "relative";
-    eventinformation.style.height = "3vw";
-    eventinformation.style.margin = "1vw";
-    eventinformation.style.cursor = "pointer";
-    eventinformationdes.style.border = "1px solid black";
-    eventinformationdes.style.backgroundColor = "white"
-    eventinformationdes.style.position = "absolute";
-    eventinformationdes.style.display = "none";
-    eventinformationtext.style.fontSize = "1.4vw";
-    eventinformation.addEventListener('mouseover', function() {
-        eventinformationdes.style.display = "block";
-    });
-    eventinformation.addEventListener('mouseout', function() {
-        eventinformationdes.style.display = "none";
-    });
-    lojanotification+=1;
-    atualizar.notifications();
-    eventbutton.onclick = function() {
-        if(dinheiro>=preco){
-            dinheiro-=preco;
-            lojanotification-=1;
-            atualizar.contador();
-            atualizar.notifications();
-            modificador;
-            document.getElementById("loja").removeChild(event);
-            return;
-        }
-        errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-    }
-}
 function verificarloja() {
     if(clicks>=400 && aux[0]){
-        divloja("Comprar curso do metaforando.", "Aumenta a quantidade de dinheiro ganho por click para 4.", "R$1500", 1500, clickmodifier += 3);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Comprar curso do metaforando.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Aumenta a quantidade de dinheiro ganho por click para 4.";
+        eventbutton.innerHTML = "R$1500";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=1500){
+                dinheiro-=1500;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                clickmodifier +=3;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[0] = false;
     }
     if(objetos[0]>=50 && aux[1]){
-        divloja("Pagar comissão para os vendedores.", "Dobra o lucro dos vendedores.", "R$12000", 12000, multiplicadores[0] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Pagar comissão para os vendedores.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro dos vendedores.";
+        eventbutton.innerHTML = "R$12000";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=12000){
+                dinheiro-=12000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[0] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[1] = false;
     }
     if(objetos[1]>=50 && aux[2]){
-        divloja("Instalar modo turbo nas motos dos motoboys.", "Dobra o lucro dos motoboys.", "R$16000", 16000, multiplicadores[1] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Instalar modo turbo nas motos dos motoboys.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro dos motoboys.";
+        eventbutton.innerHTML = "R$16000";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=16000){
+                dinheiro-=16000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[1] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[2] = false;
     }
     if(objetos[2]>=50 && aux[3]){
-        divloja("Comprar alto-falante mais alto para os carros.", "Dobra o lucro dos carros.", "R$80000", 80000, multiplicadores[2] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Comprar alto-falante mais alto para os carros.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro dos carros.";
+        eventbutton.innerHTML =  "R$80000";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=80000){
+                dinheiro-=80000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[2] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[3] = false;
     }
     if(objetos[3]>=50 && aux[4]){
-        divloja("Comprar tanque de água maior para os caminhões pipa.", "Dobra o lucro dos caminhões pipa.", "R$200000", 200000, multiplicadores[3] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Comprar tanque de água maior para os caminhões pipa.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro dos caminhões pipa.";
+        eventbutton.innerHTML =  "R$200000";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=200000){
+                dinheiro-=200000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[3] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[4] = false;
     }
     if(objetos[4]>=50 && aux[5]){
-        divloja("Forçar seus funcionários a fazer hora extra.", "Dobra o lucro das fábricas.", "R$4 Milhões", 4000000, multiplicadores[4] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Forçar seus funcionários a fazer hora extra.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro das fábricas.";
+        eventbutton.innerHTML =  "R$4 Milhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=4000000){
+                dinheiro-=4000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[4] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[5] = false;
     }
     if(objetos[5]>=50 && aux[6]){
-        divloja("Instalar esteiras entre fábrcas nos polos industriais.", "Dobra o lucro dos polos industriais.", "R$40 Milhões", 40000000, multiplicadores[5] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Instalar esteiras entre fábrcas nos polos industriais.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro dos polos industriais.";
+        eventbutton.innerHTML =  "R$40 Milhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=40000000){
+                dinheiro-=40000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[5] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[6] = false;
     }
     if(objetos[6]>=50 && aux[7]){
-        divloja("Desenvolver velas solares.", "Dobra o lucro dos mineradores de asteroides.", "R$400 Milhões", 400000000, multiplicadores [6] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Desenvolver velas solares.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro dos mineradores de asteroides.";
+        eventbutton.innerHTML =  "R$400 Milhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=400000000){
+                dinheiro-=400000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[6] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[7] = false;
     }
     if(objetos[7]>=50 && aux[8]){
-        divloja("Desenvolver motor de antimatéria.", "Dobra o lucro das naves inter-planetárias.", "R$4 Bilhões", 4000000000, multiplicadores[7] *= 2);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Desenvolver motor de antimatéria.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Dobra o lucro das naves inter-planetárias.";
+        eventbutton.innerHTML =  "R$4 Bilhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=4000000000){
+                dinheiro-=4000000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                multiplicadores[7] *= 2;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[8] = false;
     }
     if(objetos[7]>0 && aux[9]){
-        divloja("Desenvolver motor de dobra espacial.", "Torna possível viagens inter-galacticas.", "R$50 Bilhões", 50000000000, motordedobra = true);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Desenvolver motor de dobra espacial.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Torna possível viagens inter-galacticas.";
+        eventbutton.innerHTML =  "R$50 Bilhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=50000000000){
+                dinheiro-=50000000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                tecnologias[1] = true;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[9] = false;
     }
     if(objetos[8]>0 && aux[10]){
-        divloja("Desenvolver propulsores de viagem interdimensional.", "Torna possível viagens entre universos.", "R$40 Bilhões", 40000000000, motorinterdimensional = true);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Desenvolver propulsores de viagem interdimensional.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Torna possível viagens entre universos.";
+        eventbutton.innerHTML =  "R$400 Bilhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=400000000000){
+                dinheiro-=400000000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                tecnologias[2] = true;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[10] = false;
     }
     if(objetos[9]>0 && aux[11]){
-        divloja("Desenvolver máquina de viagem no tempo.", "Torna possível viagens no tempo.", "R$4 Trilhões", 4000000000000, delorean = true);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Desenvolver máquina de viagem no tempo.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Torna possível viagens no tempo.";
+        eventbutton.innerHTML =  "R$4 Trilhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=4000000000000){
+                dinheiro-=4000000000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                tecnologias[3] = true;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[11] = false;
     }
     if(objetos[5]>=1 && aux[12]){
-        divloja("Fundar agência espacial.", "Permite vender água no espaço.", "R$350 Milhões", 350000000, agenciaespacial = true);
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Fundar agência espacial.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Permite vender água no espaço.";
+        eventbutton.innerHTML =  "R$350 Milhões";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=350000000){
+                dinheiro-=350000000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                tecnologias[0] = true;
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[12] = false;
     }
     if(clicks>=1500 && aux[13]){
         let event = document.createElement("div");
-        let eventinformationdiv = document.createElement("div");
         let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
         let eventinformation = document.createElement("img");
         let eventinformationtext = document.createElement("p");
         let eventinformationdes = document.createElement("div");
@@ -288,13 +828,13 @@ function verificarloja() {
         eventinformation.setAttribute("src", "./assets/Information.png");
         eventinformationdiv.setAttribute("class", "ultimo");
         eventinformationdes.innerHTML = "Com esse botão você pode comprar 10 ou 100 itens com um único click!";
-        eventbutton.innerHTML = "R$10000";
+        eventbutton.innerHTML =  "R$10000";
         event.style.position = "relative";
         eventinformation.style.height = "3vw";
         eventinformation.style.margin = "1vw";
         eventinformation.style.cursor = "pointer";
         eventinformationdes.style.border = "1px solid black";
-        eventinformationdes.style.backgroundColor = "white"
+        eventinformationdes.style.backgroundColor = "white";
         eventinformationdes.style.position = "absolute";
         eventinformationdes.style.display = "none";
         eventinformationtext.style.fontSize = "1.4vw";
@@ -306,23 +846,68 @@ function verificarloja() {
         });
         lojanotification+=1;
         atualizar.notifications();
-        aux[13] = false;
         eventbutton.onclick = function() {
             if(dinheiro>=10000){
                 dinheiro-=10000;
                 lojanotification-=1;
-                atualizar.notifications();
                 atualizar.contador();
+                atualizar.notifications();
                 multiplicador.style.display = "block";
-                multiplicador.innerHTML = multiplicadordecompra + "x";
+                multiplicador.innerHTML = "1x"
                 document.getElementById("loja").removeChild(event);
                 return;
             }
             errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
         }
+        aux[13] = false;
     }
     if(clicks>=2200 && aux[14]){
-        divloja("Investir em propaganda na internet.", "Recarga de dinheiro 20% mais rápida.", "R$50000", 50000, moneytime = 800, clearInterval(moneyloop));
+        let event = document.createElement("div");
+        let eventbutton = document.createElement("button");
+        let eventinformationdiv = document.createElement("div");
+        let eventinformation = document.createElement("img");
+        let eventinformationtext = document.createElement("p");
+        let eventinformationdes = document.createElement("div");
+        eventinformationtext.innerHTML = "Investir em propaganda na internet.";
+        document.getElementById("loja").appendChild(event);
+        event.appendChild(eventinformationdiv);
+        event.appendChild(eventbutton);
+        eventinformationdiv.appendChild(eventinformation);
+        eventinformationdiv.appendChild(eventinformationtext);
+        event.appendChild(eventinformationdes);
+        eventinformation.setAttribute("src", "./assets/Information.png");
+        eventinformationdiv.setAttribute("class", "ultimo");
+        eventinformationdes.innerHTML = "Recarga de dinheiro 20% mais rápida.";
+        eventbutton.innerHTML =  "R$50000";
+        event.style.position = "relative";
+        eventinformation.style.height = "3vw";
+        eventinformation.style.margin = "1vw";
+        eventinformation.style.cursor = "pointer";
+        eventinformationdes.style.border = "1px solid black";
+        eventinformationdes.style.backgroundColor = "white";
+        eventinformationdes.style.position = "absolute";
+        eventinformationdes.style.display = "none";
+        eventinformationtext.style.fontSize = "1.4vw";
+        eventinformation.addEventListener('mouseover', function() {
+            eventinformationdes.style.display = "block";
+        });
+        eventinformation.addEventListener('mouseout', function() {
+            eventinformationdes.style.display = "none";
+        });
+        lojanotification+=1;
+        atualizar.notifications();
+        eventbutton.onclick = function() {
+            if(dinheiro>=50000){
+                dinheiro-=50000;
+                lojanotification-=1;
+                atualizar.contador();
+                atualizar.notifications();
+                moneytime = 800, clearInterval(moneyloop);
+                document.getElementById("loja").removeChild(event);
+                return;
+            }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
         aux[14] = false;
     }
 }
@@ -368,7 +953,7 @@ multiplicador.onclick = function() {
     }
     multiplicadordecompra = multiplicadordecompra*10;
     multiplicador.innerHTML = multiplicadordecompra + "x";
-    verificadormultiplicador();
+    verificadormultiplicador()
 }
 document.getElementById("menuloja").onclick = function() {
     document.getElementById("main").style.borderBottom = "1px solid black";
@@ -494,7 +1079,7 @@ button[5].onclick = function() {
 }
 button[6].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[6], precosbase[6])){
-        if(agenciaespacial){
+        if(tecnologias[0]){
             objetos[6]+=multiplicadordecompra;
             dinheiro-=calculomultiplicador(precos[6], precosbase[6]);
             precos[6]=precosbase[6] * (objetos[6]+1);
@@ -520,7 +1105,7 @@ button[6].onclick = function() {
 }
 button[7].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[7], precosbase[7])){
-        if(agenciaespacial){
+        if(tecnologias[0]){
             objetos[7]+=multiplicadordecompra;
             dinheiro-=calculomultiplicador(precos[7], precosbase[7]);
             precos[7]=precosbase[7] * (objetos[7]+1);
@@ -547,8 +1132,8 @@ button[7].onclick = function() {
 }
 button[8].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[8], precosbase[8])){
-        if(agenciaespacial){
-            if(motordedobra){
+        if(tecnologias[0]){
+            if(tecnologias[1]){
                 objetos[8]+=multiplicadordecompra;
                 dinheiro-=calculomultiplicador(precos[8], precosbase[8]);
                 precos[8]=precosbase[8] * (objetos[8]+1);
@@ -567,6 +1152,7 @@ button[8].onclick = function() {
                 return;
             }
             errorbox("Você não tem tecnologia o suficiente para viajar entre galáxias!");
+            return;
         }
         if(objetos[7]<1){
             return;
@@ -581,20 +1167,24 @@ button[8].onclick = function() {
 }
 button[9].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[9], precosbase[9])){
-        if(agenciaespacial){
-            objetos[9]+=multiplicadordecompra;
-            dinheiro-=calculomultiplicador(precos[9], precosbase[9]);
-            precos[9]=precosbase[9] * (objetos[9]+1);
-            atualizar.universos();
-            atualizar.carros();
-            atualizar.pipas();
-            atualizar.fabricas();
-            atualizar.polos();
-            atualizar.asteroides();
-            atualizar.planetas();
-            atualizar.galaxias();
-            atualizar.delorean();
-            atualizar.contador();
+        if(tecnologias[0]){
+            if(tecnologias[1] && tecnologias[2]){
+                objetos[9]+=multiplicadordecompra;
+                dinheiro-=calculomultiplicador(precos[9], precosbase[9]);
+                precos[9]=precosbase[9] * (objetos[9]+1);
+                atualizar.universos();
+                atualizar.carros();
+                atualizar.pipas();
+                atualizar.fabricas();
+                atualizar.polos();
+                atualizar.asteroides();
+                atualizar.planetas();
+                atualizar.galaxias();
+                atualizar.delorean();
+                atualizar.contador();
+                return;
+            }
+            errorbox("Vecê não tem tecnologia o suficiente para efetuar essa compra!");
             return;
         }
         if(objetos[8]<1){
@@ -610,7 +1200,7 @@ button[9].onclick = function() {
 }
 button[10].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[10], precosbase[10])){
-        if(delorean){
+        if(tecnologias[3]){
             objetos[10]+=multiplicadordecompra;
             dinheiro-=calculomultiplicador(precos[10], precosbase[10]);
             precos[10]=precosbase[10] * (objetos[10]+1);

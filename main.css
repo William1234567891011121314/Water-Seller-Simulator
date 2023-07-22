@@ -96,10 +96,13 @@ button#multiplicador {
 }
 div#trofeus{
     display: none;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    height: 280vw;
 }
 div#trofeus>div{
+    display: grid;
+    grid-template-rows: 10;
+}
+div#trofeus>div>div{
     border: 1px solid black;
-    height: 25vw;
 }
