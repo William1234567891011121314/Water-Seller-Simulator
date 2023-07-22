@@ -121,7 +121,7 @@ const atualizar = {
         button[5].innerHTML = "R$" + verificador(calculomultiplicador(precos[5], precosbase[5])) + " " + prefixo;
     },
     asteroides() {
-        txt[5].innerHTML = "Minerar asteroides de gelo.";
+        txt[5].innerHTML = "Minerar asteróides de gelo.";
         counter[6].innerHTML = objetos[6];
         button[6].innerHTML = "R$" + verificador(calculomultiplicador(precos[6], precosbase[6])) + " " + prefixo;
     },

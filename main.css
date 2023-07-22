@@ -99,10 +99,54 @@ div#trofeus{
     grid-template-columns: repeat(2, 1fr);
     height: 280vw;
 }
+img.information:hover+div{
+    display: block;
+}
+img.information:hover{
+    transform: scale(120%)
+}
+img.information{
+    height: 25%;
+    margin: .5vw;
+    cursor: pointer;
+}
+div.informationdiv{
+    display: none;
+    text-align: justify;
+    width: fit-content;
+    height: fit-content;
+    max-width: 24.5vw;
+    background-color: white;
+    border: 1px solid black;
+}
+img.information:hover+div{
+    display: block;
+}
+img.information:hover{
+    transform: scale(120%)
+}
+img.information{
+    height: 25%;
+    margin: .5vw;
+    cursor: pointer;
+}
+div.informationdiv{
+    display: none;
+    text-align: justify;
+    width: fit-content;
+    height: fit-content;
+    max-width: 24.5vw;
+    background-color: white;
+    border: 1px solid black;
+}
 div#trofeus>div{
     display: grid;
     grid-template-rows: 10;
 }
 div#trofeus>div>div{
     border: 1px solid black;
+    display: flex;
+    height: 24vw;
+    background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
+    background-size: 100%;
 }
