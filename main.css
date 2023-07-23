@@ -54,7 +54,6 @@ div#main div.ultimo{
     border-bottom: 0;
 }
 div#umafr{
-    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -82,6 +81,12 @@ img#garrafa{
     height: 30vw;
     transition: .1s;
     cursor: pointer;
+}
+img#garrafaclick{
+    position: absolute;
+    height: 5vw;
+    animation-name: subir;
+    animation-duration: .3s;
 }
 div#loja{
     display: none;
@@ -149,4 +154,15 @@ div#trofeus>div>div{
     height: 24vw;
     background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
     background-size: 100%;
+}
+/* animações */
+@keyframes subir {
+    from {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-80%);
+        opacity: 0;
+    }
 }

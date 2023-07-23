@@ -983,9 +983,18 @@ dinheirobutton.onclick = function() {
     clicks++;
     dinheiro+=clickmodifier;
     atualizar.contador();
+    let clickimg = document.createElement("img");
+    clickimg.setAttribute("src", "./assets/Click.png");
+    clickimg.setAttribute("id", "garrafaclick");
+    let eixox = event.clientX;
+    let eixoy = event.clientY;
+    clickimg.style.top = eixoy + "px";
+    clickimg.style.left = eixox + "px";
+    umafr.appendChild(clickimg);
     setTimeout(() => {
         garrafa.style.transform = "scale(100%)";
-    }, 100)
+            umafr.removeChild(clickimg);
+    }, 300)
     garrafa.style.transform = "scale(75%)";
 }
 button[0].onclick = function() {
