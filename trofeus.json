@@ -1,201 +1,161 @@
 {
     "10vendedores": {
-        "trofeu":"10 vendedores",
         "titulo":"Monopolizando a rua",
         "descricao":"Contrate seu 10º vendedor"
     },
     "100vendedores": {
-        "trofeu":"100 vendedores",
         "titulo":"Concorrência pesada",
         "descricao":"Contrate seu 100º vendedor"
     },
     "1000vendedores": {
-        "trofeu":"1000 vendedores",
         "titulo":"Estamos em todas as bolsas, até na de Nova Iorque",
         "descricao":"Contrate seu 1000º vendedor"
     },
     "100motoboys": {
-        "trofeu":"100 motoboys",
         "titulo":"Sinal verde para os lucros",
         "descricao":"Contrate seu 100º motoboy"
     },
     "1000motoboys": {
-        "trofeu":"1000 motoboys",
         "titulo":"Matando a sede sem sair de casa",
         "descricao":"Contrate seu 1000º motoboy"
     },
     "100carros": {
-        "trofeu":"100 carros",
         "titulo":"1 milhão por um palio?",
         "descricao":"Compre o seu 100º carro"
     },
     "1000carros": {
-        "trofeu":"1000 carros",
         "titulo":"Cidade engarrafada",
         "descricao":"Compre o seu 1000º carro"
     },
     "100pipas": {
-        "trofeu":"100 pipas",
         "titulo":"Céu nublado",
         "descricao":"Compre seu 100º caminhão pipa"
     },
     "1000pipas": {
-        "trofeu":"1000 pipas",
         "titulo":"Secando o planeta",
         "descricao":"Compre seu 1000º caminhão pipa"
     },
     "100fabricas": {
-        "trofeu":"100 fábricas",
         "titulo":"Sal na água, ações em alta",
         "descricao":"Construa a sua 100ª fábrica"
     },
     "1000fabricas": {
-        "trofeu":"1000 fábricas",
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica"
     },
     "100polos": {
-        "trofeu":"100 polos",
         "titulo":"Pintando o mapa",
         "descricao":"Construa o seu 100º polo industrial"
     },
     "1000polos": {
-        "trofeu":"1000 polos",
         "titulo":"Mais garrafas do que pessoas",
         "descricao":"Construa o seu 1000º polo industrial"
     },
     "100asteroides": {
-        "trofeu":"100 asteróides",
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides"
     },
     "1000asteroides": {
-        "trofeu":"1000 asteróides",
         "titulo":"Cadê o cinturão de Küiper?",
         "descricao":"Compre seu 1000º minerador de asteróides"
     },
     "100interplanetarias": {
-        "trofeu":"100 naves inter-planetárias",
         "titulo":"Contato extraterrestre",
         "descricao":"Compre sua 100ª nave inter-planetária"
     },
     "1000interplanetarias": {
-        "trofeu":"1000 naves inter-planetárias",
         "titulo":"Elon Musk uma vez disse: eu quero água",
         "descricao":"Compre sua 1000ª nave inter-planetária"
     },
     "100navesintergalacticas": {
-        "trofeu":"100 naves inter-galácticas",
         "titulo":"Via-aquática",
         "descricao":"Compre sua 100ª nave inter-galáctica"
     },
     "1000navesintergalacticas": {
-        "trofeu":"1000 naves inter-galácticas",
         "titulo":"Onipresente",
         "descricao":"Compre sua 1000ª nave inter-galáctica"
     },
     "100navesinteruniversais": {
-        "trofeu":"100 naves inter-universais",
         "titulo":"Viajando pela 4ª dimensão",
         "descricao":"Compre sua 100ª nave inter-universal"
     },
     "1000navesinteruniversais": {
-        "trofeu":"1000 naves inter-universais",
         "titulo":"Multiverso",
         "descricao":"Compre sua 1000ª nave inter-universal"
     },
     "100maquinasdotempo": {
-        "trofeu":"100 máquinas do tempo",
         "titulo":"Cuidado com plutônio",
         "descricao":"Compre a sua 100ª máquina do tempo"
     },
     "1000maquinasdotempo": {
-        "trofeu":"1000 máquinas do tempo",
         "titulo":"Perda de tempo",
         "descricao":"Compre a sua 1000ª máquina do tempo"
     },
     "fabricasx2": {
-        "trofeu":"fábricas x2",
         "titulo":"Quem se importa com leis trabalistas?",
         "descricao":"Force os seus funcinários a fazer hora extra"
     },
     "motordedobra": {
-        "trofeu":"motor de dobra",
         "titulo":"Mais rápido do que a luz",
         "descricao":"Desenvolva um motor de dobra espacial"
     },
     "especificodemais": {
-        "trofeu":"específico demais",
         "titulo":"Por que?",
         "descricao":"Tenha 59 vendedores, 27 motoboys, 19 carros, 11 caminhões pipas, 6 fábricas e 2 polos"
     },
     "altofalantenoscarros": {
-        "trofeu":"alto-falante nos carros",
         "titulo":"É o carro da água passando na sua rua",
         "descricao":"Compre um alto-falante gigante para o seu carro"
     },
     "esteiras": {
-        "trofeu":"esteiras",
         "titulo":"Produtividade máxima",
         "descricao":"Instale esteiras entre as fábricas dos polos industriais"
     },
     "metaforando": {
-        "trofeu":"metaforando",
         "titulo":"Felicidade genuína",
         "descricao":"Compre o curso do metaforando"
     },
     "1milhao": {
-        "trofeu":"1 milhão",
         "titulo":"Show do galão",
         "descricao":"Alcance o seu primeiro milhão"
     },
     "1quintilhao": {
-        "trofeu":"1 quintilhão",
         "titulo":"São tantos zeros!",
         "descricao":"Alcance a marca de quintilhão"
     },
     "semespaco": {
-        "trofeu":"sem espaço",
         "titulo":"Albert Einstein estava errado",
         "descricao":"Tenha uma máquina do tempo sem ter explorado o espaço"
     },
     "xnovar": {
-        "trofeu":"xnovar",
         "titulo":"Xnovando",
         "descricao":"Novo verbo desbloqueado: xnovar"
     },
     "10horas": {
-        "trofeu":"jogar por 10 horas",
         "titulo":"10 horas em um clicker simples?",
         "descricao":"Jogue durante 10 horas"
     },
     "100horas": {
-        "trofeu":"jogar por 100 horas",
         "titulo":"É melhor você pisar na grama",
         "descricao":"Jogue durante 100 horas"
     },
     "10000clicks": {
-        "trofeu":"10000 clicks",
         "titulo":"Afundando o mouse",
         "descricao":"Clique 10000 vezes"
     },
     "100000clicks": {
-        "trofeu":"100000 clicks",
         "titulo":"Auto clicker na certa",
         "descricao":"Atinga a marca de 100000 clicks"
     },
     "1rebirth": {
-        "trofeu":"1 rebirth",
         "titulo":"Deja vu",
         "descricao":"Faça o seu primeiro rebirth"
     },
     "10rebirth": {
-        "trofeu":"10 rebirth",
         "titulo":"Repetitivo",
         "descricao":"Faça o seu décimo rebirth"
     },
     "allitens": {
-        "trofeu":"compre todos os itens",
         "titulo":"Zerando o estoque",
         "descricao":"Compre todos os itens da loja"
     }
