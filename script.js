@@ -44,8 +44,15 @@ function verificartrofeus(n,condition) {
             trofeudata = json;
             trofeutitle.innerHTML = trofeudata[n]["titulo"];
             trofeutxt.innerHTML = trofeudata[n]["descricao"];
-            document.querySelector("body").appendChild(trofeudiv);
+            document.querySelector("footer").appendChild(trofeudiv);
         });
+        setTimeout(() => {
+            trofeudiv.style.animationName = "subirconquista";
+        }, 3000)
+        setTimeout(() => {
+            trofeudiv.style.animationName = "descerconquista";      
+        }, 1000)
+        document.querySelector("footer").removeChild(trofeudiv);
     }
 }
 function verificador(verificadorinput) {
