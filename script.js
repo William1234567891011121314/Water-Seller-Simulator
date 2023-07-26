@@ -1,4 +1,8 @@
-﻿//constantes
+﻿//código inicial
+fetch("./trofeus.json")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+//constantes
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 //variáveis
 var contador = document.getElementById("contador");
@@ -24,6 +28,21 @@ var motordedobra = false;
 var motorinterdimensional = false;
 var delorean = false;
 //funções
+function verificartrofeus(name, condition) {
+    if(condition){
+        let trofeudiv = document.createElement("div");
+        let trofeutitle = document.createElement("h2");
+        let trofeutxt = document.createElement("p");
+        let trofeuimg = document.createElement("img");
+        document.querySelector("body").appendChild(trofeudiv);
+        trofeudiv.appendChild(trofeutitle);
+        trofeudiv.appendChild(trofeutxt);
+        trofeudiv.appendChild(trofeuimg);
+        trofeuimg.setAttribute("src", "./assets/trofeus/10.bmp");
+        //trofeutitle.innerHTML = 
+        //continuar daqui
+    }
+}
 function verificador(verificadorinput) {
     if(verificadorinput<1000000){
         prefixo = "";
@@ -986,10 +1005,16 @@ dinheirobutton.onclick = function() {
     let clickimg = document.createElement("img");
     clickimg.setAttribute("src", "./assets/Click.png");
     clickimg.setAttribute("id", "garrafaclick");
-    let eixox = event.clientX;
-    let eixoy = event.clientY;
+    let eixox = event.pageX;
+    let eixoy = event.pageY;
     clickimg.style.top = eixoy + "px";
     clickimg.style.left = eixox + "px";
+    let rotate = Math.random(0,1);
+    if(rotate>0.5){
+        clickimg.style.animationName = "rightrotate";
+    }else{
+        clickimg.style.animationName = "leftrotate";
+    }
     umafr.appendChild(clickimg);
     setTimeout(() => {
         garrafa.style.transform = "scale(100%)";

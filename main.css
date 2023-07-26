@@ -45,7 +45,6 @@ span#contador{
     font-size: 2rem;
 }
 div#main{
-    position: relative;
     display: grid;
     grid-template-columns: 1fr 3fr;
     border: 1px solid black;
@@ -56,6 +55,7 @@ div#main div.ultimo{
 div#umafr{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 div#tresfr{
     display: grid;
@@ -76,7 +76,6 @@ div.divisor{
     justify-content: space-around;
 }
 img#garrafa{
-    position: absolute;
     top: 8%;
     height: 30vw;
     transition: .1s;
@@ -85,7 +84,9 @@ img#garrafa{
 img#garrafaclick{
     position: absolute;
     height: 5vw;
-    animation-name: subir;
+    margin-left: -.7%;
+    margin-top: -5%;
+    animation-name: rightrotate;
     animation-duration: .3s;
 }
 div#loja{
@@ -99,70 +100,76 @@ div#loja div{
 button#multiplicador {
     display: none;
 }
+img.information:hover+div{
+    display: block;
+}
+img.information:hover{
+    transform: scale(120%)
+}
+img.information{
+    height: 25%;
+    margin: .5vw;
+    cursor: pointer;
+}
+div.informationdiv{
+    display: none;
+    text-align: justify;
+    width: fit-content;
+    height: fit-content;
+    max-width: 24.5vw;
+    background-color: white;
+    border: 1px solid black;
+}
+img.information:hover+div{
+    display: block;
+}
+img.information:hover{
+    transform: scale(120%)
+}
+img.information{
+    height: 25%;
+    margin: .5vw;
+    cursor: pointer;
+}
+div.informationdiv{
+    display: none;
+    text-align: justify;
+    width: fit-content;
+    height: fit-content;
+    max-width: 24.5vw;
+    background-color: white;
+    border: 1px solid black;
+}
 div#trofeus{
     display: none;
-    grid-template-columns: repeat(2, 1fr);
-    height: 280vw;
-}
-img.information:hover+div{
-    display: block;
-}
-img.information:hover{
-    transform: scale(120%)
-}
-img.information{
-    height: 25%;
-    margin: .5vw;
-    cursor: pointer;
-}
-div.informationdiv{
-    display: none;
-    text-align: justify;
-    width: fit-content;
-    height: fit-content;
-    max-width: 24.5vw;
-    background-color: white;
-    border: 1px solid black;
-}
-img.information:hover+div{
-    display: block;
-}
-img.information:hover{
-    transform: scale(120%)
-}
-img.information{
-    height: 25%;
-    margin: .5vw;
-    cursor: pointer;
-}
-div.informationdiv{
-    display: none;
-    text-align: justify;
-    width: fit-content;
-    height: fit-content;
-    max-width: 24.5vw;
-    background-color: white;
-    border: 1px solid black;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 }
 div#trofeus>div{
-    display: grid;
-    grid-template-rows: 10;
-}
-div#trofeus>div>div{
     border: 1px solid black;
     display: flex;
-    height: 24vw;
+    min-height: 25vw;
     background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 /* animações */
-@keyframes subir {
+@keyframes rightrotate {
     from {
-        transform: translateY(0%);
+        transform: rotate(0deg) translateY(0%);
         opacity: 1;
     }
     to {
-        transform: translateY(-80%);
+        transform: rotate(20deg) translateY(-100%);
+        opacity: 0;
+    }
+}
+@keyframes leftrotate {
+    from {
+        transform: rotate(0deg) translateY(0%);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(-20deg) translateY(-100%);
         opacity: 0;
     }
 }
