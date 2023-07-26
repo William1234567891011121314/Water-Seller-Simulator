@@ -1,8 +1,4 @@
-﻿//código inicial
-fetch("./trofeus.json")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-//constantes
+﻿//constantes
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 //variáveis
 var contador = document.getElementById("contador");
@@ -28,19 +24,28 @@ var motordedobra = false;
 var motorinterdimensional = false;
 var delorean = false;
 //funções
-function verificartrofeus(name, condition) {
+function verificartrofeus(n,condition) {
     if(condition){
         let trofeudiv = document.createElement("div");
         let trofeutitle = document.createElement("h2");
         let trofeutxt = document.createElement("p");
         let trofeuimg = document.createElement("img");
-        document.querySelector("body").appendChild(trofeudiv);
-        trofeudiv.appendChild(trofeutitle);
-        trofeudiv.appendChild(trofeutxt);
+        let trofeudivisor = document.createElement("div");
+        trofeudivisor.appendChild(trofeutitle);
+        trofeudivisor.appendChild(trofeutxt);
         trofeudiv.appendChild(trofeuimg);
+        trofeudiv.appendChild(trofeudivisor)
+        trofeudiv.setAttribute("id", "conquista")
         trofeuimg.setAttribute("src", "./assets/trofeus/10.bmp");
-        //trofeutitle.innerHTML = 
-        //continuar daqui
+        let trofeudata;
+        fetch("./trofeus.json")
+        .then((response) => response.json())
+        .then((json) => {
+            trofeudata = json;
+            trofeutitle.innerHTML = trofeudata[n]["titulo"];
+            trofeutxt.innerHTML = trofeudata[n]["descricao"];
+            document.querySelector("body").appendChild(trofeudiv);
+        });
     }
 }
 function verificador(verificadorinput) {

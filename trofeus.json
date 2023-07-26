@@ -1,162 +1,162 @@
-{
-    "10vendedores": {
+[
+    {
         "titulo":"Monopolizando a rua",
         "descricao":"Contrate seu 10º vendedor"
     },
-    "100vendedores": {
+    {
         "titulo":"Concorrência pesada",
         "descricao":"Contrate seu 100º vendedor"
     },
-    "1000vendedores": {
+    {
         "titulo":"Estamos em todas as bolsas, até na de Nova Iorque",
         "descricao":"Contrate seu 1000º vendedor"
     },
-    "100motoboys": {
+    {
         "titulo":"Sinal verde para os lucros",
         "descricao":"Contrate seu 100º motoboy"
     },
-    "1000motoboys": {
+    {
         "titulo":"Matando a sede sem sair de casa",
         "descricao":"Contrate seu 1000º motoboy"
     },
-    "100carros": {
+    {
         "titulo":"1 milhão por um palio?",
         "descricao":"Compre o seu 100º carro"
     },
-    "1000carros": {
+    {
         "titulo":"Cidade engarrafada",
         "descricao":"Compre o seu 1000º carro"
     },
-    "100pipas": {
+    {
         "titulo":"Céu nublado",
         "descricao":"Compre seu 100º caminhão pipa"
     },
-    "1000pipas": {
+    {
         "titulo":"Secando o planeta",
         "descricao":"Compre seu 1000º caminhão pipa"
     },
-    "100fabricas": {
+    {
         "titulo":"Sal na água, ações em alta",
         "descricao":"Construa a sua 100ª fábrica"
     },
-    "1000fabricas": {
+    {
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica"
     },
-    "100polos": {
+    {
         "titulo":"Pintando o mapa",
         "descricao":"Construa o seu 100º polo industrial"
     },
-    "1000polos": {
+    {
         "titulo":"Mais garrafas do que pessoas",
         "descricao":"Construa o seu 1000º polo industrial"
     },
-    "100asteroides": {
+    {
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides"
     },
-    "1000asteroides": {
+    {
         "titulo":"Cadê o cinturão de Küiper?",
         "descricao":"Compre seu 1000º minerador de asteróides"
     },
-    "100interplanetarias": {
+    {
         "titulo":"Contato extraterrestre",
         "descricao":"Compre sua 100ª nave inter-planetária"
     },
-    "1000interplanetarias": {
+    {
         "titulo":"Elon Musk uma vez disse: eu quero água",
         "descricao":"Compre sua 1000ª nave inter-planetária"
     },
-    "100navesintergalacticas": {
+    {
         "titulo":"Via-aquática",
         "descricao":"Compre sua 100ª nave inter-galáctica"
     },
-    "1000navesintergalacticas": {
+    {
         "titulo":"Onipresente",
         "descricao":"Compre sua 1000ª nave inter-galáctica"
     },
-    "100navesinteruniversais": {
+    {
         "titulo":"Viajando pela 4ª dimensão",
         "descricao":"Compre sua 100ª nave inter-universal"
     },
-    "1000navesinteruniversais": {
+    {
         "titulo":"Multiverso",
         "descricao":"Compre sua 1000ª nave inter-universal"
     },
-    "100maquinasdotempo": {
+    {
         "titulo":"Cuidado com plutônio",
         "descricao":"Compre a sua 100ª máquina do tempo"
     },
-    "1000maquinasdotempo": {
+    {
         "titulo":"Perda de tempo",
         "descricao":"Compre a sua 1000ª máquina do tempo"
     },
-    "fabricasx2": {
+    {
         "titulo":"Quem se importa com leis trabalistas?",
         "descricao":"Force os seus funcinários a fazer hora extra"
     },
-    "motordedobra": {
+    {
         "titulo":"Mais rápido do que a luz",
         "descricao":"Desenvolva um motor de dobra espacial"
     },
-    "especificodemais": {
+    {
         "titulo":"Por que?",
         "descricao":"Tenha 59 vendedores, 27 motoboys, 19 carros, 11 caminhões pipas, 6 fábricas e 2 polos"
     },
-    "altofalantenoscarros": {
+    {
         "titulo":"É o carro da água passando na sua rua",
         "descricao":"Compre um alto-falante gigante para o seu carro"
     },
-    "esteiras": {
+    {
         "titulo":"Produtividade máxima",
         "descricao":"Instale esteiras entre as fábricas dos polos industriais"
     },
-    "metaforando": {
+    {
         "titulo":"Felicidade genuína",
         "descricao":"Compre o curso do metaforando"
     },
-    "1milhao": {
+    {
         "titulo":"Show do galão",
         "descricao":"Alcance o seu primeiro milhão"
     },
-    "1quintilhao": {
+    {
         "titulo":"São tantos zeros!",
         "descricao":"Alcance a marca de quintilhão"
     },
-    "semespaco": {
+    {
         "titulo":"Albert Einstein estava errado",
         "descricao":"Tenha uma máquina do tempo sem ter explorado o espaço"
     },
-    "xnovar": {
+    {
         "titulo":"Xnovando",
         "descricao":"Novo verbo desbloqueado: xnovar"
     },
-    "10horas": {
+    {
         "titulo":"10 horas em um clicker simples?",
         "descricao":"Jogue durante 10 horas"
     },
-    "100horas": {
+    {
         "titulo":"É melhor você pisar na grama",
         "descricao":"Jogue durante 100 horas"
     },
-    "10000clicks": {
+    {
         "titulo":"Afundando o mouse",
         "descricao":"Clique 10000 vezes"
     },
-    "100000clicks": {
+    {
         "titulo":"Auto clicker na certa",
         "descricao":"Atinga a marca de 100000 clicks"
     },
-    "1rebirth": {
+    {
         "titulo":"Deja vu",
         "descricao":"Faça o seu primeiro rebirth"
     },
-    "10rebirth": {
+    {
         "titulo":"Repetitivo",
         "descricao":"Faça o seu décimo rebirth"
     },
-    "allitens": {
+    {
         "titulo":"Zerando o estoque",
         "descricao":"Compre todos os itens da loja"
     }
-}
+]

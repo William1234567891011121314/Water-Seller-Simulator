@@ -152,6 +152,17 @@ div#trofeus>div{
     background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
     background-size: cover;
 }
+div#conquista{
+    position: absolute;
+    border: 1px solid black;
+    height: 10vw;
+}
+div#conquista>div{
+    display: block;
+}
+div>h1{
+    font-size: 5rem;
+}
 /* animações */
 @keyframes rightrotate {
     from {
