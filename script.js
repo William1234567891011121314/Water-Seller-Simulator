@@ -1,4 +1,6 @@
-﻿//constantes
+﻿const request = await fetch("loja.json");
+const lojaitens = await request.json();
+//constantes
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 //variáveis
 var contador = document.getElementById("contador");
@@ -205,6 +207,12 @@ function errorbox(txt) {
     }
 }
 function verificarloja() {
+    let event = document.getElementById("loja");
+    for(let auxloja; auxloja<=loja.length; aux++){
+        if(lojaitens[aux]){
+            event.innerHTML += '<div><div class="ultimo"><img src="./assets/Information.png"><p>${lojaitens[aux]["titulo"]}</p></div><button>lojaitens[aux]["preco"]</button></div>';
+        }
+    }
     if(clicks>=400 && aux[0]){
         let event = document.createElement("div");
         let eventbutton = document.createElement("button");

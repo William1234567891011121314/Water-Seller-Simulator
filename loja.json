@@ -1,0 +1,92 @@
+[
+    {
+        "titulo":"Comprar curso do metaforando.",
+        "descricao":"Aumenta a quantidade de dinheiro ganho por click para 4.",
+        "preco":"R$1500",
+        "condicao":"clicks>=400"
+    },
+    {
+        "titulo":"Pagar comissão para os vendedores.",
+        "descricao":"Dobra o lucro dos vendedores.",
+        "preco":"R$12000",
+        "condicao":"objetos[1]>=50"
+    },
+    {
+        "titulo":"Instalar modo turbo nas motos dos motoboys.",
+        "descricao":"Dobra o lucro dos motoboys.",
+        "preco":"R$16000",
+        "condicao":"objetos[1]>=50"
+    },
+    {
+        "titulo":"Comprar alto-falante mais alto para os carros.",
+        "descricao":"Dobra o lucro dos carros.",
+        "preco":"R$80000",
+        "condicao":"objetos[2]>=50"
+    },
+    {
+        "titulo":"Comprar tanque de água maior para os caminhões pipa.",
+        "descricao":"Dobra o lucro dos caminhões pipa.",
+        "preco":"R$200000",
+        "condicao":"objetos[3]>=50"
+    },
+    {
+        "titulo":"Forçar seus funcionários a fazer hora extra.",
+        "descricao":"Dobra o lucro das fábricas.",
+        "preco":"R$4 Milhões",
+        "condicao":"objetos[4]>=50"
+    },
+    {
+        "titulo":"Instalar esteiras entre fábrcas nos polos industriais.",
+        "descricao":"Dobra o lucro dos polos industriais.",
+        "preco":"R$40 Milhões",
+        "condicao":"objetos[5]>=50"
+    },
+    {
+        "titulo":"Desenvolver velas solares.",
+        "descricao":"Dobra o lucro dos mineradores de asteroides.",
+        "preco":"R$400 Milhões",
+        "condicao":"objetos[6]>=50"
+    },
+    {
+        "titulo":"Desenvolver motor de antimatéria.",
+        "descricao":"Dobra o lucro das naves inter-planetárias.",
+        "preco":"R$4 Bilhões",
+        "condicao":"objetos[7]>=50"
+    },
+    {
+        "titulo":"Desenvolver motor de dobra espacial.",
+        "descricao":"Torna possível viagens inter-galacticas.",
+        "preco":"R$50 Bilhões",
+        "condicao":"objetos[7]>=0"
+    },
+    {
+        "titulo":"Desenvolver propulsores de viagem interdimensional.",
+        "descricao":"Torna possível viagens entre universos.",
+        "preco":"R$400 Bilhões",
+        "condicao":"objetos[8]>0"
+    },
+    {
+        "titulo":"Desenvolver máquina de viagem no tempo.",
+        "descricao":"Torna possível viagens no tempo.",
+        "preco":"R$4 Trilhões",
+        "condicao":"objetos[9]>0"
+    },
+    {
+        "titulo":"Fundar agência espacial.",
+        "descricao":"Permite vender água no espaço.",
+        "preco":"R$350 Milhões",
+        "condicao":"objetos[5]>=1"
+    },
+    {
+        "titulo":"Comprar um botão multiplicador de compras.",
+        "descricao":"Com esse botão você pode comprar 10 ou 100 itens com um único click!",
+        "preco":"R$10000",
+        "condicao":"clicks>=1500"
+    },
+    {
+        "titulo":"Investir em propaganda na internet.",
+        "descricao":"Recarga de dinheiro 20% mais rápida.",
+        "preco":"R$50000",
+        "condicao":"clicks>=2200"
+    }
+]
