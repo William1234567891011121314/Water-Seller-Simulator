@@ -112,7 +112,7 @@ img.information{
     cursor: pointer;
 }
 div.informationdiv{
-    display: none;
+    visibility: hidden;
     text-align: justify;
     width: fit-content;
     height: fit-content;
@@ -121,7 +121,7 @@ div.informationdiv{
     border: 1px solid black;
 }
 img.information:hover+div{
-    display: block;
+    visibility: visible;
 }
 img.information:hover{
     transform: scale(120%)
@@ -130,15 +130,6 @@ img.information{
     height: 25%;
     margin: .5vw;
     cursor: pointer;
-}
-div.informationdiv{
-    display: none;
-    text-align: justify;
-    width: fit-content;
-    height: fit-content;
-    max-width: 24.5vw;
-    background-color: white;
-    border: 1px solid black;
 }
 div#trofeus{
     display: none;
