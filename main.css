@@ -27,6 +27,9 @@ body>div{
     border-bottom: 0;
     justify-content: space-between;
 }
+body{
+    overflow-x: hidden;
+}
 div.menu{
     border-right: 1px solid black;
     font-size: 2rem;
@@ -124,7 +127,7 @@ img.information:hover+div{
     visibility: visible;
 }
 img.information:hover{
-    transform: scale(120%)
+    transform: scale(120%);
 }
 img.information{
     height: 25%;
@@ -145,17 +148,13 @@ div#trofeus>div{
 }
 div#conquista{
     position: absolute;
+    display: none;
     border: 1px solid black;
     animation-duration: 1s;
-    display: flex;
-    transform: translateY(100%);
+    animation-fill-mode: forwards;
 }
 div#conquista>div{
     display: block;
-}
-footer{
-    display: flex;
-    justify-content: center;
 }
 /* animações */
 @keyframes rightrotate {
@@ -178,19 +177,19 @@ footer{
         opacity: 0;
     }
 }
-@keyframes subirconquista {
+@keyframes deslizarinicio {
     from {
-        transform: translateY(0%);
+        transform: translateX(50%);
     }
     to {
-        transform: translateY(100%);
+        transform: translateX(300%);
     }
 }
-@keyframes descerconquista {
+@keyframes deslizarfim {
     from {
-        transform: translateY(100%);
+        transform: translateX(-200%);
     }
     to {
-        transform: translateY(0%);
+        transform: translateX(50%);
     }
 }

@@ -76,7 +76,7 @@
         "descricao":"Torna possível viagens inter-galacticas.",
         "precotxt":"R$50 Bilhões",
         "preco":"50000000000",
-        "condicao":"objetos[7]>=0",
+        "condicao":"objetos[7]>0",
         "aux":true
     },
     {
