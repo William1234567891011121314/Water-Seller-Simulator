@@ -4,6 +4,12 @@
 }
 button{
     cursor: pointer;
+    transition: .5s;
+    border: 2px groove;
+    background-color: rgba(248, 248, 248, .7);
+}
+button:hover{
+    background-color: rgba(180, 180, 180, .7)
 }
 img#cadeado{
     height: 100%;
@@ -26,9 +32,17 @@ body>div{
     border: 1px solid black;
     border-bottom: 0;
     justify-content: space-between;
+    background-color: rgba(248, 248, 248, .7);
 }
 body{
     overflow-x: hidden;
+    background-color : rgb(180, 180, 255);
+    box-shadow: 2px 2px 4px;
+}
+div#nav{
+    background-color: rgba(70, 70, 80, .5);
+    color: white;
+    box-shadow: 0 5px black;
 }
 div.menu{
     border-right: 1px solid black;
@@ -37,8 +51,8 @@ div.menu{
     display: flex;
 }
 div.menu:hover{
-    background-color: darkgray;
     cursor: pointer;
+    background-color: rgba(180, 180, 255, .7);
 }
 div#divcontador{
     border-left: 1px solid black;
@@ -91,6 +105,19 @@ img#garrafaclick{
     margin-top: -5%;
     animation-name: rightrotate;
     animation-duration: .3s;
+}
+div#popup{
+    display: inline;
+    position: absolute;
+    border: 1px solid black;
+    top: 18vw;
+    left: 31vw;
+    background-color: rgba(216, 216, 216, .9);
+    box-shadow: 1px 1px 4px;
+}
+div#popup > div{
+    display: flex;
+    justify-content: center;
 }
 div#loja{
     display: none;

@@ -8,7 +8,7 @@ const counter = [document.getElementById("vendedores"), document.getElementById(
 const button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+var aux = true;
 var lojanotification = 0;
 var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -174,28 +174,19 @@ const atualizar = {
 function errorbox(txt) {
     if(aux){
         aux = false;
-        let errorbox = document.createElement("div");
-        let txterrorbox = document.createElement("p");
-        let errorboxbutton = document.createElement("button");
-        let errorboxdiv = document.createElement("div");
-        document.querySelector("body").appendChild(errorbox);
-        errorbox.appendChild(txterrorbox);
-        errorbox.appendChild(errorboxdiv);
-        errorboxdiv.appendChild(errorboxbutton);
-        txterrorbox.innerHTML = txt;
-        errorboxbutton.innerHTML = "Ok"
-        errorbox.style.border = "1px solid black";
-        errorbox.style.display = "inline";
-        errorbox.style.position = "absolute";
-        errorboxdiv.style.display = "flex";
-        errorboxdiv.style.justifyContent = "space-around";
-        errorbox.style.top = "18vw";
-        errorbox.style.left  = "31vw";
-        errorbox.style.backgroundColor = "white";
-        errorboxbutton.onclick = function() {
-        document.querySelector("body").removeChild(errorbox);
-        aux = true;
-        }
+        document.querySelector("body").innerHTML += `
+        <div id="popup">
+            <p>${txt}</p>
+            <div>
+                <button id="errorboxbutton">Ok</button>
+            </div>
+        </div>`;
+        let errorboxbutton = document.getElementById("errorboxbutton");
+        let errorbox = document.getElementById("popup");
+        errorboxbutton.addEventListener('click', () => {
+            document.querySelector("body").removeChild(errorbox);
+            aux = true;
+        });
     }
 }
 async function verificarloja() {
