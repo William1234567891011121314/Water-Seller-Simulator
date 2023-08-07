@@ -8,7 +8,8 @@ const counter = [document.getElementById("vendedores"), document.getElementById(
 const button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var aux = true;
+var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+var aux2 = -1;
 var lojanotification = 0;
 var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -193,27 +194,36 @@ async function verificarloja() {
     const request = await fetch("loja.json");
     const lojaitens = await request.json();
     let event = document.getElementById("loja");
+    let eventbuttons = [];
+    let eventdivs = [];
     for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
-        if (eval(lojaitens[auxloja]["condicao"]) && lojaitens[auxloja]["aux"]) {
+        if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
+            aux2++
+            aux[auxloja] = false;
             event.innerHTML += `
-            <div class="item-${auxloja}">
+            <div class="item-${aux2}">
                 <div class="ultimo">
                     <img class="information" src="./assets/Information.png">
                     <p>${lojaitens[auxloja]["titulo"]}</p>
                     <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
                 </div>
-                <button id="button-${auxloja}">${lojaitens[auxloja]["precotxt"]}</button>
+                <button id="button-${aux2}">${lojaitens[auxloja]["precotxt"]}</button>
             </div>`;
             lojanotification++;
-            let eventbutton = document.getElementById(`button-${auxloja}`);
-            let eventdiv = document.querySelector(`.item-${auxloja}`);
-            eventbutton.onclick = (function(lojaIndex) {
-                return function() {
-                    dinheiro -= lojaitens[lojaIndex]["preco"];
-                    event.removeChild(eventdiv);
-                };
-            })(auxloja);
-            lojaitens[auxloja]["aux"] = false;
+            eventbuttons.push(document.getElementById(`button-${aux2}`));
+            eventdivs.push(document.querySelector(`.item-${aux2}`));
+            console.log(eventbuttons[aux2]);
+            eventbuttons[aux2].onclick = function (){
+                if(dinheiro>=lojaitens[auxloja]["preco"]){
+                    dinheiro -= lojaitens[auxloja]["preco"];
+                    event.removeChild(eventdivs[aux2]);
+                    lojanotification--;
+                    atualizar.notifications();
+                    atualizar.contador();
+                    return;
+                }
+                errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+            }
         }
     }
 }
