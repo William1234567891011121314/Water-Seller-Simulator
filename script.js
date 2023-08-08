@@ -172,9 +172,10 @@ const atualizar = {
         button[10].innerHTML = "R$" + verificador(calculomultiplicador(precos[10], precosbase[10])) + " " + prefixo;
     }
 }
+let popupaux = true;
 function errorbox(txt) {
-    if(aux){
-        aux = false;
+    if(popupaux){
+        popupaux = false;
         document.querySelector("body").innerHTML += `
         <div id="popup">
             <p>${txt}</p>
@@ -186,7 +187,7 @@ function errorbox(txt) {
         let errorbox = document.getElementById("popup");
         errorboxbutton.addEventListener('click', () => {
             document.querySelector("body").removeChild(errorbox);
-            aux = true;
+            popupaux = true;
         });
     }
 }
@@ -295,17 +296,15 @@ document.getElementById("menutrofeus").onclick = function() {
     umafr.style.display = "none";
     document.getElementById("trofeus").style.display = "grid";
 }
-dinheirobutton.onclick = function() {
+dinheirobutton.addEventListener('click', ev => {
     clicks++;
     dinheiro+=clickmodifier;
     atualizar.contador();
     let clickimg = document.createElement("img");
     clickimg.setAttribute("src", "./assets/Click.png");
     clickimg.setAttribute("id", "garrafaclick");
-    let eixox = event.pageX;
-    let eixoy = event.pageY;
-    clickimg.style.top = eixoy + "px";
-    clickimg.style.left = eixox + "px";
+    clickimg.style.top = ev.clientY + "px";
+    clickimg.style.left = ev.clientX + "px";
     let rotate = Math.random(0,1);
     if(rotate>0.5){
         clickimg.style.animationName = "rightrotate";
@@ -318,7 +317,7 @@ dinheirobutton.onclick = function() {
             umafr.removeChild(clickimg);
     }, 300)
     garrafa.style.transform = "scale(75%)";
-}
+});
 button[0].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[0], precosbase[0])){
         objetos[0]+=multiplicadordecompra;
