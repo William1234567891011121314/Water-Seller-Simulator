@@ -199,37 +199,35 @@ async function verificarloja() {
     try{
         const request = await fetch("loja.json");
         const lojaitens = await request.json();
-        let event = document.getElementById("loja");
-        let eventbuttons = [];
-        let eventdivs = [];
+        let loja = document.getElementById("loja");
         for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
             if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
                 aux2++
                 aux[auxloja] = false;
-                event.innerHTML += `
-                <div class="item-${aux2}">
+                let itemDiv = document.createElement("div");
+                itemDiv.className = `item-${aux2}`;
+                itemDiv.innerHTML = `
                     <div class="ultimo">
                         <img class="information" src="./assets/Information.png">
-                        <p>${lojaitens[auxloja]["titulo"]}</p>
                         <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
+                        <p>${lojaitens[auxloja]["titulo"]}</p>
                     </div>
-                    <button id="button-${aux2}">${lojaitens[auxloja]["precotxt"]}</button>
-                </div>`;
+                    <button id="button-${aux2}">${lojaitens[auxloja]["precotxt"]}</button>`;
+                loja.appendChild(itemDiv);
                 lojanotification++;
-                eventbuttons.push(document.getElementById(`button-${aux2}`));
-                eventdivs.push(document.querySelector(`.item-${aux2}`));
-                console.log(eventbuttons[aux2]);
-                eventbuttons[aux2].onclick = function (){
-                    if(dinheiro>=lojaitens[auxloja]["preco"]){
-                        dinheiro -= lojaitens[auxloja]["preco"];
-                        event.removeChild(eventdivs[aux2]);
-                        lojanotification--;
-                        atualizar.notifications();
-                        atualizar.contador();
-                        return;
+                (function(auxloja) {
+                    document.querySelector(`#button-${aux2}`).onclick = function (){
+                        if(dinheiro>=lojaitens[auxloja]["preco"]){
+                            dinheiro -= lojaitens[auxloja]["preco"];
+                            loja.removeChild(eventdivs[aux2]);
+                            lojanotification--;
+                            atualizar.notifications();
+                            atualizar.contador();
+                            return;
+                        }
+                        errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
                     }
-                    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-                }
+                })(auxloja);
             }
         }
     }catch(eror){

@@ -4,12 +4,14 @@
 }
 button{
     cursor: pointer;
-    transition: .5s;
+    transition: .4s;
     border: 2px groove;
     background-color: rgba(248, 248, 248, .7);
 }
 button:hover{
-    background-color: rgba(180, 180, 180, .7)
+    background-color: rgba(180, 180, 180, .7);
+    box-shadow: 2px 2px 2px;
+    transform: scale(110%);
 }
 img#cadeado{
     height: 100%;
@@ -20,9 +22,12 @@ div#lojanotificationdiv{
     color: white;
     align-items: center;
     border-radius: 50%;
-    width: 3.2vw;
-    height: 3.2vw;
+    width: 2.3rem;
     background-color: red;
+}
+#lojanotification{
+    margin: 0px;
+    font-size: xx-large;
 }
 body>div>div{
     display: flex;
@@ -130,36 +135,32 @@ div#loja div{
 button#multiplicador {
     display: none;
 }
-img.information:hover+div{
-    display: block;
-}
 img.information:hover{
     transform: scale(120%)
 }
 img.information{
-    height: 25%;
+    height: 45%;
     margin: .5vw;
     cursor: pointer;
+    transition: .4s;
 }
 div.informationdiv{
     visibility: hidden;
+    position: absolute;
     text-align: justify;
     width: fit-content;
     height: fit-content;
+    margin-left: 10%;
     max-width: 24.5vw;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid black;
+    box-shadow: 1px 1px 2px;
+    transition: .4s;
+    transform: scale(0%);
 }
 img.information:hover+div{
     visibility: visible;
-}
-img.information:hover{
-    transform: scale(120%);
-}
-img.information{
-    height: 25%;
-    margin: .5vw;
-    cursor: pointer;
+    transform: scale(100%);
 }
 div#trofeus{
     display: none;
