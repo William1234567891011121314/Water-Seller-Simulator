@@ -26,28 +26,32 @@ var motorinterdimensional = false;
 var delorean = false;
 //funções
 async function verificartrofeu(n,condition) {
-    const request = await fetch("loja.json");
-    const trofeus = await request.json();
-    if(condition){
-        document.querySelector("body").innerHTML += 
-        `<div id="conquista">
-            <img src="./assets/trofeus/10.bmp">
-            <div>
-                <h2>${trofeus[n]["titulo"]}</h2>
-                <p>${trofeus[n]["descricao"]}</p>
-            </div>
-        </div>`
-        let trofeudiv = document.getElementById("conquista");
-        setTimeout(() => {
-            trofeudiv.style.animationName = "deslizarinicio";
-        }, 6000);
-        setTimeout(() => {
-            trofeudiv.style.animationName = "deslizarfim";
-            trofeudiv.style.display = "flex";
-        }, 1000);
-        setTimeout(() => {
-            document.querySelector("body").removeChild(trofeudiv);
-        },7000);
+    try{
+        const request = await fetch("trofeus.json");
+        const trofeus = await request.json();
+        if(condition){
+            document.querySelector("body").innerHTML += 
+            `<div id="conquista">
+                <img src="./assets/trofeus/10.bmp">
+                <div>
+                    <h2>${trofeus[n]["titulo"]}</h2>
+                    <p>${trofeus[n]["descricao"]}</p>
+                </div>
+            </div>`
+            let trofeudiv = document.getElementById("conquista");
+            setTimeout(() => {
+                trofeudiv.style.animationName = "deslizarinicio";
+            }, 6000);
+            setTimeout(() => {
+                trofeudiv.style.animationName = "deslizarfim";
+                trofeudiv.style.display = "flex";
+            }, 1000);
+            setTimeout(() => {
+                document.querySelector("body").removeChild(trofeudiv);
+            },7000);
+        }
+    }catch(eror){
+        console.log(eror);
     }
 }
 function verificador(verificadorinput) {
@@ -176,7 +180,7 @@ let popupaux = true;
 function errorbox(txt) {
     if(popupaux){
         popupaux = false;
-        document.querySelector("body").innerHTML += `
+        document.getElementById("fatherpopup").innerHTML += `
         <div id="popup">
             <p>${txt}</p>
             <div>
@@ -186,46 +190,50 @@ function errorbox(txt) {
         let errorboxbutton = document.getElementById("errorboxbutton");
         let errorbox = document.getElementById("popup");
         errorboxbutton.addEventListener('click', () => {
-            document.querySelector("body").removeChild(errorbox);
+            document.getElementById("fatherpopup").removeChild(errorbox);
             popupaux = true;
         });
     }
 }
 async function verificarloja() {
-    const request = await fetch("loja.json");
-    const lojaitens = await request.json();
-    let event = document.getElementById("loja");
-    let eventbuttons = [];
-    let eventdivs = [];
-    for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
-        if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
-            aux2++
-            aux[auxloja] = false;
-            event.innerHTML += `
-            <div class="item-${aux2}">
-                <div class="ultimo">
-                    <img class="information" src="./assets/Information.png">
-                    <p>${lojaitens[auxloja]["titulo"]}</p>
-                    <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
-                </div>
-                <button id="button-${aux2}">${lojaitens[auxloja]["precotxt"]}</button>
-            </div>`;
-            lojanotification++;
-            eventbuttons.push(document.getElementById(`button-${aux2}`));
-            eventdivs.push(document.querySelector(`.item-${aux2}`));
-            console.log(eventbuttons[aux2]);
-            eventbuttons[aux2].onclick = function (){
-                if(dinheiro>=lojaitens[auxloja]["preco"]){
-                    dinheiro -= lojaitens[auxloja]["preco"];
-                    event.removeChild(eventdivs[aux2]);
-                    lojanotification--;
-                    atualizar.notifications();
-                    atualizar.contador();
-                    return;
+    try{
+        const request = await fetch("loja.json");
+        const lojaitens = await request.json();
+        let event = document.getElementById("loja");
+        let eventbuttons = [];
+        let eventdivs = [];
+        for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
+            if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
+                aux2++
+                aux[auxloja] = false;
+                event.innerHTML += `
+                <div class="item-${aux2}">
+                    <div class="ultimo">
+                        <img class="information" src="./assets/Information.png">
+                        <p>${lojaitens[auxloja]["titulo"]}</p>
+                        <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
+                    </div>
+                    <button id="button-${aux2}">${lojaitens[auxloja]["precotxt"]}</button>
+                </div>`;
+                lojanotification++;
+                eventbuttons.push(document.getElementById(`button-${aux2}`));
+                eventdivs.push(document.querySelector(`.item-${aux2}`));
+                console.log(eventbuttons[aux2]);
+                eventbuttons[aux2].onclick = function (){
+                    if(dinheiro>=lojaitens[auxloja]["preco"]){
+                        dinheiro -= lojaitens[auxloja]["preco"];
+                        event.removeChild(eventdivs[aux2]);
+                        lojanotification--;
+                        atualizar.notifications();
+                        atualizar.contador();
+                        return;
+                    }
+                    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
                 }
-                errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
             }
         }
+    }catch(eror){
+        console.log(eror);
     }
 }
 function verificadormultiplicador() {
