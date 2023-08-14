@@ -32,7 +32,7 @@ async function verificartrofeu(n,condition) {
         if(condition){
             document.querySelector("body").innerHTML += 
             `<div id="conquista">
-                <img src="./assets/trofeus/10.bmp">
+                <img src=${trofeus[n]["endereço"]}>
                 <div>
                     <h2>${trofeus[n]["titulo"]}</h2>
                     <p>${trofeus[n]["descricao"]}</p>
