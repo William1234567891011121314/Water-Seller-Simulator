@@ -168,7 +168,7 @@ div.informationdiv{
     text-align: justify;
     width: fit-content;
     height: fit-content;
-    margin-left: 10%;
+    margin-left: 6%;
     max-width: 24.5vw;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid black;
@@ -179,6 +179,9 @@ div.informationdiv{
 img.information:hover+div{
     visibility: visible;
     transform: scale(100%);
+}
+img.information#conquista{
+    height: 20%;
 }
 div#trofeus{
     display: none;
