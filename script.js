@@ -192,8 +192,8 @@ function errorbox(txt) {
         fatherpopup.classList.remove("visivel");
     });
     fatherpopup.addEventListener('click', ev => {
-        let lugar = ev.target;
-        if(ev.target==lugar){
+        console.log(ev)
+        if(ev.target==fatherpopup){
             fatherpopup.classList.remove("visivel");
         }
     });
