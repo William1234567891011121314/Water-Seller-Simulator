@@ -111,12 +111,30 @@ img#garrafaclick{
     animation-name: rightrotate;
     animation-duration: .3s;
 }
+div#fatherpopup{
+    display: grid;
+    position: fixed;
+    place-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    box-shadow: 0px;
+    transition: .2s;
+}
+.visivel{
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 div#popup{
     display: inline;
-    position: absolute;
+    opacity: 1;
+    visibility: visible;
     border: 1px solid black;
-    top: 18vw;
-    left: 31vw;
     background-color: rgba(216, 216, 216, .9);
     box-shadow: 1px 1px 4px;
 }

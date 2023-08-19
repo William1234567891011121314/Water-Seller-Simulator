@@ -178,22 +178,30 @@ const atualizar = {
 }
 let popupaux = true;
 function errorbox(txt) {
-    if(popupaux){
-        popupaux = false;
-        document.getElementById("fatherpopup").innerHTML += `
-        <div id="popup">
-            <p>${txt}</p>
-            <div>
-                <button id="errorboxbutton">Ok</button>
-            </div>
-        </div>`;
-        let errorboxbutton = document.getElementById("errorboxbutton");
-        let errorbox = document.getElementById("popup");
-        errorboxbutton.addEventListener('click', () => {
-            document.getElementById("fatherpopup").removeChild(errorbox);
-            popupaux = true;
-        });
-    }
+    let fatherpopup = document.getElementById("fatherpopup");
+    fatherpopup.classList.add("visivel");
+    fatherpopup.innerHTML = `
+    <div id="popup">
+        <p>${txt}</p>
+        <div>
+            <button id="errorboxbutton">Ok</button>
+        </div>
+    </div>`;
+    let errorboxbutton = document.getElementById("errorboxbutton");
+    errorboxbutton.addEventListener('click', () => {
+        fatherpopup.classList.remove("visivel");
+    });
+    fatherpopup.addEventListener('click', ev => {
+        let lugar = ev.target;
+        if(ev.target==lugar){
+            fatherpopup.classList.remove("visivel");
+        }
+    });
+    document.querySelector("body").addEventListener('keydown', ev => {
+        if(ev.key == "Escape"){
+            fatherpopup.classList.remove("visivel");
+        }
+    });
 }
 async function verificarloja() {
     try{
@@ -202,7 +210,7 @@ async function verificarloja() {
         let loja = document.getElementById("loja");
         for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
             if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
-                aux2++
+                aux2++;
                 aux[auxloja] = false;
                 let itemDiv = document.createElement("div");
                 itemDiv.className = `item-${aux2}`;
