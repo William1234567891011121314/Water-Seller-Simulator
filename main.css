@@ -142,6 +142,14 @@ div#popup > div{
     display: flex;
     justify-content: center;
 }
+div#popup > p{
+    opacity: 0;
+    visibility: hidden;
+}
+button#errorboxbutton{
+    opacity: 0;
+    visibility: hidden;
+}
 div#loja{
     display: none;
     min-height: 35vw;

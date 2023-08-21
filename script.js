@@ -188,18 +188,32 @@ function errorbox(txt) {
         </div>
     </div>`;
     let errorboxbutton = document.getElementById("errorboxbutton");
+    let popup = document.getElementById("popup");
+    let popuptext = document.querySelector("div#popup>p");
+    popuptext.classList.add("visivel");
+    popup.classList.add("visivel");
+    errorboxbutton.classList.add("visivel");
     errorboxbutton.addEventListener('click', () => {
         fatherpopup.classList.remove("visivel");
+        popup.classList.remove("visivel");
+        popuptext.classList.remove("visivel");
+        errorboxbutton.classList.remove("visivel");
     });
     fatherpopup.addEventListener('click', ev => {
         console.log(ev)
         if(ev.target==fatherpopup){
             fatherpopup.classList.remove("visivel");
+            popup.classList.remove("visivel");
+            popuptext.classList.remove("visivel");
+            errorboxbutton.classList.remove("visivel");
         }
     });
     document.querySelector("body").addEventListener('keydown', ev => {
         if(ev.key == "Escape"){
             fatherpopup.classList.remove("visivel");
+            popup.classList.remove("visivel");
+            popuptext.classList.remove("visivel");
+            errorboxbutton.classList.remove("visivel");
         }
     });
 }
