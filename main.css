@@ -145,6 +145,7 @@ div#popup > div{
 button#errorboxbutton, div#popup > p{
     opacity: 0;
     visibility: hidden;
+    transition: .2s;
 }
 div#loja{
     display: none;
