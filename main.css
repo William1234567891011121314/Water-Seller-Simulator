@@ -142,11 +142,7 @@ div#popup > div{
     display: flex;
     justify-content: center;
 }
-div#popup > p{
-    opacity: 0;
-    visibility: hidden;
-}
-button#errorboxbutton{
+button#errorboxbutton, div#popup > p{
     opacity: 0;
     visibility: hidden;
 }
