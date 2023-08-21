@@ -46,9 +46,9 @@ async function verificartrofeu(n,condition) {
                 trofeudiv.style.animationName = "deslizarfim";
                 trofeudiv.style.display = "flex";
             }, 1000);
-            setTimeout(() => {
-                document.querySelector("body").removeChild(trofeudiv);
-            },7000);
+//            setTimeout(() => {
+//                document.querySelector("body").removeChild(trofeudiv);
+//            },7000);
         }
     }catch(eror){
         console.log(eror);
@@ -61,34 +61,34 @@ function verificador(verificadorinput) {
     }
     if(verificadorinput>=1000000 && verificadorinput<1000000000){
         if(verificadorinput===1000000){
-            prefixo = " Milhão"
+            prefixo = " Milhão";
             return verificadorinput/1000000;
         }
-        prefixo = " Milhões"
+        prefixo = " Milhões";
         return verificadorinput/1000000;
     }
     if(verificadorinput>=1000000000 && verificadorinput<1000000000000){
         if(verificadorinput===1000000000){
-            prefixo = " Bilhão"
+            prefixo = " Bilhão";
             return verificadorinput/1000000000;
         }
-        prefixo = " Bilhões"
+        prefixo = " Bilhões";
         return verificadorinput/1000000000;
     }
     if(verificadorinput>=1000000000000 && verificadorinput<1000000000000000){
         if(verificadorinput===1000000000000){
-            prefixo = " Trilhão"
+            prefixo = " Trilhão";
             return verificadorinput/1000000000000;
         }
-        prefixo = " Trilhões"
+        prefixo = " Trilhões";
         return verificadorinput/1000000000000;
     }
     if(verificadorinput>=1000000000000000 && verificadorinput<1000000000000000000){
         if(verificadorinput===1000000000000000){
-            prefixo = " Quatrilhão"
+            prefixo = " Quatrilhão";
             return verificadorinput/1000000000000000;
         }
-        prefixo = " Quatrilhões"
+        prefixo = " Quatrilhões";
         return verificadorinput/1000000000000000;
     }
 }
