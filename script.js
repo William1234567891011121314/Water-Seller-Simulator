@@ -31,46 +31,43 @@ var prefixo = "";
 var clicks = 0;
 var clickmodifier = 1;
 var tecnologias = [false, false, false, false];
-var agenciaespacial = false;
-var motordedobra = false;
-var motorinterdimensional = false;
-var delorean = false;
+var tempo;
 //funções
-async function verificartrofeu(n,condition) {
+async function verificartrofeu() {
     try{
         const request = await fetch("trofeus.json");
         const trofeus = await request.json();
-        if(condition){
-            fatherpopup.innerHTML += 
-            `<div id="trofeu">
-                <img src=${trofeus[n]["endereco"]}>
-                <div>
-                    <h2>${trofeus[n]["titulo"]}</h2>
-                    <p>${trofeus[n]["descriçao"]}</p>
-                </div>
-            </div>`
-            let trofeudiv = body.querySelector("#trofeu");
-            setTimeout(() => {
-                trofeudiv.style.animationName = "deslizarinicio";
-                fatherpopup.classList.add("visivel");
-            }, 6000);
-            setTimeout(() => {
-                trofeudiv.style.animationName = "deslizarfim";
-                fatherpopup.classList.add("visivel");
-            }, 1000);
-            setTimeout(() => {
-                fatherpopup.removeChild(trofeudiv);
-                fatherpopup.classList.remove("visivel");
-            },7000);
-            let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
-            let conquistadiv = conquista.querySelector(`#${trofeus[n]["id"]}>div`);
-            let conquistatitulo = conquista.querySelector(".informationdiv>h3");
-            let conquistatxt = conquista.querySelector(".informationdiv>p");
-            conquistatitulo.innerHTML = trofeus[n]["titulo"];
-            conquistatxt.innerHTML = trofeus[n]["descricao"];
-            conquistadiv.style.background = `url(${trofeus[n]["endereço"]}) no-repeat;`
+        for(let n = 0; n <= trofeus.length; n++){
+            if(eval(trofeus[n]["condition"])){
+                fatherpopup.innerHTML += 
+                `<div id="trofeu">
+                    <img src=${trofeus[n]["endereço"]}>
+                    <div>
+                        <h2>${trofeus[n]["titulo"]}</h2>
+                        <p>${trofeus[n]["descricao"]}</p>
+                    </div>
+                </div>`
+                let trofeudiv = body.querySelector("#trofeu");
+                setTimeout(() => {
+                    trofeudiv.style.animationName = "deslizarinicio";
+                    fatherpopup.classList.add("visivel");
+                }, 6000);
+                setTimeout(() => {
+                    trofeudiv.style.animationName = "deslizarfim";
+                    fatherpopup.classList.add("visivel");
+                }, 1000);
+                setTimeout(() => {
+                    fatherpopup.removeChild(trofeudiv);
+                    fatherpopup.classList.remove("visivel");
+                },7000);
+                let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
+                let conquistatitulo = conquista.querySelector(".informationdiv>h3");
+                let conquistatxt = conquista.querySelector(".informationdiv>p");
+                conquistatitulo.innerHTML = trofeus[n]["titulo"];
+                conquistatxt.innerHTML = trofeus[n]["descricao"];
+                conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
+            }
         }
-    
     }catch(eror){
         console.log(eror);
     }
@@ -138,6 +135,7 @@ const atualizar = {
             atualizar.contador();
             verificarloja();
             atualizar.notifications();
+            tempo += moneytime;
         }, moneytime);
     },
     vendedores() {
