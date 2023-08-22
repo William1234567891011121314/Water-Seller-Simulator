@@ -3,17 +3,20 @@ const lojanotificationdiv = document.querySelector("#lojanotificationdiv");
 const lojanotificationtxt = lojanotificationdiv.querySelector("#lojanotification");
 const sitetitle = document.querySelector("title");
 const body = document.querySelector("body");
+const main = body.querySelector("#main");
+const loja = main.querySelector("#loja");
+const conquistas = main.querySelector("#trofeus")
 const menuloja = body.querySelector("#menuloja");
 const menumain = body.querySelector("#menumain");
 const menutrofeus = body.querySelector("#menutrofeus");
-const fatherpopup = body.querySelector("#fatherpopup")
+const fatherpopup = body.querySelector("#fatherpopup");
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 const contador = body.querySelector("#contador");
-const dinheirobutton = body.querySelector("#garrafa");
+const dinheirobutton = main.querySelector("#garrafa");
 const multiplicador = body.querySelector("#multiplicador");
-const txt = [body.querySelector("#txtmaquinasdevenda"), body.querySelector("#txtcarros"), body.querySelector("#txtpipa"), body.querySelector("#txtfabrica"), body.querySelector("#txtpolo"), body.querySelector("#txtasteroides"), body.querySelector("#txtplanetas"), body.querySelector("#txtgalaxias"), body.querySelector("#txtuniversos"), body.querySelector("#txttempo")];
-const counter = [body.querySelector("#vendedores"), body.querySelector("#maquinasdevenda"), body.querySelector("#carroscounter"), body.querySelector("#pipacounter"), body.querySelector("#fabricacounter"), body.querySelector("#polocounter"), body.querySelector("#asteroidecounter"), body.querySelector("#planetascounter"), body.querySelector("#galaxiascounter"), body.querySelector("#universoscounter"), body.querySelector("#tempocounter")];
-const button = [body.querySelector("#vendedorbutton"), body.querySelector("#maquinadevendabutton"), body.querySelector("#carrosbutton"), body.querySelector("#pipabutton"), body.querySelector("#fabricabutton"), body.querySelector("#polobutton"), body.querySelector("#asteroidebutton"), body.querySelector("#planetasbutton"), body.querySelector("#galaxiasbutton"), body.querySelector("#universosbutton"), body.querySelector("#tempobutton")];
+const txt = [main.querySelector("#txtmaquinasdevenda"), main.querySelector("#txtcarros"), main.querySelector("#txtpipa"), main.querySelector("#txtfabrica"), main.querySelector("#txtpolo"), main.querySelector("#txtasteroides"), main.querySelector("#txtplanetas"), main.querySelector("#txtgalaxias"), main.querySelector("#txtuniversos"), main.querySelector("#txttempo")];
+const counter = [main.querySelector("#vendedores"), main.querySelector("#maquinasdevenda"), main.querySelector("#carroscounter"), main.querySelector("#pipacounter"), main.querySelector("#fabricacounter"), main.querySelector("#polocounter"), main.querySelector("#asteroidecounter"), main.querySelector("#planetascounter"), main.querySelector("#galaxiascounter"), main.querySelector("#universoscounter"), main.querySelector("#tempocounter")];
+const button = [main.querySelector("#vendedorbutton"), main.querySelector("#maquinadevendabutton"), main.querySelector("#carrosbutton"), main.querySelector("#pipabutton"), main.querySelector("#fabricabutton"), main.querySelector("#polobutton"), main.querySelector("#asteroidebutton"), main.querySelector("#planetasbutton"), main.querySelector("#galaxiasbutton"), main.querySelector("#universosbutton"), main.querySelector("#tempobutton")];
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
@@ -40,10 +43,10 @@ async function verificartrofeu(n,condition) {
         if(condition){
             fatherpopup.innerHTML += 
             `<div id="trofeu">
-                <img src=${trofeus[n]["endereço"]}>
+                <img src=${trofeus[n]["endereco"]}>
                 <div>
                     <h2>${trofeus[n]["titulo"]}</h2>
-                    <p>${trofeus[n]["descricao"]}</p>
+                    <p>${trofeus[n]["descriçao"]}</p>
                 </div>
             </div>`
             let trofeudiv = body.querySelector("#trofeu");
@@ -59,6 +62,13 @@ async function verificartrofeu(n,condition) {
                 fatherpopup.removeChild(trofeudiv);
                 fatherpopup.classList.remove("visivel");
             },7000);
+            let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
+            let conquistadiv = conquista.querySelector(`#${trofeus[n]["id"]}>div`);
+            let conquistatitulo = conquista.querySelector(".informationdiv>h3");
+            let conquistatxt = conquista.querySelector(".informationdiv>p");
+            conquistatitulo.innerHTML = trofeus[n]["titulo"];
+            conquistatxt.innerHTML = trofeus[n]["descricao"];
+            conquistadiv.style.background = `url(${trofeus[n]["endereço"]}) no-repeat;`
         }
     
     }catch(eror){
@@ -229,7 +239,6 @@ async function verificarloja() {
     try{
         const request = await fetch("loja.json");
         const lojaitens = await request.json();
-        let loja = document.getElementById("loja");
         for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
             if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
                 aux2++;
@@ -309,28 +318,28 @@ multiplicador.onclick = function() {
     verificadormultiplicador()
 }
 menuloja.onclick = function() {
-    document.getElementById("main").style.borderBottom = "1px solid black";
-    document.getElementById("main").style.display = "block";
+    main.style.borderBottom = "1px solid black";
+    main.style.display = "block";
     loja.style.display = "block";
     tresfr.style.display = "none";
     umafr.style.display = "none";
-    document.getElementById("trofeus").style.display = "none";
+    conquistas.style.display = "none";
 }
 menumain.onclick = function() {
-    document.getElementById("main").style.borderBottom = "1px solid black";
-    document.getElementById("main").style.display = "grid";
+    main.style.borderBottom = "1px solid black";
+    main.style.display = "grid";
     loja.style.display = "none";
     tresfr.style.display = "grid";
     umafr.style.display = "flex";
-    document.getElementById("trofeus").style.display = "none";
+    conquistas.style.display = "none";
 }
 menutrofeus.onclick = function() {
-    document.getElementById("main").style.borderBottom = "1px solid black";
-    document.getElementById("main").style.display = "block";
+    main.style.borderBottom = "1px solid black";
+    main.style.display = "block";
     loja.style.display = "none";
     tresfr.style.display = "none";
     umafr.style.display = "none";
-    document.getElementById("trofeus").style.display = "grid";
+    conquistas.style.display = "grid";
 }
 dinheirobutton.addEventListener('click', ev => {
     clicks++;

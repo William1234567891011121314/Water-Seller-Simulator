@@ -2,218 +2,247 @@
     {
         "titulo":"Monopolizando a rua",
         "descricao":"Contrate seu 10º vendedor",
-        "endereço":"./assets/trofeus/10vendedores.bmp",
-        "id":"10vendedores"
+        "endereco":"./assets/trofeus/10vendedores.bmp",
+        "id":"dezvendedores"
     },
     {
         "titulo":"Concorrência pesada",
         "descricao":"Contrate seu 100º vendedor",
         "endereço":"./assets/trofeus/100vendedores.bmp",
-        "id":"100vendedores"
+        "id":"cemvendedores"
     },
     {
         "titulo":"Estamos em todas as bolsas, até na de Nova Iorque",
         "descricao":"Contrate seu 1000º vendedor",
         "endereço":"./assets/trofeus/1000vendedores.gif",
-        "id":"1000vendedores"
+        "id":"milvendedores"
     },
     {
         "titulo":"Sinal verde para os lucros",
         "descricao":"Contrate seu 100º motoboy",
         "endereço":"./assets/trofeus/100motoboys.bmp",
-        "id":"100motoboys"
+        "id":"cemmotoboys"
     },
     {
         "titulo":"Matando a sede sem sair de casa",
         "descricao":"Contrate seu 1000º motoboy",
         "endereço":"./assets/trofeus/1000motoboys.gif",
-        "id":"1000motoboys"
+        "id":"milmotoboys"
     },
     {
         "titulo":"1 milhão por um palio?",
         "descricao":"Compre o seu 100º carro",
         "endereço":"./assets/trofeus/100carros.bmp",
-        "id":"100carro"
+        "id":"cemcarro"
     },
     {
         "titulo":"Cidade engarrafada",
         "descricao":"Compre o seu 1000º carro",
         "endereço":"./assets/trofeus/1000carros.bmp",
-        "id":"1000carro"
+        "id":"milcarro"
     },
     {
         "titulo":"Céu nublado",
         "descricao":"Compre seu 100º caminhão pipa",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"100pipas"
+        "id":"cempipas"
     },
     {
         "titulo":"Secando o planeta",
         "descricao":"Compre seu 1000º caminhão pipa",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"1000pipas"
+        "id":"milpipas"
     },
     {
         "titulo":"Sal na água, ações em alta",
         "descricao":"Construa a sua 100ª fábrica",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"100fabricas"
+        "id":"cemfabricas"
     },
     {
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"1000fabricas"
+        "id":"milfabricas"
     },
     {
         "titulo":"Pintando o mapa",
         "descricao":"Construa o seu 100º polo industrial",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"100polos"
+        "id":"cempolos"
     },
     {
         "titulo":"Mais garrafas do que pessoas",
         "descricao":"Construa o seu 1000º polo industrial",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"1000polos"
+        "id":"milpolos"
     },
     {
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"100asteroides"
+        "id":"cemasteroides"
     },
     {
         "titulo":"Cadê o cinturão de Küiper?",
         "descricao":"Compre seu 1000º minerador de asteróides",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"1000asteroides"
+        "id":"milasteroides"
     },
     {
         "titulo":"Contato extraterrestre",
         "descricao":"Compre sua 100ª nave inter-planetária",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"100planetas"
+        "id":"cemplanetas"
     },
     {
         "titulo":"Elon Musk uma vez disse: eu quero água",
         "descricao":"Compre sua 1000ª nave inter-planetária",
         "endereço":"./assets/trofeus/monopolizando a rua.bmp",
-        "id":"1000planetas"
+        "id":"milplanetas"
     },
     {
         "titulo":"Via-aquática",
         "descricao":"Compre sua 100ª nave inter-galáctica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"cemgalaxias"
     },
     {
         "titulo":"Onipresente",
         "descricao":"Compre sua 1000ª nave inter-galáctica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"milgalaxias"
     },
     {
         "titulo":"Viajando pela 4ª dimensão",
         "descricao":"Compre sua 100ª nave inter-universal",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"cemuniversos"
     },
     {
         "titulo":"Multiverso",
         "descricao":"Compre sua 1000ª nave inter-universal",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"miluniversos"
     },
     {
         "titulo":"Cuidado com plutônio",
         "descricao":"Compre a sua 100ª máquina do tempo",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"cemtempo"
     },
     {
         "titulo":"Perda de tempo",
         "descricao":"Compre a sua 1000ª máquina do tempo",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"miltempo"
+    },
+    {
+        "titulo":"Espaço",
+        "descricao":"Funde uma agência espacial",
+        "endereço":"./assets/trofeus/agencia.bmp",
+        "id":"agencia"
     },
     {
         "titulo":"Quem se importa com leis trabalistas?",
         "descricao":"Force os seus funcinários a fazer hora extra",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"fabricax2"
     },
     {
         "titulo":"Mais rápido do que a luz",
         "descricao":"Desenvolva um motor de dobra espacial",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"velocidadeluz"
     },
     {
         "titulo":"Por que?",
         "descricao":"Tenha 59 vendedores, 27 motoboys, 19 carros, 11 caminhões pipas, 6 fábricas e 2 polos",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"especifico"
     },
     {
         "titulo":"É o carro da água passando na sua rua",
         "descricao":"Compre um alto-falante gigante para o seu carro",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"carrosx2"
     },
     {
         "titulo":"Produtividade máxima",
         "descricao":"Instale esteiras entre as fábricas dos polos industriais",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"polosx2"
     },
     {
         "titulo":"Felicidade genuína",
         "descricao":"Compre o curso do metaforando",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"metaforando"
     },
     {
         "titulo":"Show do galão",
         "descricao":"Alcance o seu primeiro milhão",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"ummilhao"
     },
     {
         "titulo":"São tantos zeros!",
         "descricao":"Alcance a marca de quintilhão",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"umquintilhao"
     },
     {
-        "titulo":"Albert Einstein estava errado",
+        "titulo":"Espaço != tempo",
         "descricao":"Tenha uma máquina do tempo sem ter explorado o espaço",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"espacosemtempo"
     },
     {
         "titulo":"Xnovando",
         "descricao":"Novo verbo desbloqueado: xnovar",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"xnove"
     },
     {
         "titulo":"10 horas em um clicker simples?",
         "descricao":"Jogue durante 10 horas",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"10horas"
     },
     {
         "titulo":"É melhor você pisar na grama",
         "descricao":"Jogue durante 100 horas",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"100horas"
     },
     {
         "titulo":"Afundando o mouse",
         "descricao":"Clique 10000 vezes",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"dezmilclicks"
     },
     {
         "titulo":"Auto clicker na certa",
         "descricao":"Atinga a marca de 100000 clicks",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"cemmilclicks"
     },
     {
         "titulo":"Deja vu",
         "descricao":"Faça o seu primeiro rebirth",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"umrebirth"
     },
     {
         "titulo":"Repetitivo",
         "descricao":"Faça o seu décimo rebirth",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"dezrebirth"
     },
     {
         "titulo":"Zerando o estoque",
         "descricao":"Compre todos os itens da loja",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"semestoque"
     }
 ]
