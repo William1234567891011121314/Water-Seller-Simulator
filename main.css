@@ -117,7 +117,7 @@ div#fatherpopup{
     place-items: center;
     justify-content: center;
     opacity: 0;
-    visibility: hidden;
+    visibility: hidden ;
     top: 0;
     left: 0;
     height: 100%;
@@ -200,14 +200,17 @@ div#trofeus>div{
     background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
     background-size: cover;
 }
-div#conquista{
+div#trofeu{
     position: absolute;
-    display: none;
+    top: 0;
     border: 1px solid black;
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-div#conquista>div{
+div#trofeu>img{
+    height: 20vh;
+}
+div#trofeu>div{
     display: block;
 }
 /* animações */
@@ -233,17 +236,17 @@ div#conquista>div{
 }
 @keyframes deslizarinicio {
     from {
-        transform: translateX(50%);
+        transform: translateX(0vw);
     }
     to {
-        transform: translateX(300%);
+        transform: translateX(80vw);
     }
 }
 @keyframes deslizarfim {
     from {
-        transform: translateX(-200%);
+        transform: translateX(-60vw);
     }
     to {
-        transform: translateX(50%);
+        transform: translateX(0vw);
     }
 }

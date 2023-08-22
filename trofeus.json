@@ -2,37 +2,37 @@
     {
         "titulo":"Monopolizando a rua",
         "descricao":"Contrate seu 10º vendedor",
-        "endereço":"./assets/trofeus/monopolizando_a_rua.bmp"
+        "endereço":"./assets/trofeus/10vendedores.bmp"
     },
     {
         "titulo":"Concorrência pesada",
         "descricao":"Contrate seu 100º vendedor",
-        "endereço":"./assets/trofeus/concorrencia pesada.bmp"
+        "endereço":"./assets/trofeus/100vendedores.bmp"
     },
     {
         "titulo":"Estamos em todas as bolsas, até na de Nova Iorque",
         "descricao":"Contrate seu 1000º vendedor",
-        "endereço":"./assets/trofeus/bolsa de nova iorque.bmp"
+        "endereço":"./assets/trofeus/1000.gif"
     },
     {
         "titulo":"Sinal verde para os lucros",
         "descricao":"Contrate seu 100º motoboy",
-        "endereço":"./assets/trofeus/sinal verde lucros.bmp"
+        "endereço":"./assets/trofeus/100motoboys.bmp"
     },
     {
         "titulo":"Matando a sede sem sair de casa",
         "descricao":"Contrate seu 1000º motoboy",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/1000motoboys.gif"
     },
     {
         "titulo":"1 milhão por um palio?",
         "descricao":"Compre o seu 100º carro",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/100carros.bmp"
     },
     {
         "titulo":"Cidade engarrafada",
         "descricao":"Compre o seu 1000º carro",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/1000carros.bmp"
     },
     {
         "titulo":"Céu nublado",

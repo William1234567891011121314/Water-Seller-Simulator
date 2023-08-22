@@ -1,11 +1,19 @@
 ﻿//constantes
+const lojanotificationdiv = document.querySelector("#lojanotificationdiv");
+const lojanotificationtxt = lojanotificationdiv.querySelector("#lojanotification");
+const sitetitle = document.querySelector("title");
+const body = document.querySelector("body");
+const menuloja = body.getElementById("menuloja");
+const menumain = body.getElementById("menumain");
+const menutrofeus = body.getElementById("menutrofeus");
+const fatherpopup = body.querySelector("#fatherpopup")
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-const contador = document.getElementById("contador");
-const dinheirobutton = document.getElementById("garrafa");
-const multiplicador = document.getElementById("multiplicador");
-const txt = [document.getElementById("txtmaquinasdevenda"), document.getElementById("txtcarros"), document.getElementById("txtpipa"), document.getElementById("txtfabrica"), document.getElementById("txtpolo"), document.getElementById("txtasteroides"), document.getElementById("txtplanetas"), document.getElementById("txtgalaxias"), document.getElementById("txtuniversos"), document.getElementById("txttempo")];
-const counter = [document.getElementById("vendedores"), document.getElementById("maquinasdevenda"), document.getElementById("carroscounter"), document.getElementById("pipacounter"), document.getElementById("fabricacounter"), document.getElementById("polocounter"), document.getElementById("asteroidecounter"), document.getElementById("planetascounter"), document.getElementById("galaxiascounter"), document.getElementById("universoscounter"), document.getElementById("tempocounter")];
-const button = [document.getElementById("vendedorbutton"), document.getElementById("maquinadevendabutton"), document.getElementById("carrosbutton"), document.getElementById("pipabutton"), document.getElementById("fabricabutton"), document.getElementById("polobutton"), document.getElementById("asteroidebutton"), document.getElementById("planetasbutton"), document.getElementById("galaxiasbutton"), document.getElementById("universosbutton"), document.getElementById("tempobutton")];
+const contador = body.querySelector("#contador");
+const dinheirobutton = body.querySelector("#garrafa");
+const multiplicador = body.querySelector("#multiplicador");
+const txt = [body.querySelector("#txtmaquinasdevenda"), body.querySelector("#txtcarros"), body.querySelector("#txtpipa"), body.querySelector("#txtfabrica"), body.querySelector("#txtpolo"), body.querySelector("#txtasteroides"), body.querySelector("#txtplanetas"), body.querySelector("#txtgalaxias"), body.querySelector("#txtuniversos"), body.querySelector("#txttempo")];
+const counter = [body.querySelector("#vendedores"), body.querySelector("#maquinasdevenda"), body.querySelector("#carroscounter"), body.querySelector("#pipacounter"), body.querySelector("#fabricacounter"), body.querySelector("#polocounter"), body.querySelector("#asteroidecounter"), body.querySelector("#planetascounter"), body.querySelector("#galaxiascounter"), body.querySelector("#universoscounter"), body.querySelector("#tempocounter")];
+const button = [body.querySelector("#vendedorbutton"), body.querySelector("#maquinadevendabutton"), body.querySelector("#carrosbutton"), body.querySelector("#pipabutton"), body.querySelector("#fabricabutton"), body.querySelector("#polobutton"), body.querySelector("#asteroidebutton"), body.querySelector("#planetasbutton"), body.querySelector("#galaxiasbutton"), body.querySelector("#universosbutton"), body.querySelector("#tempobutton")];
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
@@ -30,25 +38,27 @@ async function verificartrofeu(n,condition) {
         const request = await fetch("trofeus.json");
         const trofeus = await request.json();
         if(condition){
-            document.querySelector("body").innerHTML += 
-            `<div id="conquista">
+            fatherpopup.innerHTML += 
+            `<div id="trofeu">
                 <img src=${trofeus[n]["endereço"]}>
                 <div>
                     <h2>${trofeus[n]["titulo"]}</h2>
                     <p>${trofeus[n]["descricao"]}</p>
                 </div>
             </div>`
-            let trofeudiv = document.getElementById("conquista");
+            let trofeudiv = body.querySelector("#trofeu");
             setTimeout(() => {
                 trofeudiv.style.animationName = "deslizarinicio";
+                fatherpopup.classList.add("visivel");
             }, 6000);
             setTimeout(() => {
                 trofeudiv.style.animationName = "deslizarfim";
-                trofeudiv.style.display = "flex";
+                fatherpopup.classList.add("visivel");
             }, 1000);
-//            setTimeout(() => {
-//                document.querySelector("body").removeChild(trofeudiv);
-//            },7000);
+            setTimeout(() => {
+                fatherpopup.removeChild(trofeudiv);
+                fatherpopup.classList.remove("visivel");
+            },7000);
         }
     }catch(eror){
         console.log(eror);
@@ -100,12 +110,10 @@ function calculomultiplicador(n1, n2) {
 }
 const atualizar = {
     contador() {
-        document.querySelector("title").innerHTML = "R$" + Math.round(verificador(dinheiro)) + prefixo + " -Water Seller Simulator";
+        sitetitle.innerHTML = "R$" + Math.round(verificador(dinheiro)) + prefixo + " -Water Seller Simulator";
         contador.innerHTML = Math.round(verificador(dinheiro)) + prefixo;
     },
     notifications() {
-        let lojanotificationtxt = document.getElementById("lojanotification");
-        let lojanotificationdiv = document.getElementById("lojanotificationdiv");
         lojanotificationtxt.innerHTML = lojanotification;
         if(lojanotification>0){
             lojanotificationdiv.style.display = "flex";
@@ -178,7 +186,6 @@ const atualizar = {
 }
 let popupaux = true;
 function errorbox(txt) {
-    let fatherpopup = document.getElementById("fatherpopup");
     fatherpopup.classList.add("visivel");
     fatherpopup.innerHTML = `
     <div id="popup">
@@ -187,9 +194,9 @@ function errorbox(txt) {
             <button id="errorboxbutton">Ok</button>
         </div>
     </div>`;
-    let errorboxbutton = document.getElementById("errorboxbutton");
-    let popup = document.getElementById("popup");
-    let popuptext = document.querySelector("div#popup>p");
+    let errorboxbutton = body.querySelector("#errorboxbutton");
+    let popup = body.querySelector("#popup");
+    let popuptext = body.querySelector("#div#popup>p");
     popuptext.classList.add("visivel");
     popup.classList.add("visivel");
     errorboxbutton.classList.add("visivel");
@@ -208,7 +215,7 @@ function errorbox(txt) {
             errorboxbutton.classList.remove("visivel");
         }
     });
-    document.querySelector("body").addEventListener('keydown', ev => {
+    body.addEventListener('keydown', ev => {
         if(ev.key == "Escape"){
             fatherpopup.classList.remove("visivel");
             popup.classList.remove("visivel");
@@ -300,7 +307,7 @@ multiplicador.onclick = function() {
     multiplicador.innerHTML = multiplicadordecompra + "x";
     verificadormultiplicador()
 }
-document.getElementById("menuloja").onclick = function() {
+menuloja.onclick = function() {
     document.getElementById("main").style.borderBottom = "1px solid black";
     document.getElementById("main").style.display = "block";
     loja.style.display = "block";
@@ -308,7 +315,7 @@ document.getElementById("menuloja").onclick = function() {
     umafr.style.display = "none";
     document.getElementById("trofeus").style.display = "none";
 }
-document.getElementById("menumain").onclick = function() {
+menumain.onclick = function() {
     document.getElementById("main").style.borderBottom = "1px solid black";
     document.getElementById("main").style.display = "grid";
     loja.style.display = "none";
@@ -316,7 +323,7 @@ document.getElementById("menumain").onclick = function() {
     umafr.style.display = "flex";
     document.getElementById("trofeus").style.display = "none";
 }
-document.getElementById("menutrofeus").onclick = function() {
+menutrofeus.onclick = function() {
     document.getElementById("main").style.borderBottom = "1px solid black";
     document.getElementById("main").style.display = "block";
     loja.style.display = "none";
