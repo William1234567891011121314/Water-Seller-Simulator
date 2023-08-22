@@ -3,9 +3,9 @@ const lojanotificationdiv = document.querySelector("#lojanotificationdiv");
 const lojanotificationtxt = lojanotificationdiv.querySelector("#lojanotification");
 const sitetitle = document.querySelector("title");
 const body = document.querySelector("body");
-const menuloja = body.getElementById("menuloja");
-const menumain = body.getElementById("menumain");
-const menutrofeus = body.getElementById("menutrofeus");
+const menuloja = body.querySelector("#menuloja");
+const menumain = body.querySelector("#menumain");
+const menutrofeus = body.querySelector("#menutrofeus");
 const fatherpopup = body.querySelector("#fatherpopup")
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 const contador = body.querySelector("#contador");
@@ -60,6 +60,7 @@ async function verificartrofeu(n,condition) {
                 fatherpopup.classList.remove("visivel");
             },7000);
         }
+    
     }catch(eror){
         console.log(eror);
     }

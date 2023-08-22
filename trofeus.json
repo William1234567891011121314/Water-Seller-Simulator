@@ -2,87 +2,104 @@
     {
         "titulo":"Monopolizando a rua",
         "descricao":"Contrate seu 10º vendedor",
-        "endereço":"./assets/trofeus/10vendedores.bmp"
+        "endereço":"./assets/trofeus/10vendedores.bmp",
+        "id":"10vendedores"
     },
     {
         "titulo":"Concorrência pesada",
         "descricao":"Contrate seu 100º vendedor",
-        "endereço":"./assets/trofeus/100vendedores.bmp"
+        "endereço":"./assets/trofeus/100vendedores.bmp",
+        "id":"100vendedores"
     },
     {
         "titulo":"Estamos em todas as bolsas, até na de Nova Iorque",
         "descricao":"Contrate seu 1000º vendedor",
-        "endereço":"./assets/trofeus/1000.gif"
+        "endereço":"./assets/trofeus/1000vendedores.gif",
+        "id":"1000vendedores"
     },
     {
         "titulo":"Sinal verde para os lucros",
         "descricao":"Contrate seu 100º motoboy",
-        "endereço":"./assets/trofeus/100motoboys.bmp"
+        "endereço":"./assets/trofeus/100motoboys.bmp",
+        "id":"100motoboys"
     },
     {
         "titulo":"Matando a sede sem sair de casa",
         "descricao":"Contrate seu 1000º motoboy",
-        "endereço":"./assets/trofeus/1000motoboys.gif"
+        "endereço":"./assets/trofeus/1000motoboys.gif",
+        "id":"1000motoboys"
     },
     {
         "titulo":"1 milhão por um palio?",
         "descricao":"Compre o seu 100º carro",
-        "endereço":"./assets/trofeus/100carros.bmp"
+        "endereço":"./assets/trofeus/100carros.bmp",
+        "id":"100carro"
     },
     {
         "titulo":"Cidade engarrafada",
         "descricao":"Compre o seu 1000º carro",
-        "endereço":"./assets/trofeus/1000carros.bmp"
+        "endereço":"./assets/trofeus/1000carros.bmp",
+        "id":"1000carro"
     },
     {
         "titulo":"Céu nublado",
         "descricao":"Compre seu 100º caminhão pipa",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"100pipas"
     },
     {
         "titulo":"Secando o planeta",
         "descricao":"Compre seu 1000º caminhão pipa",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"1000pipas"
     },
     {
         "titulo":"Sal na água, ações em alta",
         "descricao":"Construa a sua 100ª fábrica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"100fabricas"
     },
     {
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"1000fabricas"
     },
     {
         "titulo":"Pintando o mapa",
         "descricao":"Construa o seu 100º polo industrial",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"100polos"
     },
     {
         "titulo":"Mais garrafas do que pessoas",
         "descricao":"Construa o seu 1000º polo industrial",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"1000polos"
     },
     {
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"100asteroides"
     },
     {
         "titulo":"Cadê o cinturão de Küiper?",
         "descricao":"Compre seu 1000º minerador de asteróides",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"1000asteroides"
     },
     {
         "titulo":"Contato extraterrestre",
         "descricao":"Compre sua 100ª nave inter-planetária",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"100planetas"
     },
     {
         "titulo":"Elon Musk uma vez disse: eu quero água",
         "descricao":"Compre sua 1000ª nave inter-planetária",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp"
+        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "id":"1000planetas"
     },
     {
         "titulo":"Via-aquática",
