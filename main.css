@@ -130,6 +130,9 @@ div#fatherpopup{
     opacity: 1 !important;
     visibility: visible !important;
 }
+.trofeu{
+    background-color: rgba(248, 248, 248, .0) !important;
+}
 div#popup{
     display: inline;
     opacity: 1;
@@ -204,6 +207,7 @@ div#trofeus>div{
 div#trofeu{
     position: absolute;
     top: 0;
+    background-color: rgba(248, 248, 248, .7);
     border: 1px solid black;
     animation-duration: 1s;
     animation-fill-mode: forwards;

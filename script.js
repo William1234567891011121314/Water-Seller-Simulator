@@ -17,6 +17,8 @@ const multiplicador = body.querySelector("#multiplicador");
 const txt = [main.querySelector("#txtmaquinasdevenda"), main.querySelector("#txtcarros"), main.querySelector("#txtpipa"), main.querySelector("#txtfabrica"), main.querySelector("#txtpolo"), main.querySelector("#txtasteroides"), main.querySelector("#txtplanetas"), main.querySelector("#txtgalaxias"), main.querySelector("#txtuniversos"), main.querySelector("#txttempo")];
 const counter = [main.querySelector("#vendedores"), main.querySelector("#maquinasdevenda"), main.querySelector("#carroscounter"), main.querySelector("#pipacounter"), main.querySelector("#fabricacounter"), main.querySelector("#polocounter"), main.querySelector("#asteroidecounter"), main.querySelector("#planetascounter"), main.querySelector("#galaxiascounter"), main.querySelector("#universoscounter"), main.querySelector("#tempocounter")];
 const button = [main.querySelector("#vendedorbutton"), main.querySelector("#maquinadevendabutton"), main.querySelector("#carrosbutton"), main.querySelector("#pipabutton"), main.querySelector("#fabricabutton"), main.querySelector("#polobutton"), main.querySelector("#asteroidebutton"), main.querySelector("#planetasbutton"), main.querySelector("#galaxiasbutton"), main.querySelector("#universosbutton"), main.querySelector("#tempobutton")];
+const clickaudio = new Audio("./assets/audios/Click.mp3");
+const menuaudio = new Audio("./assets/audios/Menus.mp3");
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [];
@@ -96,6 +98,7 @@ const atualizar = {
             const trofeus = await requesttrofeus.json();
             for(let n = 0; n <= trofeus.length; n++){
                 if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
+                    fatherpopup.classList.add("trofeu");
                     auxtrofeu[n] = false;
                     fatherpopup.innerHTML += 
                     `<div id="trofeu">
@@ -117,6 +120,7 @@ const atualizar = {
                     setTimeout(() => {
                         fatherpopup.removeChild(trofeudiv);
                         fatherpopup.classList.remove("visivel");
+                        fatherpopup.classList.remove("trofeu");
                     },7000);
                     let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
                     let conquistatitulo = conquista.querySelector(".informationdiv>h3");
@@ -328,6 +332,7 @@ multiplicador.onclick = function() {
     verificadormultiplicador()
 }
 menuloja.onclick = function() {
+    menuaudio.play();
     main.style.borderBottom = "1px solid black";
     main.style.display = "block";
     loja.style.display = "block";
@@ -336,6 +341,7 @@ menuloja.onclick = function() {
     conquistas.style.display = "none";
 }
 menumain.onclick = function() {
+    menuaudio.play();
     main.style.borderBottom = "1px solid black";
     main.style.display = "grid";
     loja.style.display = "none";
@@ -344,6 +350,7 @@ menumain.onclick = function() {
     conquistas.style.display = "none";
 }
 menutrofeus.onclick = function() {
+    menuaudio.play();
     main.style.borderBottom = "1px solid black";
     main.style.display = "block";
     loja.style.display = "none";
@@ -355,6 +362,7 @@ dinheirobutton.addEventListener('click', ev => {
     clicks++;
     dinheiro+=clickmodifier;
     atualizar.contador();
+    clickaudio.play();
     let clickimg = document.createElement("img");
     clickimg.setAttribute("src", "./assets/Click.png");
     clickimg.setAttribute("id", "garrafaclick");
