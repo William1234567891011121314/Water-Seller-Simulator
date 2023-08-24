@@ -5,7 +5,7 @@
         "precotxt":"R$1500",
         "preco":"1500",
         "condicao":"clicks>=400",
-        "aux":true
+        "efeito":"clickmodifier=4"
     },
     {
         "titulo":"Pagar comissão para os vendedores.",
@@ -13,7 +13,7 @@
         "precotxt":"R$12000",
         "preco":"12000",
         "condicao":"objetos[0]>=50",
-        "aux":true
+        "efeito":"multiplicadores[0]*2"
     },
     {
         "titulo":"Instalar modo turbo nas motos dos motoboys.",
@@ -21,7 +21,7 @@
         "precotxt":"R$16000",
         "preco":"16000",
         "condicao":"objetos[1]>=50",
-        "aux":true
+        "efeito":"multiplicadores[1]*2"
     },
     {
         "titulo":"Comprar alto-falante mais alto para os carros.",
@@ -29,7 +29,7 @@
         "precotxt":"R$80000",
         "preco":"80000",
         "condicao":"objetos[2]>=50",
-        "aux":true
+        "efeito":"multiplicadores[2]*2"
     },
     {
         "titulo":"Comprar tanque de água maior para os caminhões pipa.",
@@ -37,7 +37,7 @@
         "precotxt":"R$200000",
         "preco":"200000",
         "condicao":"objetos[3]>=50",
-        "aux":true
+        "efeito":"multiplicadores[3]*2"
     },
     {
         "titulo":"Forçar seus funcionários a fazer hora extra.",
@@ -45,7 +45,7 @@
         "precotxt":"R$4 Milhões",
         "preco":"4000000",
         "condicao":"objetos[4]>=50",
-        "aux":true
+        "efeito":"multiplicadores[4]*2"
     },
     {
         "titulo":"Instalar esteiras entre fábrcas nos polos industriais.",
@@ -53,7 +53,7 @@
         "precotxt":"R$40 Milhões",
         "preco":"40000000",
         "condicao":"objetos[5]>=50",
-        "aux":true
+        "efeito":"multiplicadores[5]*2"
     },
     {
         "titulo":"Desenvolver velas solares.",
@@ -61,7 +61,7 @@
         "precotxt":"R$400 Milhões",
         "preco":"400000000",
         "condicao":"objetos[6]>=50",
-        "aux":true
+        "efeito":"multiplicadores[6]*2"
     },
     {
         "titulo":"Desenvolver motor de antimatéria.",
@@ -69,7 +69,7 @@
         "precotxt":"R$4 Bilhões",
         "preco":"4000000000",
         "condicao":"objetos[7]>=50",
-        "aux":true
+        "efeito":"multiplicadores[7]*2"
     },
     {
         "titulo":"Desenvolver motor de dobra espacial.",
@@ -77,7 +77,7 @@
         "precotxt":"R$50 Bilhões",
         "preco":"50000000000",
         "condicao":"objetos[7]>0",
-        "aux":true
+        "efeito":"tecnologias[1]=true"
     },
     {
         "titulo":"Desenvolver propulsores de viagem interdimensional.",
@@ -85,7 +85,7 @@
         "precotxt":"R$400 Bilhões",
         "preco":"400000000000",
         "condicao":"objetos[8]>0",
-        "aux":true
+        "efeito":"tecnologias[2]=true"
     },
     {
         "titulo":"Desenvolver máquina de viagem no tempo.",
@@ -93,7 +93,7 @@
         "precotxt":"R$4 Trilhões",
         "preco":"4000000000000",
         "condicao":"objetos[9]>0",
-        "aux":true
+        "efeito":"tecnologias[3]=true"
     },
     {
         "titulo":"Fundar agência espacial.",
@@ -101,15 +101,15 @@
         "precotxt":"R$350 Milhões",
         "preco":"350000000",
         "condicao":"objetos[5]>=1",
-        "aux":true
+        "efeito":"tecnologias[0]=true"
     },
     {
         "titulo":"Comprar um botão multiplicador de compras.",
         "descricao":"Com esse botão você pode comprar 10 ou 100 itens com um único click!",
         "precotxt":"R$10000",
-        "preco":"R$10000",
+        "preco":"10000",
         "condicao":"clicks>=1500",
-        "aux":true
+        "efeito":"multiplicador.classList.add('visivel')"
     },
     {
         "titulo":"Investir em propaganda na internet.",
@@ -117,6 +117,6 @@
         "precotxt":"R$50000",
         "preco":"50000",
         "condicao":"clicks>=2200",
-        "aux":true
+        "efeito":"moneytime=800"
     }
 ]

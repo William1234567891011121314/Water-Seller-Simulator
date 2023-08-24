@@ -21,6 +21,7 @@ const button = [main.querySelector("#vendedorbutton"), main.querySelector("#maqu
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
 var aux2 = -1;
+var auxtrofeu = [];
 var lojanotification = 0;
 var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
 var objetos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -33,45 +34,6 @@ var clickmodifier = 1;
 var tecnologias = [false, false, false, false];
 var tempo;
 //funções
-async function verificartrofeu() {
-    try{
-        const request = await fetch("trofeus.json");
-        const trofeus = await request.json();
-        for(let n = 0; n <= trofeus.length; n++){
-            if(eval(trofeus[n]["condition"])){
-                fatherpopup.innerHTML += 
-                `<div id="trofeu">
-                    <img src=${trofeus[n]["endereço"]}>
-                    <div>
-                        <h2>${trofeus[n]["titulo"]}</h2>
-                        <p>${trofeus[n]["descricao"]}</p>
-                    </div>
-                </div>`
-                let trofeudiv = body.querySelector("#trofeu");
-                setTimeout(() => {
-                    trofeudiv.style.animationName = "deslizarinicio";
-                    fatherpopup.classList.add("visivel");
-                }, 6000);
-                setTimeout(() => {
-                    trofeudiv.style.animationName = "deslizarfim";
-                    fatherpopup.classList.add("visivel");
-                }, 1000);
-                setTimeout(() => {
-                    fatherpopup.removeChild(trofeudiv);
-                    fatherpopup.classList.remove("visivel");
-                },7000);
-                let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
-                let conquistatitulo = conquista.querySelector(".informationdiv>h3");
-                let conquistatxt = conquista.querySelector(".informationdiv>p");
-                conquistatitulo.innerHTML = trofeus[n]["titulo"];
-                conquistatxt.innerHTML = trofeus[n]["descricao"];
-                conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
-            }
-        }
-    }catch(eror){
-        console.log(eror);
-    }
-}
 function verificador(verificadorinput) {
     if(verificadorinput<1000000){
         prefixo = "";
@@ -129,12 +91,52 @@ const atualizar = {
         }
         lojanotificationdiv.style.display = "none";
     },
+    async trofeus() {
+        try{
+            const requesttrofeus = await fetch("trofeus.json");
+            const trofeus = await requesttrofeus.json();
+            for(let n = 0; n <= trofeus.length; n++){
+                if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
+                    auxtrofeu[n] = false;
+                    fatherpopup.innerHTML += 
+                    `<div id="trofeu">
+                        <img src=${trofeus[n]["endereço"]}>
+                        <div>
+                            <h2>${trofeus[n]["titulo"]}</h2>
+                            <p>${trofeus[n]["descricao"]}</p>
+                        </div>
+                    </div>`
+                    let trofeudiv = body.querySelector("#trofeu");
+                    setTimeout(() => {
+                        trofeudiv.style.animationName = "deslizarinicio";
+                        fatherpopup.classList.add("visivel");
+                    }, 6000);
+                    setTimeout(() => {
+                        trofeudiv.style.animationName = "deslizarfim";
+                        fatherpopup.classList.add("visivel");
+                    }, 1000);
+                    setTimeout(() => {
+                        fatherpopup.removeChild(trofeudiv);
+                        fatherpopup.classList.remove("visivel");
+                    },7000);
+                    let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
+                    let conquistatitulo = conquista.querySelector(".informationdiv>h3");
+                    let conquistatxt = conquista.querySelector(".informationdiv>p");
+                    conquistatitulo.innerHTML = trofeus[n]["titulo"];
+                    conquistatxt.innerHTML = trofeus[n]["descricao"];
+                    conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
+                }
+            }
+        }catch(eror){
+        }
+    },
     dinheiro() {
         moneyloop = setInterval(() => {
             dinheiro += objetos[0] * multiplicadores[0] + (objetos[1] * multiplicadores[1]) + (objetos[2] * multiplicadores[2]) + (objetos[3] * multiplicadores[3]) + (objetos[4] * multiplicadores[4]) + (objetos[5] * multiplicadores[5]) + (objetos[6] * multiplicadores[6]) + (objetos[7] * multiplicadores[7]) + (objetos[8] * multiplicadores[8]) + (objetos[9] * multiplicadores[9]) + (objetos[10] * multiplicadores[10]);
             atualizar.contador();
             verificarloja();
             atualizar.notifications();
+            atualizar.trofeus();
             tempo += moneytime;
         }, moneytime);
     },
@@ -203,63 +205,61 @@ function errorbox(txt) {
             <button id="errorboxbutton">Ok</button>
         </div>
     </div>`;
-    let errorboxbutton = body.querySelector("#errorboxbutton");
-    let popup = body.querySelector("#popup");
-    let popuptext = body.querySelector("#div#popup>p");
+    const popup = fatherpopup.querySelector("#popup");
+    const errorboxbutton = popup.querySelector("#errorboxbutton");
+    const popuptext = popup.querySelector("p");
     popuptext.classList.add("visivel");
     popup.classList.add("visivel");
     errorboxbutton.classList.add("visivel");
-    errorboxbutton.addEventListener('click', () => {
+    function visivel(){
         fatherpopup.classList.remove("visivel");
         popup.classList.remove("visivel");
         popuptext.classList.remove("visivel");
         errorboxbutton.classList.remove("visivel");
+        fatherpopup.innerHTML = "";
+    }
+    errorboxbutton.addEventListener('click', () => {
+        visivel();
     });
     fatherpopup.addEventListener('click', ev => {
-        console.log(ev)
         if(ev.target==fatherpopup){
-            fatherpopup.classList.remove("visivel");
-            popup.classList.remove("visivel");
-            popuptext.classList.remove("visivel");
-            errorboxbutton.classList.remove("visivel");
+            visivel();
         }
     });
     body.addEventListener('keydown', ev => {
         if(ev.key == "Escape"){
-            fatherpopup.classList.remove("visivel");
-            popup.classList.remove("visivel");
-            popuptext.classList.remove("visivel");
-            errorboxbutton.classList.remove("visivel");
+            visivel();
         }
     });
 }
 async function verificarloja() {
     try{
-        const request = await fetch("loja.json");
-        const lojaitens = await request.json();
+        const requestloja = await fetch("loja.json");
+        const lojaitens = await requestloja.json();
         for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
             if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
-                aux2++;
                 aux[auxloja] = false;
                 let itemDiv = document.createElement("div");
-                itemDiv.className = `item-${aux2}`;
+                itemDiv.className = `item-${auxloja}`;
                 itemDiv.innerHTML = `
                     <div class="ultimo">
                         <img class="information" src="./assets/Information.png">
                         <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
                         <p>${lojaitens[auxloja]["titulo"]}</p>
                     </div>
-                    <button id="button-${aux2}">${lojaitens[auxloja]["precotxt"]}</button>`;
+                    <button id="button-${auxloja}">${lojaitens[auxloja]["precotxt"]}</button>`;
                 loja.appendChild(itemDiv);
                 lojanotification++;
                 (function(auxloja) {
-                    document.querySelector(`#button-${aux2}`).onclick = function (){
+                    document.querySelector(`#button-${auxloja}`).onclick = function (){
                         if(dinheiro>=lojaitens[auxloja]["preco"]){
                             dinheiro -= lojaitens[auxloja]["preco"];
-                            loja.removeChild(eventdivs[aux2]);
+                            loja.removeChild(loja.querySelector(`.item-${auxloja}`));
                             lojanotification--;
                             atualizar.notifications();
                             atualizar.contador();
+                            eval(lojaitens[auxloja]["efeito"]);
+                            console.log(lojaitens[auxloja]["efeito"]);
                             return;
                         }
                         errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -303,6 +303,18 @@ function verificadormultiplicador() {
     }
 }
 //código
+async function gerar() {
+    try{
+        const requesttrofeus = await fetch("trofeus.json");
+        const trofeus = await requesttrofeus.json();
+        trofeus.forEach(trofeu => {
+            auxtrofeu.push(true);
+        });
+    } catch (erro){
+        console.log("Deu ruim no async do gerar trofeus: ", erro);
+    }
+}
+gerar();
 atualizar.dinheiro();
 multiplicador.onclick = function() {
     if(multiplicadordecompra>=100){

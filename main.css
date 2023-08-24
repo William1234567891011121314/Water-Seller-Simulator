@@ -156,7 +156,8 @@ div#loja div{
     justify-content: space-between;
 }
 button#multiplicador {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 img.information:hover{
     transform: scale(120%)
