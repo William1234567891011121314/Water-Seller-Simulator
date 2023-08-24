@@ -19,8 +19,7 @@ const counter = [main.querySelector("#vendedores"), main.querySelector("#maquina
 const button = [main.querySelector("#vendedorbutton"), main.querySelector("#maquinadevendabutton"), main.querySelector("#carrosbutton"), main.querySelector("#pipabutton"), main.querySelector("#fabricabutton"), main.querySelector("#polobutton"), main.querySelector("#asteroidebutton"), main.querySelector("#planetasbutton"), main.querySelector("#galaxiasbutton"), main.querySelector("#universosbutton"), main.querySelector("#tempobutton")];
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
-var aux = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
-var aux2 = -1;
+var aux = [];
 var auxtrofeu = [];
 var lojanotification = 0;
 var multiplicadores = [1, 10, 200, 500, 10000, 100000, 500000, 10**7, 10**8, 10**9, 10**10];
@@ -127,7 +126,8 @@ const atualizar = {
                     conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
                 }
             }
-        }catch(eror){
+        }catch(trofeuserror){
+            //console.log("Deu ruim nos trofeus: ", trofeuserror); => a culpa é do interpretador
         }
     },
     dinheiro() {
@@ -259,7 +259,6 @@ async function verificarloja() {
                             atualizar.notifications();
                             atualizar.contador();
                             eval(lojaitens[auxloja]["efeito"]);
-                            console.log(lojaitens[auxloja]["efeito"]);
                             return;
                         }
                         errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
@@ -267,8 +266,8 @@ async function verificarloja() {
                 })(auxloja);
             }
         }
-    }catch(eror){
-        console.log(eror);
+    }catch(lojaerror){
+        console.log("Deu ruim na loja: ", lojaerror);
     }
 }
 function verificadormultiplicador() {
@@ -307,11 +306,12 @@ async function gerar() {
     try{
         const requesttrofeus = await fetch("trofeus.json");
         const trofeus = await requesttrofeus.json();
-        trofeus.forEach(trofeu => {
-            auxtrofeu.push(true);
-        });
-    } catch (erro){
-        console.log("Deu ruim no async do gerar trofeus: ", erro);
+        trofeus.forEach(eltrofeu => {auxtrofeu.push(true)});
+        const requestloja = await fetch("loja.json");
+        const lojaitens = await requestloja.json();
+        lojaitens.forEach(elloja => {aux.push(true)});
+    }catch(gerarerror){
+        console.log("Deu ruim no async do gerar auxelements: ", gerarerror);
     }
 }
 gerar();
