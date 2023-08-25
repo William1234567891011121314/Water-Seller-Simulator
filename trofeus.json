@@ -1,288 +1,288 @@
 [
     {
-        "titulo":"Monopolizando a rua",
+        "titulo":"interrogacao",
         "descricao":"Contrate seu 10º vendedor",
-        "endereço":"./assets/trofeus/10vendedores.bmp",
+        "endereço":"./assets/trofeus/dezvendedores.bmp",
         "id":"dezvendedores",
         "condition":"objetos[0]>=10"
     },
     {
         "titulo":"Concorrência pesada",
         "descricao":"Contrate seu 100º vendedor",
-        "endereço":"./assets/trofeus/100vendedores.bmp",
+        "endereço":"./assets/trofeus/cemvendedores.bmp",
         "id":"cemvendedores",
         "condition":"objetos[0]>=100"
     },
     {
         "titulo":"Estamos em todas as bolsas, até na de Nova Iorque",
         "descricao":"Contrate seu 1000º vendedor",
-        "endereço":"./assets/trofeus/1000vendedores.gif",
+        "endereço":"./assets/trofeus/milvendedores.gif",
         "id":"milvendedores",
         "condition":"objetos[0]>=1000"
     },
     {
         "titulo":"Sinal verde para os lucros",
         "descricao":"Contrate seu 100º motoboy",
-        "endereço":"./assets/trofeus/100motoboys.bmp",
+        "endereço":"./assets/trofeus/cemmotoboys.bmp",
         "id":"cemmotoboys",
         "condition":"objetos[1]>=100"
     },
     {
         "titulo":"Matando a sede sem sair de casa",
         "descricao":"Contrate seu 1000º motoboy",
-        "endereço":"./assets/trofeus/1000motoboys.gif",
+        "endereço":"./assets/trofeus/milmotoboys.gif",
         "id":"milmotoboys",
         "condition":"objetos[1]>=1000"
     },
     {
         "titulo":"1 milhão por um palio?",
         "descricao":"Compre o seu 100º carro",
-        "endereço":"./assets/trofeus/100carros.bmp",
+        "endereço":"./assets/trofeus/cemcarros.bmp",
         "id":"cemcarro",
         "condition":"objetos[2]>=100"
     },
     {
         "titulo":"Cidade engarrafada",
         "descricao":"Compre o seu 1000º carro",
-        "endereço":"./assets/trofeus/1000carros.bmp",
+        "endereço":"./assets/trofeus/milcarros.bmp",
         "id":"milcarro",
         "condition":"objetos[2]>=1000"
     },
     {
         "titulo":"Céu nublado",
         "descricao":"Compre seu 100º caminhão pipa",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/cempipas.bmp",
         "id":"cempipas",
         "condition":"objetos[3]>=100"
     },
     {
         "titulo":"Secando o planeta",
         "descricao":"Compre seu 1000º caminhão pipa",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/milpipas.bmp",
         "id":"milpipas",
         "condition":"objetos[3]>=1000"
     },
     {
         "titulo":"Sal na água, ações em alta",
         "descricao":"Construa a sua 100ª fábrica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/cemfabricas.bmp",
         "id":"cemfabricas",
         "condition":"objetos[4]>=100"
     },
     {
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"milfabricas",
         "condition":"objetos[4]>=1000"
     },
     {
         "titulo":"Pintando o mapa",
         "descricao":"Construa o seu 100º polo industrial",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cempolos",
         "condition":"objetos[5]>=100"
     },
     {
         "titulo":"Mais garrafas do que pessoas",
         "descricao":"Construa o seu 1000º polo industrial",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"milpolos",
         "condition":"objetos[5]>=1000"
     },
     {
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemasteroides",
         "condition":"objetos[6]>=100"
     },
     {
         "titulo":"Cadê o cinturão de Küiper?",
         "descricao":"Compre seu 1000º minerador de asteróides",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"milasteroides",
         "condition":"objetos[6]>=1000"
     },
     {
         "titulo":"Contato extraterrestre",
         "descricao":"Compre sua 100ª nave inter-planetária",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemplanetas",
         "condition":"objetos[7]>=100"
     },
     {
         "titulo":"Elon Musk uma vez disse: eu quero água",
         "descricao":"Compre sua 1000ª nave inter-planetária",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"milplanetas",
         "condition":"objetos[7]>=1000"
     },
     {
         "titulo":"Via-aquática",
         "descricao":"Compre sua 100ª nave inter-galáctica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemgalaxias",
         "condition":"objetos[8]>=100"
     },
     {
         "titulo":"Onipresente",
         "descricao":"Compre sua 1000ª nave inter-galáctica",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"milgalaxias",
         "condition":"objetos[8]>=1000"
     },
     {
         "titulo":"Viajando pela 4ª dimensão",
         "descricao":"Compre sua 100ª nave inter-universal",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemuniversos",
         "condition":"objetos[8]>=100"
     },
     {
         "titulo":"Multiverso",
         "descricao":"Compre sua 1000ª nave inter-universal",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"miluniversos",
         "condition":"objetos[8]>=1000"
     },
     {
         "titulo":"Cuidado com plutônio",
         "descricao":"Compre a sua 100ª máquina do tempo",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemtempo",
         "condition":"objetos[9]>=100"
     },
     {
         "titulo":"Perda de tempo",
         "descricao":"Compre a sua 1000ª máquina do tempo",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"miltempo",
         "condition":"objetos[9]>=1000"
     },
     {
         "titulo":"Espaço",
         "descricao":"Funde uma agência espacial",
-        "endereço":"./assets/trofeus/agencia.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"agencia",
         "condition":"tecnologias[0]===true"
     },
     {
         "titulo":"Quem se importa com leis trabalistas?",
         "descricao":"Force os seus funcinários a fazer hora extra",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"fabricax2",
         "condition":"multiplicadores[4]>===20000"
     },
     {
         "titulo":"Mais rápido do que a luz",
         "descricao":"Desenvolva um motor de dobra espacial",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"velocidadeluz",
         "condition":"tecnologias[1]===true"
     },
     {
         "titulo":"Por que?",
         "descricao":"Tenha 59 vendedores, 27 motoboys, 19 carros, 11 caminhões pipas, 6 fábricas e 2 polos",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"especifico",
         "condition":"objetos[0]===59 && objetos[1]===27 && objetos[2]===19 && objetos[3]===11 && objetos[4]===6 && objetos[5]===2"
     },
     {
         "titulo":"É o carro da água passando na sua rua",
         "descricao":"Compre um alto-falante gigante para o seu carro",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"carrosx2",
         "condition":"multiplicadores[2]>=400"
     },
     {
         "titulo":"Produtividade máxima",
         "descricao":"Instale esteiras entre as fábricas dos polos industriais",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"polosx2",
         "condition":"multiplicadores[5]>=200000"
     },
     {
         "titulo":"Felicidade genuína",
         "descricao":"Compre o curso do metaforando",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"metaforando",
         "condition":"clickmodifier>=8"
     },
     {
         "titulo":"Show do galão",
         "descricao":"Alcance o seu primeiro milhão",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"ummilhao",
         "condition":"dinheiro>=1000000"
     },
     {
         "titulo":"São tantos zeros!",
         "descricao":"Alcance a marca de quintilhão",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"umquintilhao",
         "condition":"dinheiro>=1000000000000000000"
     },
     {
         "titulo":"Espaço != tempo",
         "descricao":"Tenha uma máquina do tempo sem ter explorado o espaço",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"espacosemtempo",
         "condition":"tecnologias[3]===true && tecnologias[0]===false"
     },
     {
         "titulo":"Quatrilionário",
         "descricao":"Acumule o seu primeiro quatrilhão",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"umquatrilhao",
         "condition":"dinheiro>=1000000000000000"
     },
     {
         "titulo":"10 horas em um clicker simples?",
         "descricao":"Jogue durante 10 horas",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"10horas",
         "condition":"tempo===36000"
     },
     {
         "titulo":"É melhor você pisar na grama",
         "descricao":"Jogue durante 100 horas",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"100horas",
         "condition":"tempo===360000"
     },
     {
         "titulo":"Afundando o mouse",
         "descricao":"Clique 10000 vezes",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"dezmilclicks",
         "condition":"clicks===10000"
     },
     {
         "titulo":"Auto clicker na certa",
         "descricao":"Atinga a marca de 100000 clicks",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemmilclicks",
         "condition":"clicks===100000"
     },
     {
         "titulo":"Deja vu",
         "descricao":"Faça o seu primeiro rebirth",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"umrebirth",
         "condition":"rebirth===1"
     },
     {
         "titulo":"Repetitivo",
         "descricao":"Faça o seu décimo rebirth",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"dezrebirth",
         "condition":"rebirth===10"
     },
     {
         "titulo":"Zerando o estoque",
         "descricao":"Compre todos os itens da loja",
-        "endereço":"./assets/trofeus/monopolizando a rua.bmp",
+        "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"semestoque",
         "condition":"true===false"
     }
