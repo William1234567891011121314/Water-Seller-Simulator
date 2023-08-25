@@ -84,6 +84,19 @@ div#tresfr{
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
+@media (aspect-ratio: 9/16) {
+    div#tresfr{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 1fr);
+    }
+    div#main{
+        grid-template-columns: 1fr;
+    }
+    #tresfr :nth-child(11){
+        border-bottom: 1px solid black !important;
+    }
+}
 div#tresfr>div{
     display: grid;
     grid-template-columns: 2fr 1fr;

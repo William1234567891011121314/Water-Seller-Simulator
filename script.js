@@ -5,10 +5,12 @@ const sitetitle = document.querySelector("title");
 const body = document.querySelector("body");
 const main = body.querySelector("#main");
 const loja = main.querySelector("#loja");
-const conquistas = main.querySelector("#trofeus")
-const menuloja = body.querySelector("#menuloja");
-const menumain = body.querySelector("#menumain");
-const menutrofeus = body.querySelector("#menutrofeus");
+const garrafa = main.querySelector("#garrafa");
+const conquistas = main.querySelector("#trofeus");
+const nav = body.querySelector("#nav");
+const menuloja = nav.querySelector("#menuloja");
+const menumain = nav.querySelector("#menumain");
+const menutrofeus = nav.querySelector("#menutrofeus");
 const fatherpopup = body.querySelector("#fatherpopup");
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 const contador = body.querySelector("#contador");
@@ -305,7 +307,46 @@ function verificadormultiplicador() {
         atualizar.delorean();
     }
 }
+function moneyclick(ev) {
+    clicks++;
+    dinheiro+=clickmodifier;
+    atualizar.contador();
+    clickaudio.play();
+    let clickimg = document.createElement("img");
+    clickimg.setAttribute("src", "./assets/Click.png");
+    clickimg.setAttribute("id", "garrafaclick");
+    clickimg.style.top = ev.clientY + "px";
+    clickimg.style.left = ev.clientX + "px";
+    let rotate = Math.random(0,1);
+    if(rotate>0.5){
+        clickimg.style.animationName = "rightrotate";
+    }else{
+        clickimg.style.animationName = "leftrotate";
+    }
+    body.appendChild(clickimg);
+    setTimeout(() => {
+        garrafa.style.transform = "scale(100%)";
+        body.removeChild(clickimg);
+    }, 300)
+    garrafa.style.transform = "scale(75%)";
+}
+function celular() {
+    const aspectratio = window.innerWidth / window.innerHeight;
+    if(aspectratio===9/16){
+        return true;
+    }
+    return false;
+}
 //código
+if(celular()){
+    body.addEventListener('click', ev => {
+        console.log(ev.target);
+        if(!ev.target.closest("#nav")){
+            moneyclick(ev);
+        }
+    });
+    main.removeChild(main.querySelector("#umafr"));
+}
 async function gerar() {
     try{
         const requesttrofeus = await fetch("trofeus.json");
@@ -359,27 +400,7 @@ menutrofeus.onclick = function() {
     conquistas.style.display = "grid";
 }
 dinheirobutton.addEventListener('click', ev => {
-    clicks++;
-    dinheiro+=clickmodifier;
-    atualizar.contador();
-    clickaudio.play();
-    let clickimg = document.createElement("img");
-    clickimg.setAttribute("src", "./assets/Click.png");
-    clickimg.setAttribute("id", "garrafaclick");
-    clickimg.style.top = ev.clientY + "px";
-    clickimg.style.left = ev.clientX + "px";
-    let rotate = Math.random(0,1);
-    if(rotate>0.5){
-        clickimg.style.animationName = "rightrotate";
-    }else{
-        clickimg.style.animationName = "leftrotate";
-    }
-    umafr.appendChild(clickimg);
-    setTimeout(() => {
-        garrafa.style.transform = "scale(100%)";
-            umafr.removeChild(clickimg);
-    }, 300)
-    garrafa.style.transform = "scale(75%)";
+    moneyclick(ev);
 });
 button[0].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[0], precosbase[0])){
