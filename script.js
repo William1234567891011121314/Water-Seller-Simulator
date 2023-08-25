@@ -341,7 +341,7 @@ function celular() {
 if(celular()){
     body.addEventListener('click', ev => {
         console.log(ev.target);
-        if(!ev.target.closest("#nav")){
+        if(!ev.target.closest("#nav") && !ev.target.closest("button")){
             moneyclick(ev);
         }
     });
@@ -378,8 +378,8 @@ menuloja.onclick = function() {
     main.style.display = "block";
     loja.style.display = "block";
     tresfr.style.display = "none";
-    umafr.style.display = "none";
     conquistas.style.display = "none";
+    umafr.style.display = "none";
 }
 menumain.onclick = function() {
     menuaudio.play();
@@ -387,8 +387,8 @@ menumain.onclick = function() {
     main.style.display = "grid";
     loja.style.display = "none";
     tresfr.style.display = "grid";
-    umafr.style.display = "flex";
     conquistas.style.display = "none";
+    umafr.style.display = "flex";
 }
 menutrofeus.onclick = function() {
     menuaudio.play();
@@ -396,8 +396,8 @@ menutrofeus.onclick = function() {
     main.style.display = "block";
     loja.style.display = "none";
     tresfr.style.display = "none";
-    umafr.style.display = "none";
     conquistas.style.display = "grid";
+    umafr.style.display = "none";
 }
 dinheirobutton.addEventListener('click', ev => {
     moneyclick(ev);
