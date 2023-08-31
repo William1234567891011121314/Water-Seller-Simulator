@@ -331,8 +331,7 @@ function moneyclick(ev) {
     garrafa.style.transform = "scale(75%)";
 }
 function celular() {
-    const aspectratio = window.innerWidth / window.innerHeight;
-    if(aspectratio===9/16){
+    if(window.innerWidth<window.innerHeight){
         return true;
     }
     return false;
