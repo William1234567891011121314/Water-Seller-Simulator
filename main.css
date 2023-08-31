@@ -1,271 +1,523 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: x-large;
-}
-button{
-    cursor: pointer;
-    transition: .4s;
-    border: 2px groove;
-    background-color: rgba(248, 248, 248, .7);
-}
-button:hover{
-    background-color: rgba(180, 180, 180, .7);
-    box-shadow: 2px 2px 2px;
-    transform: scale(110%);
-}
-img#cadeado{
-    height: 100%;
-}
-div#lojanotificationdiv{
-    display: none;
-    justify-content: center;
-    color: white;
-    align-items: center;
-    border-radius: 50%;
-    width: 2.3rem;
-    background-color: red;
-}
-#lojanotification{
-    margin: 0px;
-    font-size: xx-large;
-}
-body>div>div{
-    display: flex;
-}
-body>div{
-    display: flex;
-    border: 1px solid black;
-    border-bottom: 0;
-    justify-content: space-between;
-    background-color: rgba(248, 248, 248, .7);
-}
-body{
-    overflow-x: hidden;
-    background-color : rgb(180, 180, 255);
-    box-shadow: 2px 2px 4px;
-}
-div#nav{
-    background-color: rgba(70, 70, 80, .5);
-    color: white;
-    box-shadow: 0 5px black;
-}
-div.menu{
-    border-right: 1px solid black;
-    font-size: 2rem;
-    transition: .5s;
-    display: flex;
-}
-div.menu:hover{
-    cursor: pointer;
-    background-color: rgba(180, 180, 255, .7);
-}
-div#divcontador{
-    border-left: 1px solid black;
-    font-size: 2rem;
-}
-span#contador{
-    font-size: 2rem;
-}
-div#main{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    border: 1px solid black;
-}
-div#main div.ultimo{
-    border-bottom: 0;
-}
-div#umafr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-div#tresfr{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-}
-@media (aspect-ratio: 9/16) {
-    div#tresfr{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(10, 1fr);
+@media (min-width:768px) {
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: x-large;
+    }
+    button{
+        cursor: pointer;
+        transition: .4s;
+        border: 2px groove;
+        background-color: rgba(248, 248, 248, .7);
+    }
+    button:hover{
+        background-color: rgba(180, 180, 180, .7);
+        box-shadow: 2px 2px 2px;
+        transform: scale(110%);
+    }
+    img#cadeado{
+        height: 100%;
+    }
+    div#lojanotificationdiv{
+        display: none;
+        justify-content: center;
+        color: white;
+        align-items: center;
+        border-radius: 50%;
+        width: 2.3rem;
+        background-color: red;
+    }
+    #lojanotification{
+        margin: 0px;
+        font-size: xx-large;
+    }
+    body>div>div{
+        display: flex;
+    }
+    body>div{
+        display: flex;
+        border: 1px solid black;
+        border-bottom: 0;
+        justify-content: space-between;
+        background-color: rgba(248, 248, 248, .7);
+    }
+    body{
+        overflow-x: hidden;
+        background-color : rgb(180, 180, 255);
+        box-shadow: 2px 2px 4px;
+    }
+    div#nav{
+        background-color: rgba(70, 70, 80, .5);
+        color: white;
+        box-shadow: 0 5px black;
+    }
+    div.menu{
+        border-right: 1px solid black;
+        font-size: 2rem;
+        transition: .5s;
+        display: flex;
+    }
+    div.menu:hover{
+        cursor: pointer;
+        background-color: rgba(180, 180, 255, .7);
+    }
+    div#divcontador{
+        border-left: 1px solid black;
+        font-size: 2rem;
+    }
+    span#contador{
+        font-size: 2rem;
     }
     div#main{
-        grid-template-columns: 1fr;
-        height: 80%;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        border: 1px solid black;
     }
-    #tresfr :nth-child(11){
-        border-bottom: 1px solid black !important;
+    div#main div.ultimo{
+        border-bottom: 0;
     }
-}
-div#tresfr>div{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    justify-content: space-around;
-    text-align: center;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 1vw;
-}
-div.divisor{
-    display: flex;
-    justify-content: space-around;
-}
-img#garrafa{
-    top: 8%;
-    height: 30vw;
-    transition: .1s;
-    cursor: pointer;
-}
-img#garrafaclick{
-    position: absolute;
-    height: 5vw;
-    margin-left: -.7%;
-    margin-top: -5%;
-    animation-name: rightrotate;
-    animation-duration: .3s;
-}
-div#fatherpopup{
-    display: grid;
-    position: fixed;
-    place-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden ;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border: 0;
-    box-shadow: 0px;
-    transition: .2s;
-}
-.visivel{
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-.trofeu{
-    background-color: rgba(248, 248, 248, .0) !important;
-}
-div#popup{
-    display: inline;
-    opacity: 1;
-    visibility: visible;
-    border: 1px solid black;
-    background-color: rgba(216, 216, 216, .9);
-    box-shadow: 1px 1px 4px;
-}
-div#popup > div{
-    display: flex;
-    justify-content: center;
-}
-button#errorboxbutton, div#popup > p{
-    opacity: 0;
-    visibility: hidden;
-    transition: .2s;
-}
-div#loja{
-    display: none;
-    min-height: 35vw;
-}
-div#loja div{
-    display: flex;
-    justify-content: space-between;
-}
-button#multiplicador {
-    opacity: 0;
-    visibility: hidden;
-}
-img.information:hover{
-    transform: scale(120%)
-}
-img.information{
-    height: 45%;
-    margin: .5vw;
-    cursor: pointer;
-    transition: .4s;
-}
-div.informationdiv{
-    visibility: hidden;
-    position: absolute;
-    text-align: justify;
-    width: fit-content;
-    height: fit-content;
-    margin-left: 6%;
-    max-width: 24.5vw;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid black;
-    box-shadow: 1px 1px 2px;
-    transition: .4s;
-    transform: scale(0%);
-}
-img.information:hover+div{
-    visibility: visible;
-    transform: scale(100%);
-}
-img.information#conquista{
-    height: 20%;
-}
-div#trofeus{
-    display: none;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-}
-div#trofeus>div{
-    border: 1px solid black;
-    display: flex;
-    min-height: 25vw;
-    background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
-    background-size: cover;
-}
-div#trofeu{
-    position: absolute;
-    top: 0;
-    background-color: rgba(248, 248, 248, .7);
-    border: 1px solid black;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-div#trofeu>img{
-    height: 20vh;
-}
-div#trofeu>div{
-    display: block;
-}
-/* animações */
-@keyframes rightrotate {
-    from {
-        transform: rotate(0deg) translateY(0%);
-        opacity: 1;
+    div#umafr{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    to {
-        transform: rotate(20deg) translateY(-200%);
+    div#tresfr{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+    div#tresfr>div{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        justify-content: space-around;
+        text-align: center;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 1vw;
+    }
+    div.divisor{
+        display: flex;
+        justify-content: space-around;
+    }
+    img#garrafa{
+        top: 8%;
+        height: 30vw;
+        transition: .1s;
+        cursor: pointer;
+    }
+    img#garrafaclick{
+        position: absolute;
+        height: 5vw;
+        margin-left: -.7%;
+        margin-top: -5%;
+        animation-name: rightrotate;
+        animation-duration: .3s;
+    }
+    div#fatherpopup{
+        display: grid;
+        position: fixed;
+        place-items: center;
+        justify-content: center;
         opacity: 0;
+        visibility: hidden ;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border: 0;
+        box-shadow: 0px;
+        transition: .2s;
     }
-}
-@keyframes leftrotate {
-    from {
-        transform: rotate(0deg) translateY(0%);
+    .visivel{
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .trofeu{
+        background-color: rgba(248, 248, 248, .0) !important;
+    }
+    div#popup{
+        display: inline;
         opacity: 1;
+        visibility: visible;
+        border: 1px solid black;
+        background-color: rgba(216, 216, 216, .9);
+        box-shadow: 1px 1px 4px;
     }
-    to {
-        transform: rotate(-20deg) translateY(-200%);
+    div#popup > div{
+        display: flex;
+        justify-content: center;
+    }
+    button#errorboxbutton, div#popup > p{
         opacity: 0;
+        visibility: hidden;
+        transition: .2s;
+    }
+    div#loja{
+        display: none;
+        min-height: 35vw;
+    }
+    div#loja div{
+        display: flex;
+        justify-content: space-between;
+    }
+    button#multiplicador {
+        opacity: 0;
+        visibility: hidden;
+    }
+    img.information:hover{
+        transform: scale(120%)
+    }
+    img.information{
+        height: 45%;
+        margin: .5vw;
+        cursor: pointer;
+        transition: .4s;
+    }
+    div.informationdiv{
+        visibility: hidden;
+        position: absolute;
+        text-align: justify;
+        width: fit-content;
+        height: fit-content;
+        margin-left: 6%;
+        max-width: 24.5vw;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid black;
+        box-shadow: 1px 1px 2px;
+        transition: .4s;
+        transform: scale(0%);
+    }
+    img.information:hover+div{
+        visibility: visible;
+        transform: scale(100%);
+    }
+    img.information#conquista{
+        height: 20%;
+    }
+    div#trofeus{
+        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+    div#trofeus>div{
+        border: 1px solid black;
+        display: flex;
+        min-height: 25vw;
+        background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
+        background-size: cover;
+    }
+    div#trofeu{
+        position: absolute;
+        top: 0;
+        background-color: rgba(248, 248, 248, .7);
+        border: 1px solid black;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    div#trofeu>img{
+        height: 20vh;
+    }
+    div#trofeu>div{
+        display: block;
+    }
+    /* animações */
+    @keyframes rightrotate {
+        from {
+            transform: rotate(0deg) translateY(0%);
+            opacity: 1;
+        }
+        to {
+            transform: rotate(20deg) translateY(-200%);
+            opacity: 0;
+        }
+    }
+    @keyframes leftrotate {
+        from {
+            transform: rotate(0deg) translateY(0%);
+            opacity: 1;
+        }
+        to {
+            transform: rotate(-20deg) translateY(-200%);
+            opacity: 0;
+        }
+    }
+    @keyframes deslizarinicio {
+        from {
+            transform: translateX(0vw);
+        }
+        to {
+            transform: translateX(80vw);
+        }
+    }
+    @keyframes deslizarfim {
+        from {
+            transform: translateX(-60vw);
+        }
+        to {
+            transform: translateX(0vw);
+        }
     }
 }
-@keyframes deslizarinicio {
-    from {
-        transform: translateX(0vw);
+
+
+/*CELULAR*/
+
+
+@media (max-widht: 768px) {
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: x-large;
     }
-    to {
-        transform: translateX(80vw);
+    button{
+        cursor: pointer;
+        transition: .4s;
+        border: 2px groove;
+        background-color: rgba(248, 248, 248, .7);
     }
-}
-@keyframes deslizarfim {
-    from {
-        transform: translateX(-60vw);
+    button:hover{
+        background-color: rgba(180, 180, 180, .7);
+        box-shadow: 2px 2px 2px;
+        transform: scale(110%);
     }
-    to {
-        transform: translateX(0vw);
+    img#cadeado{
+        height: 100%;
+    }
+    div#lojanotificationdiv{
+        display: none;
+        justify-content: center;
+        color: white;
+        align-items: center;
+        border-radius: 50%;
+        width: 2.3rem;
+        background-color: red;
+    }
+    #lojanotification{
+        margin: 0px;
+        font-size: xx-large;
+    }
+    body>div>div{
+        display: flex;
+    }
+    body>div{
+        display: flex;
+        border: 1px solid black;
+        border-bottom: 0;
+        justify-content: space-between;
+        background-color: rgba(248, 248, 248, .7);
+    }
+    body{
+        overflow-x: hidden;
+        background-color : rgb(180, 180, 255);
+        box-shadow: 2px 2px 4px;
+    }
+    div#nav{
+        background-color: rgba(70, 70, 80, .5);
+        color: white;
+        box-shadow: 0 5px black;
+    }
+    div.menu{
+        border-right: 1px solid black;
+        font-size: 2rem;
+        transition: .5s;
+        display: flex;
+    }
+    div.menu:hover{
+        cursor: pointer;
+        background-color: rgba(180, 180, 255, .7);
+    }
+    div#divcontador{
+        border-left: 1px solid black;
+        font-size: 2rem;
+    }
+    span#contador{
+        font-size: 2rem;
+    }
+    div#main{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        border: 1px solid black;
+    }
+    div#main div.ultimo{
+        border-bottom: 0;
+    }
+    div#umafr{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div#tresfr{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+    div#tresfr>div{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        justify-content: space-around;
+        text-align: center;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 1vw;
+    }
+    div.divisor{
+        display: flex;
+        justify-content: space-around;
+    }
+    img#garrafa{
+        top: 8%;
+        height: 30vw;
+        transition: .1s;
+        cursor: pointer;
+    }
+    img#garrafaclick{
+        position: absolute;
+        height: 5vw;
+        margin-left: -.7%;
+        margin-top: -5%;
+        animation-name: rightrotate;
+        animation-duration: .3s;
+    }
+    div#fatherpopup{
+        display: grid;
+        position: fixed;
+        place-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden ;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border: 0;
+        box-shadow: 0px;
+        transition: .2s;
+    }
+    .visivel{
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .trofeu{
+        background-color: rgba(248, 248, 248, .0) !important;
+    }
+    div#popup{
+        display: inline;
+        opacity: 1;
+        visibility: visible;
+        border: 1px solid black;
+        background-color: rgba(216, 216, 216, .9);
+        box-shadow: 1px 1px 4px;
+    }
+    div#popup > div{
+        display: flex;
+        justify-content: center;
+    }
+    button#errorboxbutton, div#popup > p{
+        opacity: 0;
+        visibility: hidden;
+        transition: .2s;
+    }
+    div#loja{
+        display: none;
+        min-height: 35vw;
+    }
+    div#loja div{
+        display: flex;
+        justify-content: space-between;
+    }
+    button#multiplicador {
+        opacity: 0;
+        visibility: hidden;
+    }
+    img.information:hover{
+        transform: scale(120%)
+    }
+    img.information{
+        height: 45%;
+        margin: .5vw;
+        cursor: pointer;
+        transition: .4s;
+    }
+    div.informationdiv{
+        visibility: hidden;
+        position: absolute;
+        text-align: justify;
+        width: fit-content;
+        height: fit-content;
+        margin-left: 6%;
+        max-width: 24.5vw;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid black;
+        box-shadow: 1px 1px 2px;
+        transition: .4s;
+        transform: scale(0%);
+    }
+    img.information:hover+div{
+        visibility: visible;
+        transform: scale(100%);
+    }
+    img.information#conquista{
+        height: 20%;
+    }
+    div#trofeus{
+        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+    div#trofeus>div{
+        border: 1px solid black;
+        display: flex;
+        min-height: 25vw;
+        background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
+        background-size: cover;
+    }
+    div#trofeu{
+        position: absolute;
+        top: 0;
+        background-color: rgba(248, 248, 248, .7);
+        border: 1px solid black;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    div#trofeu>img{
+        height: 20vh;
+    }
+    div#trofeu>div{
+        display: block;
+    }
+    /* animações */
+    @keyframes rightrotate {
+        from {
+            transform: rotate(0deg) translateY(0%);
+            opacity: 1;
+        }
+        to {
+            transform: rotate(20deg) translateY(-200%);
+            opacity: 0;
+        }
+    }
+    @keyframes leftrotate {
+        from {
+            transform: rotate(0deg) translateY(0%);
+            opacity: 1;
+        }
+        to {
+            transform: rotate(-20deg) translateY(-200%);
+            opacity: 0;
+        }
+    }
+    @keyframes deslizarinicio {
+        from {
+            transform: translateX(0vw);
+        }
+        to {
+            transform: translateX(80vw);
+        }
+    }
+    @keyframes deslizarfim {
+        from {
+            transform: translateX(-60vw);
+        }
+        to {
+            transform: translateX(0vw);
+        }
     }
 }
