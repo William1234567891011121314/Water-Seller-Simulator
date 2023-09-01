@@ -330,15 +330,8 @@ function moneyclick(ev) {
     }, 300)
     garrafa.style.transform = "scale(75%)";
 }
-function celular() {
-    const aspectratio = window.innerWidth / window.innerHeight;
-    if(aspectratio===9/16){
-        return true;
-    }
-    return false;
-}
 //código
-if(celular()){
+if(window.innerWidth<window.innerHeight){
     body.addEventListener('click', ev => {
         console.log(ev.target);
         if(!ev.target.closest("#nav") && !ev.target.closest("button")){
