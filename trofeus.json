@@ -72,7 +72,7 @@
     {
         "titulo":"Chuva ácida aumentando as vendas",
         "descricao":"Construa a sua 1000ª fábrica",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/milfabricas.bmp",
         "id":"milfabricas",
         "condition":"objetos[4]>=1000"
     },
