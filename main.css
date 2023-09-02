@@ -1,7 +1,7 @@
-@media (min-width:768px) {
-    p{
+@media (min-width: 720px) {
+    p, h1, h2, h3{
         font-family: Arial, Helvetica, sans-serif;
-        font-size: x-large;
+        font-size: xx-large;
         margin: 0;
     }
     button{
@@ -56,8 +56,8 @@
         transition: .5s;
         display: flex;
     }
-    div.menu>p{
-        font-size: 2rem;
+    div.menu>p, #divcontador>p{
+        font-size: 4rem;
     }
     div.menu:hover{
         cursor: pointer;
@@ -266,8 +266,8 @@
 /*CELULAR*/
 
 
-@media (max-width: 768px) {
-    p{
+@media (max-width: 720px) {
+    p, h1, h2, h3{
         font-family: Arial, Helvetica, sans-serif;
         font-size: xx-large;
         margin: 0px;
@@ -332,22 +332,15 @@
         border-left: 1px solid black;
     }
     div#main{
-        display: grid;
         border: 1px solid black;
         height: 100%;
     }
     div#main div.ultimo{
         border-bottom: 0;
     }
-    div#umafr{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     div#tresfr{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        width: 100%;
+        grid-template-columns: 1fr;
     }
     div#tresfr>div{
         display: grid;
@@ -464,7 +457,7 @@
     div#trofeus>div{
         border: 1px solid black;
         display: flex;
-        min-height: 25vh;
+        min-height: 46vw;
         background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
         background-size: cover;
     }
