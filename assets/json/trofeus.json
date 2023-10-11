@@ -1,6 +1,6 @@
 [
     {
-        "titulo":"interrogacao",
+        "titulo":"Monopolizando o semáforo",
         "descricao":"Contrate seu 10º vendedor",
         "endereço":"./assets/trofeus/dezvendedores.bmp",
         "id":"dezvendedores",
@@ -172,7 +172,7 @@
         "descricao":"Force os seus funcinários a fazer hora extra",
         "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"fabricax2",
-        "condition":"multiplicadores[4]>===20000"
+        "condition":"multiplicadores[4]>=20000"
     },
     {
         "titulo":"Mais rápido do que a luz",
@@ -284,6 +284,6 @@
         "descricao":"Compre todos os itens da loja",
         "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"semestoque",
-        "condition":"true===false"
+        "condition":"false"
     }
 ]

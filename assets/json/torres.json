@@ -33,14 +33,14 @@
     },
     {
         "name":"Naves inter-galácticas",
-        "tecnologias":"tecnologias[0]"
+        "tecnologias":"tecnologias[1]"
     },
     {
         "name":"Naves inter-universais",
-        "tecnologias":"tecnologias[0] && tecnologias[1]"
+        "tecnologias":"tecnologias[1] && tecnologias[2]"
     },
     {
         "name":"Comprar máquinas do tempo",
-        "tecnologias":"tecnologias[2]"
+        "tecnologias":"tecnologias[3]"
     }
 ]

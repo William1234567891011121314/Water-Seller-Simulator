@@ -65,10 +65,6 @@
     }
     div#divcontador{
         border-left: 1px solid black;
-        font-size: 2rem;
-    }
-    span#contador{
-        font-size: 2rem;
     }
     div#main{
         display: grid;
@@ -96,7 +92,6 @@
         border-left: 1px solid black;
         border-bottom: 1px solid black;
         padding: 1vw;
-        height: 5vw;
     }
     div.divisor{
         display: flex;
@@ -163,15 +158,19 @@
         display: flex;
         justify-content: space-between;
     }
-    button#multiplicador {
+    button#multiplicador{
         opacity: 0;
         visibility: hidden;
     }
-    img.information:hover{
-        transform: scale(120%)
+    img.information-conquista:hover{
+        transform: scale(120%);
+        +div{
+            visibility: visible;
+            transform: scale(100%);
+        }
     }
-    img.information{
-        height: 45%;
+    img.information-conquista{
+        height: 20%;
         margin: .5vw;
         cursor: pointer;
         transition: .4s;
@@ -179,49 +178,38 @@
     div.informationdiv{
         visibility: hidden;
         position: absolute;
-        text-align: justify;
-        width: fit-content;
         height: fit-content;
-        margin-left: 6%;
-        max-width: 24.5vw;
+        max-width: fit-content;
+        margin-left: 7%;
         background-color: rgba(255, 255, 255, 0.9);
         border: 1px solid black;
         box-shadow: 1px 1px 2px;
         transition: .4s;
         transform: scale(0%);
     }
-    img.information:hover+div{
-        visibility: visible;
-        transform: scale(100%);
-    }
-    img.information.conquista{
-        height: 20%;
-    }
     div#trofeus{
         display: none;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(10, 1fr);
-    }
-    div#trofeus>div{
-        border: 1px solid black;
-        display: flex;
-        min-height: 25vw;
-        background: url("../trofeus/interrogacao.bmp") no-repeat;
-        background-size: cover;
+        >div{
+            border: 1px solid black;
+            display: flex;
+            min-height: 25vw;
+            background: url("../trofeus/interrogacao.bmp") no-repeat;
+            background-size: cover;
+        }
     }
     div#trofeu{
+        /*IMPORTANTE!!!*/
         position: absolute;
-        top: 0;
+        top: 5%;
         background-color: rgba(248, 248, 248, .7);
         border: 1px solid black;
         animation-duration: 1s;
         animation-fill-mode: forwards;
-    }
-    div#trofeu>img{
-        height: 20vh;
-    }
-    div#trofeu>div{
-        display: block;
+        >img{
+            height: 10vw;
+        }
     }
     /* animações */
     @keyframes rightrotate {
@@ -303,10 +291,8 @@
         display: flex;
     }
     body>div{
-        display: flex;
         border: 1px solid black;
         border-bottom: 0;
-        justify-content: space-between;
         background-color: rgba(248, 248, 248, .7);
     }
     body{
@@ -315,9 +301,14 @@
         box-shadow: 2px 2px 4px;
     }
     div#nav{
+        display: flex;
+        justify-content: space-between;
         background-color: rgba(70, 70, 80, .5);
         color: white;
         box-shadow: 0 5px black;
+    }
+    .navtitle{
+        font-size: 5.5vh;
     }
     div.menu{
         border-right: 1px solid black;
@@ -334,9 +325,6 @@
     div#main{
         border: 1px solid black;
         height: 100%;
-    }
-    div#main div.ultimo{
-        border-bottom: 0;
     }
     div#tresfr{
         display: grid;
@@ -355,10 +343,7 @@
         justify-content: space-around;
     }
     img#garrafa{
-        top: 8%;
-        height: 30vw;
-        transition: .1s;
-        cursor: pointer;
+        display: none;
     }
     img#garrafaclick{
         position: absolute;
@@ -419,35 +404,26 @@
         opacity: 0;
         visibility: hidden;
     }
-    img.information:hover{
-        transform: scale(120%)
-    }
-    img.information{
-        height: 30%;
-        margin: .5vw;
-        cursor: pointer;
-        transition: .4s;
+    img.information-conquista:hover{
+        transform: scale(120%);
+        +div{
+            visibility: visible;
+            transform: scale(100%);
+        }
     }
     div.informationdiv{
         visibility: hidden;
         position: absolute;
-        text-align: justify;
-        width: fit-content;
-        height: fit-content;
         margin-left: 6%;
-        max-width: 24.5vw;
+        max-width: 80vw;
         background-color: rgba(255, 255, 255, 0.9);
         border: 1px solid black;
         box-shadow: 1px 1px 2px;
         transition: .4s;
         transform: scale(0%);
     }
-    img.information:hover+div{
-        visibility: visible;
-        transform: scale(100%);
-    }
-    img.information#conquista{
-        height: 20%;
+    img.information-conquista{
+        height: 25%;
     }
     div#trofeus{
         display: none;
@@ -458,22 +434,20 @@
         border: 1px solid black;
         display: flex;
         min-height: 46vw;
-        background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
+        background: url("../trofeus/interrogacao.bmp") no-repeat;
         background-size: cover;
     }
     div#trofeu{
+        /*IMPORTANTE!!!*/
         position: absolute;
-        top: 0;
+        top: 5%;
         background-color: rgba(248, 248, 248, .7);
         border: 1px solid black;
         animation-duration: 1s;
         animation-fill-mode: forwards;
-    }
-    div#trofeu>img{
-        height: 20vh;
-    }
-    div#trofeu>div{
-        display: block;
+        >img{
+            height: 15vw;
+        }
     }
     /* animações */
     @keyframes rightrotate {

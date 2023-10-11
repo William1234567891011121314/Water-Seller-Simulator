@@ -5,7 +5,9 @@ const sitetitle = document.querySelector("title");
 const body = document.querySelector("body");
 const main = body.querySelector("#main");
 const loja = main.querySelector("#loja");
-const garrafa = main.querySelector("#garrafa");
+const tresfr = main.querySelector("#tresfr");
+const umafr = main.querySelector("#umafr");
+const garrafa = umafr.querySelector("#garrafa");
 const conquistas = main.querySelector("#trofeus");
 const nav = body.querySelector("#nav");
 const menuloja = nav.querySelector("#menuloja");
@@ -15,10 +17,10 @@ const fatherpopup = body.querySelector("#fatherpopup");
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 const contador = body.querySelector("#contador");
 const dinheirobutton = main.querySelector("#garrafa");
-const multiplicador = body.querySelector("#multiplicador");
-const txt = [main.querySelector("#txtmaquinasdevenda"), main.querySelector("#txtcarros"), main.querySelector("#txtpipa"), main.querySelector("#txtfabrica"), main.querySelector("#txtpolo"), main.querySelector("#txtasteroides"), main.querySelector("#txtplanetas"), main.querySelector("#txtgalaxias"), main.querySelector("#txtuniversos"), main.querySelector("#txttempo")];
-const counter = [main.querySelector("#vendedores"), main.querySelector("#maquinasdevenda"), main.querySelector("#carroscounter"), main.querySelector("#pipacounter"), main.querySelector("#fabricacounter"), main.querySelector("#polocounter"), main.querySelector("#asteroidecounter"), main.querySelector("#planetascounter"), main.querySelector("#galaxiascounter"), main.querySelector("#universoscounter"), main.querySelector("#tempocounter")];
-const button = [main.querySelector("#vendedorbutton"), main.querySelector("#maquinadevendabutton"), main.querySelector("#carrosbutton"), main.querySelector("#pipabutton"), main.querySelector("#fabricabutton"), main.querySelector("#polobutton"), main.querySelector("#asteroidebutton"), main.querySelector("#planetasbutton"), main.querySelector("#galaxiasbutton"), main.querySelector("#universosbutton"), main.querySelector("#tempobutton")];
+const multiplicador = nav.querySelector("#multiplicador");
+const txt = [tresfr.querySelector("#txtmaquinasdevenda"), tresfr.querySelector("#txtcarros"), tresfr.querySelector("#txtpipa"), tresfr.querySelector("#txtfabrica"), tresfr.querySelector("#txtpolo"), tresfr.querySelector("#txtasteroides"), tresfr.querySelector("#txtplanetas"), tresfr.querySelector("#txtgalaxias"), tresfr.querySelector("#txtuniversos"), tresfr.querySelector("#txttempo")];
+const counter = [tresfr.querySelector("#vendedores"), tresfr.querySelector("#maquinasdevenda"), tresfr.querySelector("#carroscounter"), tresfr.querySelector("#pipacounter"), tresfr.querySelector("#fabricacounter"), tresfr.querySelector("#polocounter"), tresfr.querySelector("#asteroidecounter"), tresfr.querySelector("#planetascounter"), tresfr.querySelector("#galaxiascounter"), tresfr.querySelector("#universoscounter"), tresfr.querySelector("#tempocounter")];
+const button = [tresfr.querySelector("#vendedorbutton"), tresfr.querySelector("#maquinadevendabutton"), tresfr.querySelector("#carrosbutton"), tresfr.querySelector("#pipabutton"), tresfr.querySelector("#fabricabutton"), tresfr.querySelector("#polobutton"), tresfr.querySelector("#asteroidebutton"), tresfr.querySelector("#planetasbutton"), tresfr.querySelector("#galaxiasbutton"), tresfr.querySelector("#universosbutton"), tresfr.querySelector("#tempobutton")];
 const clickaudio = new Audio("./assets/audios/Click.mp3");
 const menuaudio = new Audio("./assets/audios/Menus.mp3");
 //variáveis
@@ -34,8 +36,9 @@ var dinheiro = 0;
 var prefixo = "";
 var clicks = 0;
 var clickmodifier = 1;
-var tecnologias = [false, false, false];
+var tecnologias = [false, false, false, false];
 var tempo;
+var rebirth = 0;
 //funções
 function verificador(verificadorinput) {
     if(verificadorinput<1000000){
@@ -95,7 +98,6 @@ const atualizar = {
         lojanotificationdiv.style.display = "none";
     },
     async trofeus() {
-        try{
             const requesttrofeus = await fetch("./assets/json/trofeus.json");
             const trofeus = await requesttrofeus.json();
             for (let n = 0; n <= trofeus.length; n++){
@@ -132,9 +134,6 @@ const atualizar = {
                     conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
                 }
             }
-        }catch(trofeuserror){
-            //console.log("Deu ruim nos trofeus: ", trofeuserror); => a culpa é do interpretador
-        }
     },
     dinheiro() {
         moneyloop = setInterval(() => {
@@ -197,72 +196,37 @@ function errorbox(txt) {
     });
 }
 async function verificarloja() {
-    try{
-        const requestloja = await fetch("./assets/json/loja.json");
-        const lojaitens = await requestloja.json();
-        for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
-            if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
-                aux[auxloja] = false;
-                let itemDiv = document.createElement("div");
-                itemDiv.className = `item-${auxloja}`;
-                itemDiv.innerHTML = `
-                    <div class="ultimo">
-                        <img class="information" src="./assets/Information.png">
-                        <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
-                        <p>${lojaitens[auxloja]["titulo"]}</p>
-                    </div>
-                    <button id="button-${auxloja}">${lojaitens[auxloja]["precotxt"]}</button>`;
-                loja.appendChild(itemDiv);
-                lojanotification++;
-                (function(auxloja) {
-                    document.querySelector(`#button-${auxloja}`).onclick = function (){
-                        if(dinheiro>=lojaitens[auxloja]["preco"]){
-                            dinheiro -= lojaitens[auxloja]["preco"];
-                            loja.removeChild(loja.querySelector(`.item-${auxloja}`));
-                            lojanotification--;
-                            atualizar.notifications();
-                            atualizar.contador();
-                            eval(lojaitens[auxloja]["efeito"]);
-                            return;
-                        }
-                        errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+    const requestloja = await fetch("./assets/json/loja.json");
+    const lojaitens = await requestloja.json();
+    for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
+        if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
+            aux[auxloja] = false;
+            let itemDiv = document.createElement("div");
+            itemDiv.className = `item-${auxloja}`;
+            itemDiv.innerHTML = `
+                <div class="ultimo">
+                    <img class="information" src="./assets/Information.png">
+                    <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
+                    <p>${lojaitens[auxloja]["titulo"]}</p>
+                </div>
+                <button id="button-${auxloja}">${lojaitens[auxloja]["precotxt"]}</button>`;
+            loja.appendChild(itemDiv);
+            lojanotification++;
+            (function(auxloja) {
+                document.querySelector(`#button-${auxloja}`).onclick = function (){
+                    if(dinheiro>=lojaitens[auxloja]["preco"]){
+                        dinheiro -= lojaitens[auxloja]["preco"];
+                        loja.removeChild(loja.querySelector(`.item-${auxloja}`));
+                        lojanotification--;
+                        atualizar.notifications();
+                        atualizar.contador();
+                        eval(lojaitens[auxloja]["efeito"]);
+                        return;
                     }
-                })(auxloja);
-            }
+                    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+                }
+            })(auxloja);
         }
-    }catch(lojaerror){
-        console.log("Deu ruim na loja: ", lojaerror);
-    }
-}
-function verificadormultiplicador() {
-    atualizar.vendedores();
-    atualizar.motoboys();
-    if(objetos[1]>0 || objetos[2]>0){
-        atualizar.carros();
-    }
-    if(objetos[2]>0 || objetos[3]>0){
-        atualizar.pipas();
-    }
-    if(objetos[3]>0 || objetos[4]>0){
-        atualizar.fabricas();
-    }
-    if(objetos[4]>0 || objetos[5]>0){
-        atualizar.polos();
-    }
-    if(objetos[5]>0 || objetos[6]>0){
-        atualizar.asteroides();
-    }
-    if(objetos[6]>0 || objetos[7]>0){
-        atualizar.planetas();
-    }
-    if(objetos[7]>0 || objetos[8]>0){
-        atualizar.galaxias();
-    }
-    if(objetos[8]>0 || objetos[9]>0){
-        atualizar.universos();
-    }
-    if(objetos[9]>0 || objetos[10]>0){
-        atualizar.delorean();
     }
 }
 function moneyclick(ev) {
@@ -278,7 +242,7 @@ function moneyclick(ev) {
     let rotate = Math.random(0,1);
     if(rotate>0.5){
         clickimg.style.animationName = "rightrotate";
-    }else{
+    } else {
         clickimg.style.animationName = "leftrotate";
     }
     body.appendChild(clickimg);
@@ -290,25 +254,15 @@ function moneyclick(ev) {
 }
 //código
 if(window.innerWidth<window.innerHeight){
-    body.addEventListener('click', ev => {
-        console.log(ev.target);
-        if(!ev.target.closest("#nav") && !ev.target.closest("button")){
-            moneyclick(ev);
-        }
-    });
-    main.removeChild(main.querySelector("#umafr"));
+    smartphone();
 }
 async function gerar() {
-    try{
-        const requesttrofeus = await fetch("./assets/json/trofeus.json");
-        const trofeus = await requesttrofeus.json();
-        trofeus.forEach(eltrofeu => {auxtrofeu.push(true)});
-        const requestloja = await fetch("./assets/json/loja.json");
-        const lojaitens = await requestloja.json();
-        lojaitens.forEach(elloja => {aux.push(true)});
-    }catch(gerarerror){
-        console.log("Deu ruim no async do gerar auxelements: ", gerarerror);
-    }
+    const requesttrofeus = await fetch("./assets/json/trofeus.json");
+    const trofeus = await requesttrofeus.json();
+    trofeus.forEach(eltrofeu => {auxtrofeu.push(true)});
+    const requestloja = await fetch("./assets/json/loja.json");
+    const lojaitens = await requestloja.json();
+    lojaitens.forEach(elloja => {aux.push(true)});
 }
 gerar();
 atualizar.dinheiro();
@@ -316,12 +270,12 @@ multiplicador.onclick = function() {
     if(multiplicadordecompra>=100){
         multiplicadordecompra = multiplicadordecompra/100;
         multiplicador.innerHTML = multiplicadordecompra + "x";
-        verificadormultiplicador();
-        return;
+        atualizar.torres();
+    } else {
+        multiplicadordecompra = multiplicadordecompra*10;
+        multiplicador.innerHTML = multiplicadordecompra + "x";
+        atualizar.torres();
     }
-    multiplicadordecompra = multiplicadordecompra*10;
-    multiplicador.innerHTML = multiplicadordecompra + "x";
-    verificadormultiplicador()
 }
 menuloja.onclick = function() {
     menuaudio.play();
