@@ -1,35 +1,46 @@
 [
     {
-        "name":"Contratar vendedor"
+        "name":"Contratar vendedor",
+        "tecnologias":"true"
     },
     {
-        "name":"Contratar motoboy"
+        "name":"Contratar motoboy",
+        "tecnologias":"true"
     },
     {
-        "name":"Comprar carro da água"
+        "name":"Comprar carro da água",
+        "tecnologias":"true"
     },
     {
-        "name":"Comprar caminhão pipa"
+        "name":"Comprar caminhão pipa",
+        "tecnologias":"true"
     },
     {
-        "name":"Fábrica de garrafas d'água"
+        "name":"Fábrica de garrafas d'água",
+        "tecnologias":"true"
     },
     {
-        "name":"Construir um polo industrial"
+        "name":"Construir um polo industrial",
+        "tecnologias":"true"
     },
     {
-        "name":"Minerar asteróides de gelo"
+        "name":"Minerar asteróides de gelo",
+        "tecnologias":"tecnologias[0]"
     },
     {
-        "name":"Naves inter-planetárias"
+        "name":"Naves inter-planetárias",
+        "tecnologias":"tecnologias[0]"
     },
     {
-        "name":"Naves inter-galácticas"
+        "name":"Naves inter-galácticas",
+        "tecnologias":"tecnologias[0]"
     },
     {
-        "name":"Naves inter-universais"
+        "name":"Naves inter-universais",
+        "tecnologias":"tecnologias[0] && tecnologias[1]"
     },
     {
-        "name":"Comprar máquinas do tempo"
+        "name":"Comprar máquinas do tempo",
+        "tecnologias":"tecnologias[2]"
     }
 ]

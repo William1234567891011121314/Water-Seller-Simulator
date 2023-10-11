@@ -206,7 +206,7 @@
         border: 1px solid black;
         display: flex;
         min-height: 25vw;
-        background: url("./assets/trofeus/interrogacao.bmp") no-repeat;
+        background: url("../trofeus/interrogacao.bmp") no-repeat;
         background-size: cover;
     }
     div#trofeu{

@@ -34,7 +34,7 @@ var dinheiro = 0;
 var prefixo = "";
 var clicks = 0;
 var clickmodifier = 1;
-var tecnologias = [false, false, false, false];
+var tecnologias = [false, false, false];
 var tempo;
 //funções
 function verificador(verificadorinput) {
@@ -78,7 +78,7 @@ function verificador(verificadorinput) {
 function calculomultiplicador(n1, n2) {
     let auxwhile = 2;
     let n3 = n2;
-    for(; auxwhile<=multiplicadordecompra; n1+=n2, n3+=n1, auxwhile++);
+    for (; auxwhile<=multiplicadordecompra; n1+=n2, n3+=n1, auxwhile++);
     return n3;
 }
 const atualizar = {
@@ -98,7 +98,7 @@ const atualizar = {
         try{
             const requesttrofeus = await fetch("./assets/json/trofeus.json");
             const trofeus = await requesttrofeus.json();
-            for(let n = 0; n <= trofeus.length; n++){
+            for (let n = 0; n <= trofeus.length; n++){
                 if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
                     fatherpopup.classList.add("trofeu");
                     auxtrofeu[n] = false;
@@ -353,132 +353,25 @@ menutrofeus.onclick = function() {
 dinheirobutton.addEventListener('click', ev => {
     moneyclick(ev);
 });
-for (let i = 0; i <= 5; i++) {
-    button[i].onclick = function() {
-        if(dinheiro>=calculomultiplicador(precos[i], precosbase[i])){
-            objetos[i]+=multiplicadordecompra;
-            dinheiro-=calculomultiplicador(precos[i], precosbase[i]);
-            precos[i]=precosbase[i] * (objetos[i]+1);
-            atualizar.torres();
-            atualizar.contador();
-        }
-        else{
-            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-        }
-    }
-}
-button[6].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[6], precosbase[6])){
-        if(tecnologias[0]){
-            objetos[6]+=multiplicadordecompra;
-            dinheiro-=calculomultiplicador(precos[6], precosbase[6]);
-            precos[6]=precosbase[6] * (objetos[6]+1);
-            atualizar.torres();
-            atualizar.contador();
-            return;
-        }
-        if(objetos[5]<1){
-            return;
-        }
-        errorbox("Você não tem uma agência espacial para explorar o espaço!");
-        return;
-    }
-    if(objetos[5]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[7].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[7], precosbase[7])){
-        if(tecnologias[0]){
-            objetos[7]+=multiplicadordecompra;
-            dinheiro-=calculomultiplicador(precos[7], precosbase[7]);
-            precos[7]=precosbase[7] * (objetos[7]+1);
-            atualizar.torres();
-            atualizar.contador();
-            return;
-        }
-        if(objetos[6]<1){
-            return;
-        }
-        errorbox("Você não tem uma agência espacial para explorar o espaço!");
-        return;
-    }
-    if(objetos[6]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[8].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[8], precosbase[8])){
-        if(tecnologias[0]){
-            if(tecnologias[1]){
-                objetos[8]+=multiplicadordecompra;
-                dinheiro-=calculomultiplicador(precos[8], precosbase[8]);
-                precos[8]=precosbase[8] * (objetos[8]+1);
-                atualizar.torres();
-                atualizar.contador();
-                return;
+async function torresbutton(){
+    const requesttorres = await fetch("./assets/json/torres.json");
+    const torres = await requesttorres.json(); 
+    for (let i = 0; i <= torres.length; i++) {
+        button[i].onclick = function() {
+            if(dinheiro>=calculomultiplicador(precos[i], precosbase[i])){
+                if(eval(torres[i]["tecnologias"])){
+                    objetos[i]+=multiplicadordecompra;
+                    dinheiro-=calculomultiplicador(precos[i], precosbase[i]);
+                    precos[i]=precosbase[i] * (objetos[i]+1);
+                    atualizar.torres();
+                    atualizar.contador();
+                } else {
+                    errorbox("Você não tem tecnologia o suficiente para efetuar essa compra!");
+                }
+            } else {
+                errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
             }
-            if(objetos[7]<1){
-                return;
-            }
-            errorbox("Você não tem tecnologia o suficiente para viajar entre galáxias!");
-            return;
         }
-        if(objetos[7]<1){
-            return;
-        }
-        errorbox("Você não tem uma agência espacial para explorar o espaço!");
-        return;
     }
-    if(objetos[7]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
-button[9].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[9], precosbase[9])){
-        if(tecnologias[0]){
-            if(tecnologias[1] && tecnologias[2]){
-                objetos[9]+=multiplicadordecompra;
-                dinheiro-=calculomultiplicador(precos[9], precosbase[9]);
-                precos[9]=precosbase[9] * (objetos[9]+1);
-                atualizar.torres();
-                atualizar.contador();
-                return;
-            }
-            errorbox("Vecê não tem tecnologia o suficiente para efetuar essa compra!");
-            return;
-        }
-        if(objetos[8]<1){
-            return;
-        }
-        errorbox("Você não tem uma agênica espacial para explorar o espaço!");
-        return;
-    }
-    if(objetos[8]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[10].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[10], precosbase[10])){
-        if(tecnologias[3]){
-            objetos[10]+=multiplicadordecompra;
-            dinheiro-=calculomultiplicador(precos[10], precosbase[10]);
-            precos[10]=precosbase[10] * (objetos[10]+1);
-            atualizar.torres();
-            atualizar.contador();
-            return;
-        }
-        if(objetos[9]<1){
-            return;
-        }
-        errorbox("Você não tem tecnologia de viagem no tempo!");
-    }
-    if(objetos[9]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
+torresbutton();
