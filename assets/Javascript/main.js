@@ -96,7 +96,7 @@ const atualizar = {
     },
     async trofeus() {
         try{
-            const requesttrofeus = await fetch("trofeus.json");
+            const requesttrofeus = await fetch("./assets/json/trofeus.json");
             const trofeus = await requesttrofeus.json();
             for(let n = 0; n <= trofeus.length; n++){
                 if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
@@ -146,59 +146,17 @@ const atualizar = {
             tempo += moneytime;
         }, moneytime);
     },
-    vendedores() {
-        counter[0].innerHTML = objetos[0];
-        button[0].innerHTML = "R$" + verificador(calculomultiplicador(precos[0], precosbase[0])) + " " + prefixo;
-    },
-    motoboys() {
-        txt[0].innerHTML = "Contratar motoboy.";
-        counter[1].innerHTML = objetos[1];
-        button[1].innerHTML = "R$" + verificador(calculomultiplicador(precos[1], precosbase[1])) + " " + prefixo;
-    },
-    carros() {
-        txt[1].innerHTML = "Comprar carro da água.";
-        counter[2].innerHTML = objetos[2];
-        button[2].innerHTML = "R$" + verificador(calculomultiplicador(precos[2], precosbase[2])) + " " + prefixo;
-    },
-    pipas() {
-        txt[2].innerHTML = "Comprar caminhão pipa.";
-        counter[3].innerHTML = objetos[3];
-        button[3].innerHTML = "R$" + verificador(calculomultiplicador(precos[3], precosbase[3])) + " " + prefixo;
-    },
-    fabricas() {
-        txt[3].innerHTML = "Fábrica de garrafas d'água.";
-        counter[4].innerHTML = objetos[4];
-        button[4].innerHTML = "R$" + verificador(calculomultiplicador(precos[4], precosbase[4])) + " " + prefixo;
-    },
-    polos() {
-        txt[4].innerHTML = "Construir um polo industrial.";
-        counter[5].innerHTML = objetos[5];
-        button[5].innerHTML = "R$" + verificador(calculomultiplicador(precos[5], precosbase[5])) + " " + prefixo;
-    },
-    asteroides() {
-        txt[5].innerHTML = "Minerar asteróides de gelo.";
-        counter[6].innerHTML = objetos[6];
-        button[6].innerHTML = "R$" + verificador(calculomultiplicador(precos[6], precosbase[6])) + " " + prefixo;
-    },
-    planetas() {
-        txt[6].innerHTML = "Naves inter-planetárias.";
-        counter[7].innerHTML = objetos[7];
-        button[7].innerHTML = "R$" + verificador(calculomultiplicador(precos[7], precosbase[7])) + " " + prefixo;
-    },
-    galaxias() {
-        txt[7].innerHTML = "Naves inter-galácticas.";
-        counter[8].innerHTML = objetos[8];
-        button[8].innerHTML = "R$" + verificador(calculomultiplicador(precos[8], precosbase[8])) + " " + prefixo;
-    },
-    universos() {
-        txt[8].innerHTML = "Naves inter-universais.";
-        counter[9].innerHTML = objetos[9];
-        button[9].innerHTML = "R$" + verificador(calculomultiplicador(precos[9], precosbase[9])) + " " + prefixo;
-    },
-    delorean() {
-        txt[9].innerHTML = "Comprar máquinas do tempo.";
-        counter[10].innerHTML = objetos[10];
-        button[10].innerHTML = "R$" + verificador(calculomultiplicador(precos[10], precosbase[10])) + " " + prefixo;
+    async torres() {
+        const requesttorres = await fetch("./assets/json/torres.json");
+        const torres = await requesttorres.json();
+        for (let i = 0; i<=torres.length; i++){
+            console.log(torres[i]["name"]);
+            if(dinheiro >= precosbase[i]){
+                txt[i].innerHTML = torres[i]["name"];
+                counter[i].innerHTML = objetos[i];
+                button[i].innerHTML = "R$" + verificador(calculomultiplicador(precos[i], precosbase[i])) + " " + prefixo;
+            }
+        }
     }
 }
 let popupaux = true;
@@ -240,7 +198,7 @@ function errorbox(txt) {
 }
 async function verificarloja() {
     try{
-        const requestloja = await fetch("loja.json");
+        const requestloja = await fetch("./assets/json/loja.json");
         const lojaitens = await requestloja.json();
         for (let auxloja = 0; auxloja < lojaitens.length; auxloja++) {
             if (eval(lojaitens[auxloja]["condicao"]) && aux[auxloja]) {
@@ -342,10 +300,10 @@ if(window.innerWidth<window.innerHeight){
 }
 async function gerar() {
     try{
-        const requesttrofeus = await fetch("trofeus.json");
+        const requesttrofeus = await fetch("./assets/json/trofeus.json");
         const trofeus = await requesttrofeus.json();
         trofeus.forEach(eltrofeu => {auxtrofeu.push(true)});
-        const requestloja = await fetch("loja.json");
+        const requestloja = await fetch("./assets/json/loja.json");
         const lojaitens = await requestloja.json();
         lojaitens.forEach(elloja => {aux.push(true)});
     }catch(gerarerror){
@@ -395,94 +353,19 @@ menutrofeus.onclick = function() {
 dinheirobutton.addEventListener('click', ev => {
     moneyclick(ev);
 });
-button[0].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[0], precosbase[0])){
-        objetos[0]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[0], precosbase[0]);
-        precos[0]=precosbase[0] * (objetos[0]+1);
-        atualizar.vendedores();
-        atualizar.contador();
-        return;
+for (let i = 0; i <= 5; i++) {
+    button[i].onclick = function() {
+        if(dinheiro>=calculomultiplicador(precos[i], precosbase[i])){
+            objetos[i]+=multiplicadordecompra;
+            dinheiro-=calculomultiplicador(precos[i], precosbase[i]);
+            precos[i]=precosbase[i] * (objetos[i]+1);
+            atualizar.torres();
+            atualizar.contador();
+        }
+        else{
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+        }
     }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[1].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[1], precosbase[1])){
-        objetos[1]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[1], precosbase[1]);
-        precos[1]=precosbase[1] * (objetos[1]+1);
-        atualizar.motoboys();
-        atualizar.carros();
-        atualizar.contador();
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[2].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[2], precosbase[2])){
-        objetos[2]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[2], precosbase[2]);
-        precos[2]=precosbase[2] * (objetos[2]+1);
-        atualizar.carros();
-        atualizar.pipas();
-        atualizar.contador();
-        return;
-    }
-    if(objetos[1]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[3].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[3], precosbase[3])){
-        objetos[3]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[3], precosbase[3]);
-        precos[3]=precosbase[3] * (objetos[3]+1);
-        atualizar.pipas();
-        atualizar.carros();
-        atualizar.fabricas();
-        atualizar.contador();
-        return;
-    }
-    if(objetos[2]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[4].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[4], precosbase[4])){
-        objetos[4]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[4], precosbase[4]);
-        precos[4]=precosbase[4] * (objetos[4]+1);
-        atualizar.fabricas();
-        atualizar.carros();
-        atualizar.pipas();
-        atualizar.polos();
-        atualizar.contador();
-        return;
-    }
-    if(objetos[3]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
-}
-button[5].onclick = function() {
-    if(dinheiro>=calculomultiplicador(precos[5], precosbase[5])){
-        objetos[5]+=multiplicadordecompra;
-        dinheiro-=calculomultiplicador(precos[5], precosbase[5]);
-        precos[5]=precosbase[5] * (objetos[5]+1);
-        atualizar.polos();
-        atualizar.carros();
-        atualizar.pipas();
-        atualizar.fabricas();
-        atualizar.asteroides();
-        atualizar.contador();
-        return;
-    }
-    if(objetos[4]<1){
-        return;
-    }
-    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
 }
 button[6].onclick = function() {
     if(dinheiro>=calculomultiplicador(precos[6], precosbase[6])){
@@ -490,12 +373,7 @@ button[6].onclick = function() {
             objetos[6]+=multiplicadordecompra;
             dinheiro-=calculomultiplicador(precos[6], precosbase[6]);
             precos[6]=precosbase[6] * (objetos[6]+1);
-            atualizar.asteroides();
-            atualizar.carros();
-            atualizar.pipas();
-            atualizar.fabricas();
-            atualizar.polos();
-            atualizar.planetas();
+            atualizar.torres();
             atualizar.contador();
             return;
         }
@@ -516,13 +394,7 @@ button[7].onclick = function() {
             objetos[7]+=multiplicadordecompra;
             dinheiro-=calculomultiplicador(precos[7], precosbase[7]);
             precos[7]=precosbase[7] * (objetos[7]+1);
-            atualizar.planetas();
-            atualizar.carros();
-            atualizar.pipas();
-            atualizar.fabricas();
-            atualizar.polos();
-            atualizar.asteroides();
-            atualizar.galaxias();
+            atualizar.torres();
             atualizar.contador();
             return;
         }
@@ -544,14 +416,7 @@ button[8].onclick = function() {
                 objetos[8]+=multiplicadordecompra;
                 dinheiro-=calculomultiplicador(precos[8], precosbase[8]);
                 precos[8]=precosbase[8] * (objetos[8]+1);
-                atualizar.galaxias();
-                atualizar.carros();
-                atualizar.pipas();
-                atualizar.fabricas();
-                atualizar.polos();
-                atualizar.asteroides();
-                atualizar.planetas();
-                atualizar.universos();
+                atualizar.torres();
                 atualizar.contador();
                 return;
             }
@@ -579,15 +444,7 @@ button[9].onclick = function() {
                 objetos[9]+=multiplicadordecompra;
                 dinheiro-=calculomultiplicador(precos[9], precosbase[9]);
                 precos[9]=precosbase[9] * (objetos[9]+1);
-                atualizar.universos();
-                atualizar.carros();
-                atualizar.pipas();
-                atualizar.fabricas();
-                atualizar.polos();
-                atualizar.asteroides();
-                atualizar.planetas();
-                atualizar.galaxias();
-                atualizar.delorean();
+                atualizar.torres();
                 atualizar.contador();
                 return;
             }
@@ -611,15 +468,7 @@ button[10].onclick = function() {
             objetos[10]+=multiplicadordecompra;
             dinheiro-=calculomultiplicador(precos[10], precosbase[10]);
             precos[10]=precosbase[10] * (objetos[10]+1);
-            atualizar.delorean();
-            atualizar.carros();
-            atualizar.pipas();
-            atualizar.fabricas();
-            atualizar.polos();
-            atualizar.asteroides();
-            atualizar.planetas();
-            atualizar.galaxias();
-            atualizar.universos();
+            atualizar.torres();
             atualizar.contador();
             return;
         }
