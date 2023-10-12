@@ -79,28 +79,28 @@
     {
         "titulo":"Pintando o mapa",
         "descricao":"Construa o seu 100º polo industrial",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/cempolos.bmp",
         "id":"cempolos",
         "condition":"objetos[5]>=100"
     },
     {
         "titulo":"Mais garrafas do que pessoas",
         "descricao":"Construa o seu 1000º polo industrial",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/milpolos.bmp",
         "id":"milpolos",
         "condition":"objetos[5]>=1000"
     },
     {
         "titulo":"Água mineralizada e asteróidilizada",
         "descricao":"Compre seu 100º minerador de asteróides",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/cemmineradores.bmp",
         "id":"cemasteroides",
         "condition":"objetos[6]>=100"
     },
     {
-        "titulo":"Cadê o cinturão de Küiper?",
+        "titulo":"Cadê os anéis de saturno?",
         "descricao":"Compre seu 1000º minerador de asteróides",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/milmineradores.bmp",
         "id":"milasteroides",
         "condition":"objetos[6]>=1000"
     },
