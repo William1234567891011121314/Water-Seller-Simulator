@@ -47,7 +47,7 @@ async function verificador(input) {
         prefixo = "";
         return input;
     }
-    for(let i = 1000000, z = 0; input>i; i*=1000, z++){
+    for(let i = 1000000, z = 0; input>=i; i*=1000, z++){
         if(input>=i && input<i*1000){
             if(input/i==1){
                 prefixo = prefixos["ss"][z];
@@ -131,10 +131,10 @@ const atualizar = {
         const requesttorres = await fetch("./assets/json/torres.json");
         const torres = await requesttorres.json();
         for (let i = 0; i<=torres.length; i++){
-            if(dinheiro >= precosbase[i]){
+            if(objetos[i-1]>0 || objetos[i]>0){
                 txt[i].innerHTML = torres[i]["name"];
                 counter[i].innerHTML = objetos[i];
-                button[i].innerHTML = "R$" + await verificador(precos[i]) + " " + prefixo;
+                button[i].innerHTML = `<p>R$${await verificador(precos[i])} ${prefixo}</p>`;
             }
         }
     }
@@ -186,11 +186,11 @@ async function verificarloja() {
             itemDiv.className = `item-${auxloja}`;
             itemDiv.innerHTML = `
                 <div class="ultimo">
-                    <img class="information" src="./assets/Information.png">
+                    <img id="information" src="./assets/Information.png">
                     <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
                     <p>${lojaitens[auxloja]["titulo"]}</p>
                 </div>
-                <button id="button-${auxloja}">${verificador(Number(lojaitens[auxloja]["preco"]))}</button>`;
+                <button id="button-${auxloja}"><p>R$ ${await verificador(Number(lojaitens[auxloja]["preco"])) + prefixo}</p></button>`;
             loja.appendChild(itemDiv);
             lojanotification++;
             (function(auxloja) {
@@ -262,7 +262,7 @@ menuloja.onclick = function() {
     menuaudio.play();
     main.style.borderBottom = "1px solid black";
     main.style.display = "block";
-    loja.style.display = "block";
+    loja.style.display = "flex";
     tresfr.style.display = "none";
     conquistas.style.display = "none";
     umafr.style.display = "none";

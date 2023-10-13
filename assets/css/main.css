@@ -152,28 +152,36 @@
     }
     div#loja{
         display: none;
-        min-height: 35vw;
+        height: 88vh;
+        flex-direction: column;
+        overflow-y: scroll;
     }
     div#loja div{
         display: flex;
         justify-content: space-between;
+        height: fit-content;
     }
     button#multiplicador{
         opacity: 0;
         visibility: hidden;
     }
+    img#information:hover,
     img.information-conquista:hover{
         transform: scale(120%);
+        cursor: pointer;
         +div{
             visibility: visible;
             transform: scale(100%);
         }
     }
+    img#information,
     img.information-conquista{
         height: 20%;
         margin: .5vw;
-        cursor: pointer;
         transition: .4s;
+    }
+    img#information{
+        height: 50%;
     }
     div.informationdiv{
         visibility: hidden;
@@ -407,12 +415,16 @@
         opacity: 0;
         visibility: hidden;
     }
-    img.information-conquista:hover{
+    img#information:hover{
         transform: scale(120%);
         +div{
             visibility: visible;
             transform: scale(100%);
         }
+    }
+    img#information{
+        transition: .4s;
+        width: 16%;
     }
     div.informationdiv{
         visibility: hidden;
