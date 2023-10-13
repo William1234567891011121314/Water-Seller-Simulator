@@ -40,42 +40,22 @@ var tecnologias = [false, false, false, false];
 var tempo;
 var rebirth = 0;
 //funções
-function verificador(verificadorinput) {
-    if(verificadorinput<1000000){
+async function verificador(input) {
+    const requestprefixos = await fetch("./assets/json/prefixos.json");
+    const prefixos = await requestprefixos.json();
+    if(input<1000000){
         prefixo = "";
-        return verificadorinput;
+        return input;
     }
-    if(verificadorinput>=1000000 && verificadorinput<1000000000){
-        if(verificadorinput===1000000){
-            prefixo = " Milhão";
-            return verificadorinput/1000000;
+    for(let i = 1000000, z = 0; input>i; i*=1000, z++){
+        if(input>=i && input<i*1000){
+            if(input/i==1){
+                prefixo = prefixos["ss"][z];
+                return input/i;
+            }
+            prefixo = prefixos["cs"][z];
+            return input/i;
         }
-        prefixo = " Milhões";
-        return verificadorinput/1000000;
-    }
-    if(verificadorinput>=1000000000 && verificadorinput<1000000000000){
-        if(verificadorinput===1000000000){
-            prefixo = " Bilhão";
-            return verificadorinput/1000000000;
-        }
-        prefixo = " Bilhões";
-        return verificadorinput/1000000000;
-    }
-    if(verificadorinput>=1000000000000 && verificadorinput<1000000000000000){
-        if(verificadorinput===1000000000000){
-            prefixo = " Trilhão";
-            return verificadorinput/1000000000000;
-        }
-        prefixo = " Trilhões";
-        return verificadorinput/1000000000000;
-    }
-    if(verificadorinput>=1000000000000000 && verificadorinput<1000000000000000000){
-        if(verificadorinput===1000000000000000){
-            prefixo = " Quatrilhão";
-            return verificadorinput/1000000000000000;
-        }
-        prefixo = " Quatrilhões";
-        return verificadorinput/1000000000000000;
     }
 }
 function calculomultiplicador(n1, n2) {
@@ -85,9 +65,9 @@ function calculomultiplicador(n1, n2) {
     return n3;
 }
 const atualizar = {
-    contador() {
-        sitetitle.innerHTML = "R$" + Math.round(verificador(dinheiro)) + prefixo + " -Water Seller Simulator";
-        contador.innerHTML = Math.round(verificador(dinheiro)) + prefixo;
+    async contador() {
+        sitetitle.innerHTML = "R$" + Math.round(await verificador(dinheiro)) + prefixo + " -Water Seller Simulator";
+        contador.innerHTML = Math.round(await verificador(dinheiro)) + prefixo;
     },
     notifications() {
         lojanotificationtxt.innerHTML = lojanotification;
@@ -98,46 +78,48 @@ const atualizar = {
         lojanotificationdiv.style.display = "none";
     },
     async trofeus() {
-            const requesttrofeus = await fetch("./assets/json/trofeus.json");
-            const trofeus = await requesttrofeus.json();
-            for (let n = 0; n <= trofeus.length; n++){
-                if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
-                    fatherpopup.classList.add("trofeu");
-                    auxtrofeu[n] = false;
-                    fatherpopup.innerHTML += 
-                    `<div id="trofeu">
-                        <img src=${trofeus[n]["endereço"]}>
-                        <div>
-                            <h2>${trofeus[n]["titulo"]}</h2>
-                            <p>${trofeus[n]["descricao"]}</p>
-                        </div>
-                    </div>`
-                    let trofeudiv = body.querySelector("#trofeu");
-                    setTimeout(() => {
-                        trofeudiv.style.animationName = "deslizarinicio";
-                        fatherpopup.classList.add("visivel");
-                    }, 6000);
-                    setTimeout(() => {
-                        trofeudiv.style.animationName = "deslizarfim";
-                        fatherpopup.classList.add("visivel");
-                    }, 1000);
-                    setTimeout(() => {
-                        fatherpopup.removeChild(trofeudiv);
-                        fatherpopup.classList.remove("visivel");
-                        fatherpopup.classList.remove("trofeu");
-                    },7000);
-                    let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
-                    let conquistatitulo = conquista.querySelector(".informationdiv>h3");
-                    let conquistatxt = conquista.querySelector(".informationdiv>p");
-                    conquistatitulo.innerHTML = trofeus[n]["titulo"];
-                    conquistatxt.innerHTML = trofeus[n]["descricao"];
-                    conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
-                }
+        const requesttrofeus = await fetch("./assets/json/trofeus.json");
+        const trofeus = await requesttrofeus.json();
+        for (let n = 0; n <= trofeus.length; n++){
+            if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
+                fatherpopup.classList.add("trofeu");
+                auxtrofeu[n] = false;
+                fatherpopup.innerHTML += 
+                `<div id="trofeu">
+                    <img src=${trofeus[n]["endereço"]}>
+                    <div>
+                        <h2>${trofeus[n]["titulo"]}</h2>
+                        <p>${trofeus[n]["descricao"]}</p>
+                    </div>
+                </div>`
+                let trofeudiv = body.querySelector("#trofeu");
+                setTimeout(() => {
+                    trofeudiv.style.animationName = "deslizarinicio";
+                    fatherpopup.classList.add("visivel");
+                }, 6000);
+                setTimeout(() => {
+                    trofeudiv.style.animationName = "deslizarfim";
+                    fatherpopup.classList.add("visivel");
+                }, 1000);
+                setTimeout(() => {
+                    fatherpopup.removeChild(trofeudiv);
+                    fatherpopup.classList.remove("visivel");
+                    fatherpopup.classList.remove("trofeu");
+                },7000);
+                let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
+                let conquistatitulo = conquista.querySelector(".informationdiv>h3");
+                let conquistatxt = conquista.querySelector(".informationdiv>p");
+                conquistatitulo.innerHTML = trofeus[n]["titulo"];
+                conquistatxt.innerHTML = trofeus[n]["descricao"];
+                conquista.style.backgroundImage = `url(${trofeus[n]["endereço"]})`;
             }
+        }
     },
     dinheiro() {
         moneyloop = setInterval(() => {
-            dinheiro += objetos[0] * multiplicadores[0] + (objetos[1] * multiplicadores[1]) + (objetos[2] * multiplicadores[2]) + (objetos[3] * multiplicadores[3]) + (objetos[4] * multiplicadores[4]) + (objetos[5] * multiplicadores[5]) + (objetos[6] * multiplicadores[6]) + (objetos[7] * multiplicadores[7]) + (objetos[8] * multiplicadores[8]) + (objetos[9] * multiplicadores[9]) + (objetos[10] * multiplicadores[10]);
+            for(let i = 0; i <=10; i++){
+                dinheiro += objetos[i] * multiplicadores[i];
+            }
             atualizar.contador();
             verificarloja();
             atualizar.notifications();
@@ -149,11 +131,10 @@ const atualizar = {
         const requesttorres = await fetch("./assets/json/torres.json");
         const torres = await requesttorres.json();
         for (let i = 0; i<=torres.length; i++){
-            console.log(torres[i]["name"]);
             if(dinheiro >= precosbase[i]){
                 txt[i].innerHTML = torres[i]["name"];
                 counter[i].innerHTML = objetos[i];
-                button[i].innerHTML = "R$" + verificador(calculomultiplicador(precos[i], precosbase[i])) + " " + prefixo;
+                button[i].innerHTML = "R$" + await verificador(precos[i]) + " " + prefixo;
             }
         }
     }
@@ -209,13 +190,13 @@ async function verificarloja() {
                     <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
                     <p>${lojaitens[auxloja]["titulo"]}</p>
                 </div>
-                <button id="button-${auxloja}">${lojaitens[auxloja]["precotxt"]}</button>`;
+                <button id="button-${auxloja}">${verificador(Number(lojaitens[auxloja]["preco"]))}</button>`;
             loja.appendChild(itemDiv);
             lojanotification++;
             (function(auxloja) {
                 document.querySelector(`#button-${auxloja}`).onclick = function (){
-                    if(dinheiro>=lojaitens[auxloja]["preco"]){
-                        dinheiro -= lojaitens[auxloja]["preco"];
+                    if(dinheiro >= Number(lojaitens[auxloja]["preco"])){
+                        dinheiro -= Number(lojaitens[auxloja]["preco"]);
                         loja.removeChild(loja.querySelector(`.item-${auxloja}`));
                         lojanotification--;
                         atualizar.notifications();
@@ -271,11 +252,11 @@ multiplicador.onclick = function() {
         multiplicadordecompra = multiplicadordecompra/100;
         multiplicador.innerHTML = multiplicadordecompra + "x";
         atualizar.torres();
-    } else {
-        multiplicadordecompra = multiplicadordecompra*10;
-        multiplicador.innerHTML = multiplicadordecompra + "x";
-        atualizar.torres();
+        return;
     }
+    multiplicadordecompra = multiplicadordecompra*10;
+    multiplicador.innerHTML = multiplicadordecompra + "x";
+    atualizar.torres();
 }
 menuloja.onclick = function() {
     menuaudio.play();
@@ -311,20 +292,20 @@ async function torresbutton(){
     const requesttorres = await fetch("./assets/json/torres.json");
     const torres = await requesttorres.json(); 
     for (let i = 0; i <= torres.length; i++) {
-        button[i].onclick = function() {
-            if(dinheiro>=calculomultiplicador(precos[i], precosbase[i])){
+        button[i].onclick = async function() {
+            if(dinheiro>=precos[i]){
                 if(eval(torres[i]["tecnologias"])){
                     objetos[i]+=multiplicadordecompra;
-                    dinheiro-=calculomultiplicador(precos[i], precosbase[i]);
+                    dinheiro-=precos[i];
                     precos[i]=precosbase[i] * (objetos[i]+1);
                     atualizar.torres();
                     atualizar.contador();
-                } else {
-                    errorbox("Você não tem tecnologia o suficiente para efetuar essa compra!");
+                    return;
                 }
-            } else {
-                errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+                errorbox("Você não tem tecnologia o suficiente para efetuar essa compra!");
+                return;
             }
+            errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
         }
     }
 }

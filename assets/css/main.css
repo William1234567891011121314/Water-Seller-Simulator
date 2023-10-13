@@ -188,9 +188,12 @@
         transform: scale(0%);
     }
     div#trofeus{
+        position: relative;
         display: none;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(10, 1fr);
+        overflow-y: scroll;
+        height: 88vh;
         >div{
             border: 1px solid black;
             display: flex;
@@ -308,7 +311,7 @@
         box-shadow: 0 5px black;
     }
     .navtitle{
-        font-size: 5.5vh;
+        font-size: 7vw;
     }
     div.menu{
         border-right: 1px solid black;
@@ -429,8 +432,11 @@
         display: none;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(20, 1fr);
+        overflow-y: scroll;
+        height: 88vh;
     }
     div#trofeus>div{
+        position: relative;
         border: 1px solid black;
         display: flex;
         min-height: 46vw;

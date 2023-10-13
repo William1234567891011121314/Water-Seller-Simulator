@@ -107,14 +107,14 @@
     {
         "titulo":"Contato extraterrestre",
         "descricao":"Compre sua 100ª nave inter-planetária",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/cemnaves.bmp",
         "id":"cemplanetas",
         "condition":"objetos[7]>=100"
     },
     {
-        "titulo":"Elon Musk uma vez disse: eu quero água",
+        "titulo":"Elon Musk uma vez disse",
         "descricao":"Compre sua 1000ª nave inter-planetária",
-        "endereço":"./assets/trofeus/interrogacao.bmp",
+        "endereço":"./assets/trofeus/milnaves.bmp",
         "id":"milplanetas",
         "condition":"objetos[7]>=1000"
     },
@@ -147,7 +147,7 @@
         "condition":"objetos[8]>=1000"
     },
     {
-        "titulo":"Cuidado com plutônio",
+        "titulo":"Cuidado com o plutônio",
         "descricao":"Compre a sua 100ª máquina do tempo",
         "endereço":"./assets/trofeus/interrogacao.bmp",
         "id":"cemtempo",
