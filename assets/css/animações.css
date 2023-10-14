@@ -1,0 +1,50 @@
+@keyframes rightrotate {
+    from {
+        transform: rotate(0deg) translateY(0%);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(20deg) translateY(-200%);
+        opacity: 0;
+    }
+}
+@keyframes leftrotate {
+    from {
+        transform: rotate(0deg) translateY(0%);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(-20deg) translateY(-200%);
+        opacity: 0;
+    }
+}
+@keyframes deslizarinicio {
+    from {
+        transform: translateX(0vw);
+    }
+    to {
+        transform: translateX(80vw);
+    }
+}
+@keyframes deslizarfim {
+    from {
+        transform: translateX(-60vw);
+    }
+    to {
+        transform: translateX(0vw);
+    }
+}
+@keyframes popup {
+    0% {
+        transform: scale(100%);
+        background-color: rgba(216, 216, 216, .9);
+    }
+    50% {
+        transform: scale(150%);
+        background-color: rgba(255, 0, 0, 0.9);
+    }
+    100% {
+        transform: scale(100%);
+        background-color: rgba(216, 216, 216, .9);
+    }
+}
