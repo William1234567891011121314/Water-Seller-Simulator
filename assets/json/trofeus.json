@@ -280,10 +280,10 @@
         "condition":"rebirth===10"
     },
     {
-        "titulo":"Zerando o estoque",
-        "descricao":"Compre todos os itens da loja",
+        "titulo":"Easter Egg",
+        "descricao":"Encontre um easter egg",
         "endereço":"./assets/trofeus/interrogacao.bmp",
-        "id":"semestoque",
+        "id":"easteregg",
         "condition":"false"
     }
 ]

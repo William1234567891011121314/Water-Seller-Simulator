@@ -118,5 +118,13 @@
         "preco":"50000",
         "condicao":"clicks>=2200",
         "efeito":"moneytime=800"
+    },
+    {
+        "titulo":"Hackear concorrente",
+        "descricao":"Roube tecnologias do seu concorrente",
+        "precotxt":"R$1 Milhão",
+        "preco":"1000000",
+        "condicao":"clicks>=3000",
+        "efeito":"quiz()"
     }
 ]

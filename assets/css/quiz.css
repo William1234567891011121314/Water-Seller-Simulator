@@ -1,0 +1,65 @@
+#quiz{
+    display: block;
+    border: 1px solid black;
+    background-color: rgba(248, 248, 248, 0.8);
+    >div#navquiz{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+        background-color: rgb(180, 180, 255);
+        >div{
+            display: flex;
+            p{
+                min-width: fit-content;
+            }
+        }
+        #navbut button>*{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    #site{
+        flex-direction: column;
+        >div{
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            border-bottom: 1px solid black;
+            padding: 1%;
+        }
+        #cxdiag{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            >div{
+                display: flex;
+                flex-direction: column;
+                height: 70%;
+                width: 70%;
+                border: 1px solid black;
+                justify-content: space-evenly;
+                gap: 0%;
+                input{
+                    width: 100%;
+                }
+                div#input{
+                    padding: 10%;
+                    #incorreto{
+                        color: red;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                }
+                #botoes{
+                    display: flex;
+                    padding: 10%;
+                    justify-content: space-between;
+                }
+            }
+            button>p{
+                font-size: medium;
+            }
+        }
+    }
+}

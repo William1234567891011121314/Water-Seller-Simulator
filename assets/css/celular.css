@@ -17,7 +17,6 @@
     button:hover{
         background-color: rgba(180, 180, 180, .7);
         box-shadow: 2px 2px 2px;
-        transform: scale(110%);
     }
     div#lojanotificationdiv{
         display: none;
