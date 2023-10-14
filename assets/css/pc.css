@@ -1,5 +1,5 @@
 @import url(animações.css);
-@media (min-width: 720px) {
+@media (min-aspect-ratio: 1/1) {
     p, h1, h2, h3{
         font-family: Arial, Helvetica, sans-serif;
         font-size: xx-large;
@@ -10,14 +10,14 @@
         transition: .4s;
         border: 2px groove;
         background-color: rgba(248, 248, 248, .7);
+        >img{
+            height: 100%;
+        }
     }
     button:hover{
         background-color: rgba(180, 180, 180, .7);
         box-shadow: 2px 2px 2px;
         transform: scale(110%);
-    }
-    img#cadeado{
-        height: 100%;
     }
     div#lojanotificationdiv{
         display: none;
@@ -32,15 +32,15 @@
         margin: 0px;
         font-size: xx-large;
     }
-    body>div>div{
-        display: flex;
-    }
     body>div{
         display: flex;
         border: 1px solid black;
         border-bottom: 0;
         justify-content: space-between;
         background-color: rgba(248, 248, 248, .7);
+        >div{
+            display: flex;
+        }
     }
     body{
         overflow-x: hidden;
@@ -71,9 +71,9 @@
         display: grid;
         grid-template-columns: 1fr 3fr;
         border: 1px solid black;
-    }
-    div#main div.ultimo{
-        border-bottom: 0;
+        div.ultimo{
+            border-bottom: 0;
+        }
     }
     div#umafr{
         display: flex;
@@ -84,15 +84,15 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 1fr);
-    }
-    div#tresfr>div{
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        justify-content: space-around;
-        text-align: center;
-        border-left: 1px solid black;
-        border-bottom: 1px solid black;
-        padding: 1vw;
+        >div{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            justify-content: space-around;
+            text-align: center;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 1vw;
+        }
     }
     div.divisor{
         display: flex;
@@ -143,15 +143,10 @@
         box-shadow: 1px 1px 4px;
         animation-name: popup;
         animation-duration: .4s;
-    }
-    div#popup > div{
-        display: flex;
-        justify-content: center;
-    }
-    button#errorboxbutton, div#popup > p{
-        opacity: 0;
-        visibility: hidden;
-        transition: .2s;
+        div{
+            display: flex;
+            justify-content: center;
+        }
     }
     div#loja{
         display: none;
@@ -159,11 +154,11 @@
         flex-direction: column;
         overflow-y: scroll;
         overflow-x: hidden;
-    }
-    div#loja div{
-        display: flex;
-        justify-content: space-between;
-        height: fit-content;
+        div{
+            display: flex;
+            justify-content: space-between;
+            height: fit-content;
+        }
     }
     button#multiplicador{
         opacity: 0;
