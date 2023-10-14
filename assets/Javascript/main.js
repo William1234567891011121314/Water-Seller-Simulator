@@ -1,6 +1,4 @@
 ﻿//constantes
-const lojanotificationdiv = document.querySelector("#lojanotificationdiv");
-const lojanotificationtxt = lojanotificationdiv.querySelector("#lojanotification");
 const sitetitle = document.querySelector("title");
 const body = document.querySelector("body");
 const main = body.querySelector("#main");
@@ -10,6 +8,8 @@ const umafr = main.querySelector("#umafr");
 const garrafa = umafr.querySelector("#garrafa");
 const conquistas = main.querySelector("#trofeus");
 const nav = body.querySelector("#nav");
+const lojanotificationdiv = nav.querySelector("#lojanotificationdiv");
+const lojanotificationtxt = lojanotificationdiv.querySelector("#lojanotification");
 const menuloja = nav.querySelector("#menuloja");
 const menumain = nav.querySelector("#menumain");
 const menutrofeus = nav.querySelector("#menutrofeus");
