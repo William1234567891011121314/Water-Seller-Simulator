@@ -144,7 +144,7 @@
     }
     div#loja{
         display: none;
-        min-height: 35vw;
+        min-height: 80vh;
         div{
             display: flex;
             justify-content: space-between;

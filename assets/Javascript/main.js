@@ -83,7 +83,7 @@ const atualizar = {
     async trofeus() {
         const requesttrofeus = await fetch("./assets/json/trofeus.json");
         const trofeus = await requesttrofeus.json();
-        for (let n = 0; n <= trofeus.length; n++){
+        for (let n = 0; n < trofeus.length; n++){
             if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
                 fatherpopup.classList.add("trofeu");
                 auxtrofeu[n] = false;
@@ -294,8 +294,8 @@ dinheirobutton.addEventListener('click', ev => {
 async function torresbutton(){
     const requesttorres = await fetch("./assets/json/torres.json");
     const torres = await requesttorres.json(); 
-    for (let i = 0; i <= torres.length; i++) {
-        button[i].onclick = async function() {
+    for (let i = 0; i < torres.length; i++) {
+        button[i].onclick = function() {
             if(dinheiro>=calculomultiplicador(precos[i], precosbase[i])){
                 if(eval(torres[i]["tecnologias"])){
                     objetos[i]+=multiplicadordecompra;
