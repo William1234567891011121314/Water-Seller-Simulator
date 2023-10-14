@@ -155,6 +155,7 @@
         height: 88vh;
         flex-direction: column;
         overflow-y: scroll;
+        overflow-x: hidden;
     }
     div#loja div{
         display: flex;
@@ -181,7 +182,7 @@
         transition: .4s;
     }
     img#information{
-        height: 50%;
+        height: 30%;
     }
     div.informationdiv{
         visibility: hidden;

@@ -23,6 +23,9 @@ const counter = [tresfr.querySelector("#vendedores"), tresfr.querySelector("#maq
 const button = [tresfr.querySelector("#vendedorbutton"), tresfr.querySelector("#maquinadevendabutton"), tresfr.querySelector("#carrosbutton"), tresfr.querySelector("#pipabutton"), tresfr.querySelector("#fabricabutton"), tresfr.querySelector("#polobutton"), tresfr.querySelector("#asteroidebutton"), tresfr.querySelector("#planetasbutton"), tresfr.querySelector("#galaxiasbutton"), tresfr.querySelector("#universosbutton"), tresfr.querySelector("#tempobutton")];
 const clickaudio = new Audio("./assets/audios/Click.mp3");
 const menuaudio = new Audio("./assets/audios/Menus.mp3");
+const coinsaudio = new Audio("./assets/audios/Coins.mp3");
+const cashregistratoraudio = new Audio("./assets/audios/Cash-registrator.mp3");
+const erroraudio = new Audio("./assets/audios/Error-sound.mp3");
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [];
@@ -59,7 +62,7 @@ async function verificador(input) {
     }
 }
 function calculomultiplicador(n1, n2) {
-    let auxwhile = 2;
+    let auxwhile = 1;
     let n3 = n2;
     for (; auxwhile<=multiplicadordecompra; n1+=n2, n3+=n1, auxwhile++);
     return n3;
@@ -134,7 +137,7 @@ const atualizar = {
             if(objetos[i-1]>0 || objetos[i]>0){
                 txt[i].innerHTML = torres[i]["name"];
                 counter[i].innerHTML = objetos[i];
-                button[i].innerHTML = `<p>R$${await verificador(precos[i])} ${prefixo}</p>`;
+                button[i].innerHTML = `<p>R$${await verificador(calculomultiplicador(precos[i], precosbase[i]))} ${prefixo}</p>`;
             }
         }
     }
@@ -162,6 +165,7 @@ function errorbox(txt) {
         errorboxbutton.classList.remove("visivel");
         fatherpopup.innerHTML = "";
     }
+    erroraudio.play();
     errorboxbutton.addEventListener('click', () => {
         visivel();
     });
@@ -187,26 +191,25 @@ async function verificarloja() {
             itemDiv.innerHTML = `
                 <div class="ultimo">
                     <img id="information" src="./assets/Information.png">
-                    <div class="informationdiv">${lojaitens[auxloja]["descricao"]}</div>
+                    <div class="informationdiv"><p>${lojaitens[auxloja]["descricao"]}</p></div>
                     <p>${lojaitens[auxloja]["titulo"]}</p>
                 </div>
                 <button id="button-${auxloja}"><p>R$ ${await verificador(Number(lojaitens[auxloja]["preco"])) + prefixo}</p></button>`;
             loja.appendChild(itemDiv);
             lojanotification++;
-            (function(auxloja) {
-                document.querySelector(`#button-${auxloja}`).onclick = function (){
-                    if(dinheiro >= Number(lojaitens[auxloja]["preco"])){
-                        dinheiro -= Number(lojaitens[auxloja]["preco"]);
-                        loja.removeChild(loja.querySelector(`.item-${auxloja}`));
-                        lojanotification--;
-                        atualizar.notifications();
-                        atualizar.contador();
-                        eval(lojaitens[auxloja]["efeito"]);
-                        return;
-                    }
-                    errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+            document.querySelector(`#button-${auxloja}`).onclick = function (){
+                if(dinheiro >= Number(lojaitens[auxloja]["preco"])){
+                    dinheiro -= Number(lojaitens[auxloja]["preco"]);
+                    loja.removeChild(loja.querySelector(`.item-${auxloja}`));
+                    lojanotification--;
+                    atualizar.notifications();
+                    atualizar.contador();
+                    eval(lojaitens[auxloja]["efeito"]);
+                    cashregistratoraudio.play();
+                    return;
                 }
-            })(auxloja);
+                errorbox("Você não tem dinheiro o suficiente para efetuar essa compra!");
+            }
         }
     }
 }
@@ -250,12 +253,12 @@ atualizar.dinheiro();
 multiplicador.onclick = function() {
     if(multiplicadordecompra>=100){
         multiplicadordecompra = multiplicadordecompra/100;
-        multiplicador.innerHTML = multiplicadordecompra + "x";
+        multiplicador.innerHTML = `<p>${multiplicadordecompra}x</p>`;
         atualizar.torres();
         return;
     }
     multiplicadordecompra = multiplicadordecompra*10;
-    multiplicador.innerHTML = multiplicadordecompra + "x";
+    multiplicador.innerHTML = `<p>${multiplicadordecompra}x</p>`;
     atualizar.torres();
 }
 menuloja.onclick = function() {
@@ -293,14 +296,18 @@ async function torresbutton(){
     const torres = await requesttorres.json(); 
     for (let i = 0; i <= torres.length; i++) {
         button[i].onclick = async function() {
-            if(dinheiro>=precos[i]){
+            if(dinheiro>=calculomultiplicador(precos[i], precosbase[i])){
                 if(eval(torres[i]["tecnologias"])){
                     objetos[i]+=multiplicadordecompra;
-                    dinheiro-=precos[i];
+                    dinheiro-=calculomultiplicador(precos[i], precosbase[i]);
                     precos[i]=precosbase[i] * (objetos[i]+1);
                     atualizar.torres();
                     atualizar.contador();
-                    return;
+                    if(multiplicadordecompra<100){
+                        coinsaudio.play();
+                        return;
+                    }
+                    cashregistratoraudio.play();
                 }
                 errorbox("Você não tem tecnologia o suficiente para efetuar essa compra!");
                 return;
