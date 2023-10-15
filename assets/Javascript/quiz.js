@@ -14,7 +14,7 @@ function quiz() {
             </div>
             <div id="site">
                 <div>
-                    <input id="url" type="url" value="https://www.booble.com.br/login.html"><button><p>Pesquisar</p></button>
+                    <input id="url" type="url" value="https://www.booble.com.br/account/login.html"><button><p>Pesquisar</p></button>
                 </div>
                 <div id="cxdiag">
                     <div>
@@ -57,7 +57,7 @@ function quiz() {
     btforget.addEventListener('click', () => {
         const cxdiag = fatherpopup.querySelector("div#cxdiag");
         const url = fatherpopup.querySelector("input#url");
-        url.setAttribute("value", "https://www.booble.com.br/login/recovery.html");
+        url.setAttribute("value", "https://www.booble.com.br/account/recovery.html");
         cxdiag.innerHTML = `
             <div id="perguntas">
                 <div>
