@@ -14,13 +14,13 @@ function quiz() {
             </div>
             <div id="site">
                 <div>
-                    <input id="url" type="text" value="https://www.booble.com.br/login.html"><button><p>Pesquisar</p></button>
+                    <input id="url" type="url" value="https://www.booble.com.br/login.html"><button><p>Pesquisar</p></button>
                 </div>
                 <div id="cxdiag">
                     <div>
                         <div id="input">
                             <p>Senha:</p>
-                            <input type="text">
+                            <input type="password">
                             <p id="incorreto">Senha incorreta</p>
                         </div>
                         <div id="botoes">
@@ -59,135 +59,160 @@ function quiz() {
         const url = fatherpopup.querySelector("input#url");
         url.setAttribute("value", "https://www.booble.com.br/login/recovery.html");
         cxdiag.innerHTML = `
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-            </div>
-            <div>
-                <label></label>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
-                <input type="radio"></input>
+            <div id="perguntas">
+                <div>
+                    <p>Responda a estas perguntas de segurança para confirmar a sua identidade:</p>
+                </div>
+                <div>
+                    <p id="question">Qual é a melhor água do mundo?</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question"></p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
+                <div>
+                    <p id="question">Pergunta</p>
+                    <select>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                        <option value="a">a</option>
+                    </select>
+                </div>
             </div>
         `
     })
