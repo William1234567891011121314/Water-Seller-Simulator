@@ -1,0 +1,45 @@
+[
+    {
+        "pergunta":"Qual é a melhor água do mundo?",
+        "alternativas":["A minha", "Cristal", "Água da pedra", "Fuji", "A água do Vitor", "A do Rio Camboriú", "A melhor água do mundo são os amigos que fazemos no caminho", "A da chuva", "Coca-cola", "O chorume"],
+        "resposta":6
+    },
+    {
+        "pergunta":"Qual é o nome do seu primo?",
+        "alternativas":["João", "Gustavo", "Juriscleydison", "Alfredo", "Dudisdud99", "Doutor Fran, Geraldo Alckmin", "Vitor (o baiano)", "Jefferson", "Lucas"],
+        "resposta":0
+    },
+    {
+        "pergunta":"Qual é a sua maravilha do mundo favorita?",
+        "alternativas":["As pirâmides do José", "Torre Eifel", "World Trade Center (o novo)", "O Vitor dormindo", "Beto Carreiro", "Cristo Luz", "Muralha da China", "RTX 4090", "A cara do Leonardo quando o Gabriel rouba a garrafa dele", "O código do Varela"],
+        "resposta":3
+    },
+    {
+        "pergunta":"Qual a marca que você mais odeia?",
+        "alternativas":["Positivo", "AMD (Ancient Micro Devices)", "Philco", "Dell", "Auto peças Simas turbo", "Nissin", "Microsoft", "EA", "Nintendo", "Apple"],
+        "resposta":9
+    },
+    {
+        "pergunta":"Qual destes é mais lento?",
+        "alternativas":["Jabuti (o cachorro)", "Jabuit (tartaruga)", "A radiação Hawking", "O netbook do Vitor", "Um HD com Windows 11", "Compilador Python", "A interner do IFC", "A fila do café", "Tela de loading do GTA 5", "O boot do PC do IFC"],
+        "resposta":3
+    },
+    {
+        "pergunta":"Eu tenho 5 velas, apaguei 2. Qauntas sobraram?",
+        "alternativas":["Duas", "Cinco", "Três", "Noventa e sete", "Nenhuma, depois de muito tempo o sol vai engolir a Terra", "Undefined", "Dois e meio", "Pi", "50% de chance de ser 2, 25% de chanc de ser 3 e 25% de chance de ser 4", "NaN"],
+        "resposta":0
+    },
+    {
+        "pergunta":"Qual o filósofo mais based?",
+        "alternativas":["Sócrates", "Platão", "Heráclito", "Parmênides", "Anaximandro", "Demócrito", "Pitágoras", "Tales de mileto", "Leonardo Ignácio", "Nietzche"],
+        "resposta":8
+    },
+    {
+        "pergunta":"Qual destes tem o linguajar de mais bvaixo nível?",
+        "alternativas":["Varela", "MC Pipokinha", "Leno Brega", "Engenheiros da Intel", "Jabuti", "ET do parlamento Mexicano", "Jogadores de LOL", "Bolsonaro", "Steve Jobs"],
+        "resposta":7
+    },
+    {
+        
+    }
+]
