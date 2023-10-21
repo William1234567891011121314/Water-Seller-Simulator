@@ -36,10 +36,7 @@
     },
     {
         "pergunta":"Qual destes tem o linguajar de mais bvaixo nível?",
-        "alternativas":["Varela", "MC Pipokinha", "Leno Brega", "Engenheiros da Intel", "Jabuti", "ET do parlamento Mexicano", "Jogadores de LOL", "Bolsonaro", "Steve Jobs"],
+        "alternativas":["Varela", "MC Pipokinha", "Leno Brega", "Engenheiros da Intel", "Jabuti", "ET do parlamento Mexicano", "Jogadores de LOL", "Bolsonaro", "Steve Jobs", "Bill Gates"],
         "resposta":7
-    },
-    {
-        
     }
 ]
