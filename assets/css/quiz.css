@@ -1,7 +1,10 @@
+body{
+    margin: 0;
+    border: 1px solid black;
+    overflow-y: hidden;
+}
 #quiz{
     display: block;
-    position: absolute;
-    border: 1px solid black;
     background-color: rgba(248, 248, 248, 0.6);
     backdrop-filter: blur(1.5px);
     >div#navquiz{
@@ -34,11 +37,9 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            overflow-y: scroll;
-            height: 80vh;
             overflow-y: auto;
             #perguntas{
-                margin-top: 50%;
+                border: 1px solid black;
                 >div{
                     padding: 4%;
                 }

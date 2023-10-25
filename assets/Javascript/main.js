@@ -85,9 +85,9 @@ const atualizar = {
         const trofeus = await requesttrofeus.json();
         for (let n = 0; n < trofeus.length; n++){
             if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
-                fatherpopup.classList.add("trofeu");
+                document.classList.add("trofeu");
                 auxtrofeu[n] = false;
-                fatherpopup.innerHTML += 
+                document.innerHTML += 
                 `<div id="trofeu">
                     <img src=${trofeus[n]["endereço"]}>
                     <div>
@@ -98,16 +98,16 @@ const atualizar = {
                 let trofeudiv = body.querySelector("#trofeu");
                 setTimeout(() => {
                     trofeudiv.style.animationName = "deslizarinicio";
-                    fatherpopup.classList.add("visivel");
+                    document.classList.add("visivel");
                 }, 6000);
                 setTimeout(() => {
                     trofeudiv.style.animationName = "deslizarfim";
-                    fatherpopup.classList.add("visivel");
+                    document.classList.add("visivel");
                 }, 1000);
                 setTimeout(() => {
-                    fatherpopup.removeChild(trofeudiv);
-                    fatherpopup.classList.remove("visivel");
-                    fatherpopup.classList.remove("trofeu");
+                    document.removeChild(trofeudiv);
+                    document.classList.remove("visivel");
+                    document.classList.remove("trofeu");
                 },7000);
                 let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
                 let conquistatitulo = conquista.querySelector(".informationdiv>h3");
@@ -144,33 +144,33 @@ const atualizar = {
 }
 let popupaux = true;
 function errorbox(txt) {
-    fatherpopup.classList.add("visivel");
-    fatherpopup.innerHTML = `
+    document.classList.add("visivel");
+    document.innerHTML = `
     <div id="popup">
         <p>${txt}</p>
         <div>
             <button id="errorboxbutton">Ok</button>
         </div>
     </div>`;
-    const popup = fatherpopup.querySelector("#popup");
+    const popup = document.querySelector("#popup");
     const errorboxbutton = popup.querySelector("#errorboxbutton");
     const popuptext = popup.querySelector("p");
     popuptext.classList.add("visivel");
     popup.classList.add("visivel");
     errorboxbutton.classList.add("visivel");
     function visivel(){
-        fatherpopup.classList.remove("visivel");
+        document.classList.remove("visivel");
         popup.classList.remove("visivel");
         popuptext.classList.remove("visivel");
         errorboxbutton.classList.remove("visivel");
-        fatherpopup.innerHTML = "";
+        document.innerHTML = "";
     }
     erroraudio.play();
     errorboxbutton.addEventListener('click', () => {
         visivel();
     });
-    fatherpopup.addEventListener('click', ev => {
-        if(ev.target==fatherpopup){
+    document.addEventListener('click', ev => {
+        if(ev.target==document){
             visivel();
         }
     });
@@ -235,6 +235,42 @@ function moneyclick(ev) {
         body.removeChild(clickimg);
     }, 300)
     garrafa.style.transform = "scale(75%)";
+}
+function quiz() {
+    fatherpopup.innerHTML = `
+        <iframe src="./assets/Html/quiz.html"></iframe>
+    `
+    fatherpopup.classList.add("visivel");
+    makeDraggable(fatherpopup.querySelector("iframe"));
+}
+function makeDraggable(element) { 
+    let currentPosX = 0, currentPosY = 0, previousPosX = 0, previousPosY = 0;
+    if (element.querySelector('.window-top')) {
+        element.querySelector('.window-top').onmousedown = dragMouseDown;
+    }
+    else {
+        element.onmousedown = dragMouseDown;
+    }
+    function dragMouseDown (e) {
+        e.preventDefault();
+        previousPosX = e.clientX;
+        previousPosY = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+    function elementDrag (e) {
+        e.preventDefault();
+        currentPosX = previousPosX - e.clientX;
+        currentPosY = previousPosY - e.clientY;
+        previousPosX = e.clientX;
+        previousPosY = e.clientY;
+        element.style.top = (element.offsetTop - currentPosY) + 'px';
+        element.style.left = (element.offsetLeft - currentPosX) + 'px';
+    }
+    function closeDragElement () {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
 }
 //código
 if(window.innerWidth<window.innerHeight){
