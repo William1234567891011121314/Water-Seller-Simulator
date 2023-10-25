@@ -236,42 +236,6 @@ function moneyclick(ev) {
     }, 300)
     garrafa.style.transform = "scale(75%)";
 }
-function quiz() {
-    fatherpopup.innerHTML = `
-        <iframe src="./assets/Html/quiz.html"></iframe>
-    `
-    fatherpopup.classList.add("visivel");
-    makeDraggable(fatherpopup.querySelector("iframe"));
-}
-function makeDraggable(element) { 
-    let currentPosX = 0, currentPosY = 0, previousPosX = 0, previousPosY = 0;
-    if (element.querySelector('.window-top')) {
-        element.querySelector('.window-top').onmousedown = dragMouseDown;
-    }
-    else {
-        element.onmousedown = dragMouseDown;
-    }
-    function dragMouseDown (e) {
-        e.preventDefault();
-        previousPosX = e.clientX;
-        previousPosY = e.clientY;
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
-    }
-    function elementDrag (e) {
-        e.preventDefault();
-        currentPosX = previousPosX - e.clientX;
-        currentPosY = previousPosY - e.clientY;
-        previousPosX = e.clientX;
-        previousPosY = e.clientY;
-        element.style.top = (element.offsetTop - currentPosY) + 'px';
-        element.style.left = (element.offsetLeft - currentPosX) + 'px';
-    }
-    function closeDragElement () {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
 //código
 if(window.innerWidth<window.innerHeight){
     smartphone();
