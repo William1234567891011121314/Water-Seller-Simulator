@@ -6,6 +6,7 @@ const navbut = document.querySelector("#navbut");
 const btmin = navbut.querySelector("button#btmin");
 const btmax = navbut.querySelector("button#btmax");
 const btesc = navbut.querySelector("button#btesc");
+const erroraudio = new Audio("../audios/Erro-win7.mp3");
 input.addEventListener('keydown', ev => {
     if(ev.key=='Enter'){
         txterror.classList.add("visivel");
@@ -13,7 +14,9 @@ input.addEventListener('keydown', ev => {
     }
 })
 btconfirm.addEventListener('click', () => {
-    txterror.classList.add("visivel");
+    errorquiz("Senha incorreta!")
+    const errorbox = document.querySelector("#dialog-demo");
+    errorbox.classList.add("visivel");
     erroraudio.play();
 });
 // btesc.addEventListener('click', () => {
@@ -24,7 +27,7 @@ btforget.onclick = async function() {
     const perguntas = document.querySelector("div#perguntas");
     perguntas.innerHTML += `
         <div>
-            <p>Responda a estas perguntas de segurança para confirmar a sua identidade:</p>
+            <p id="question>Responda a estas perguntas de segurança para confirmar a sua identidade:</p>
         </div>
     `
     const url = document.querySelector("input#url");

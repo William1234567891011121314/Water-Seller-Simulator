@@ -226,10 +226,4 @@
         width: 80vw;
         position: absolute;
     }
-    span#iframespan{
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        z-index: 0;
-    }
 }

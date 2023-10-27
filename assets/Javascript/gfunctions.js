@@ -6,7 +6,7 @@ function quiz() {
     const iframe = fatherpopup.querySelector("iframe");
     iframe.addEventListener("load", function() {
         const iframeDocument = iframe.contentWindow.document;
-        const iframenav = iframeDocument.querySelector('.window-top');
+        const iframenav = iframeDocument.querySelector('.title-bar');
         let currentPosX = 0, currentPosY = 0, previousPosX = 0, previousPosY = 0;
         iframenav.onmousedown = dragMouseDown;
         function dragMouseDown (e) {
@@ -33,4 +33,22 @@ function quiz() {
             fatherpopup.onmousemove = null;
         }
     });
+}
+function errorquiz(txt){
+    document.querySelector("body").innerHTML += `
+    <div class="window active is-bright" id="dialog-demo" role="dialog" aria-labelledby="dialog-title">
+        <div class="title-bar">
+            <div class="title-bar-text" id="dialog-title">Problem Diagnostics</div>
+            <div class="title-bar-controls">
+            <button aria-label="Close" onclick="history.back()"></button>
+        </div>
+    </div>
+    <div class="window-body has-space">
+        <h2 class="instruction instruction-primary">${txt}</h2>
+        <div role="progressbar" class="marquee"></div>
+    </div>
+    <footer style="text-align: right">
+        <button onclick="history.back()">Cancel</button>
+    </footer>
+    `
 }

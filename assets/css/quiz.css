@@ -1,17 +1,10 @@
 body{
+    display: grid;
     margin: 0;
-    border: 1px solid black;
     overflow-y: hidden;
-}
-#quiz{
-    display: block;
-    background-color: rgba(248, 248, 248, 0.6);
-    backdrop-filter: blur(1.5px);
+    height: 100vh;
+    box-sizing: border-box;
     >div#navquiz{
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid black;
-        background-color: rgb(180, 180, 255);
         >div{
             display: flex;
             p{
@@ -24,57 +17,59 @@ body{
             align-items: center;
         }
     }
-    #site{
-        flex-direction: column;
-        >div{
-            display: grid;
-            grid-template-columns: 4fr 1fr;
-            border-bottom: 1px solid black;
-            padding: 1%;
-        }
-        #cxdiag{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
-            #perguntas{
-                border: 1px solid black;
-                >div{
-                    padding: 4%;
-                }
-                p#question{
-                    font-size: large;
-                }
-            }
+    .visivel{
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    div#site{
+        padding: 0;
+    }
+    #urldiv{
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        border-bottom: 1px solid black;
+    }
+    #cxdiag{
+        display: grid;
+        place-items: center;
+        overflow-y: auto;
+        height: 77vh;
+        padding: 4%;
+        #perguntas{
+            border: 1px solid black;
             >div{
+                padding: 4%;
+            }
+            p#question{
+                font-size: large;
+            }
+        }
+        >div{
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            border: 1px solid black;
+            justify-content: space-evenly;
+            gap: 0%;
+            input{
+                width: 100%;
+            }
+            div#input{
+                padding: 10%;
+                #incorreto{
+                    color: red;
+                    visibility: hidden;
+                    opacity: 0;
+                }
+            }
+            #botoes{
                 display: flex;
-                flex-direction: column;
-                height: fit-content;
-                width: 70%;
-                border: 1px solid black;
-                justify-content: space-evenly;
-                gap: 0%;
-                input{
-                    width: 100%;
-                }
-                div#input{
-                    padding: 10%;
-                    #incorreto{
-                        color: red;
-                        visibility: hidden;
-                        opacity: 0;
-                    }
-                }
-                #botoes{
-                    display: flex;
-                    padding: 10%;
-                    justify-content: space-between;
-                }
+                padding: 10%;
+                justify-content: space-between;
             }
-            button>p{
-                font-size: medium;
-            }
+        }
+        button>p{
+            font-size: medium;
         }
     }
 }
