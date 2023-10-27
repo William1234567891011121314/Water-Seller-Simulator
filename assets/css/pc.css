@@ -226,4 +226,8 @@
         width: 80vw;
         position: absolute;
     }
+    div#site{
+        visibility: hidden;
+        opacity: 0;
+    }
 }

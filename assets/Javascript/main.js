@@ -14,6 +14,7 @@ const menuloja = nav.querySelector("#menuloja");
 const menumain = nav.querySelector("#menumain");
 const menutrofeus = nav.querySelector("#menutrofeus");
 const fatherpopup = body.querySelector("#fatherpopup");
+const sitediv = body.querySelector("#site");
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 const contador = body.querySelector("#contador");
 const dinheirobutton = main.querySelector("#garrafa");
@@ -26,6 +27,9 @@ const menuaudio = new Audio("./assets/audios/Menus.mp3");
 const coinsaudio = new Audio("./assets/audios/Coins.mp3");
 const cashregistratoraudio = new Audio("./assets/audios/Cash-registrator.mp3");
 const erroraudio = new Audio("./assets/audios/Error-sound.mp3");
+const iframe = sitediv.querySelector("iframe");
+const iframeDocument = iframe.contentWindow.document;
+const iframenav = iframeDocument.querySelector('.title-bar');
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [];
