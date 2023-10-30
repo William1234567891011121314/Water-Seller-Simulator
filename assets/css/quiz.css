@@ -3,6 +3,7 @@ body{
     margin: 0;
     overflow-y: hidden;
     height: 100vh;
+    padding: 5%;
     box-sizing: border-box;
     >div#navquiz{
         >div{
@@ -33,7 +34,7 @@ body{
         display: grid;
         place-items: center;
         overflow-y: auto;
-        height: 77vh;
+        height: 50vh;
         padding: 4%;
         #perguntas{
             border: 1px solid black;

@@ -1,5 +1,9 @@
 function quiz() {
     sitediv.classList.add("visivel");
+    const iframe = sitediv.querySelector("iframe");
+    const iframeDocument = iframe.ContentWindow.document;
+    const iframenav = iframeDocument.querySelector(".windows glass active")
+
     iframe.addEventListener("load", function() {
         let currentPosX = 0, currentPosY = 0, previousPosX = 0, previousPosY = 0;
         iframenav.onmousedown = dragMouseDown;
