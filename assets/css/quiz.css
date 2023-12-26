@@ -1,11 +1,14 @@
-body{
-    display: grid;
-    margin: 0;
-    overflow-y: hidden;
-    height: 100vh;
-    padding: 5%;
-    box-sizing: border-box;
+#quiz{
+    display: block;
+    position: absolute;
+    border: 1px solid black;
+    background-color: rgba(248, 248, 248, 0.6);
+    backdrop-filter: blur(1.5px);
     >div#navquiz{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+        background-color: rgb(180, 180, 255);
         >div{
             display: flex;
             p{
@@ -18,70 +21,59 @@ body{
             align-items: center;
         }
     }
-    .visivel{
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    div#site{
-        padding: 0;
-    }
-    #urldiv{
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-        border-bottom: 1px solid black;
-    }
-    #cxdiag{
-        display: grid;
-        place-items: center;
-        overflow-y: auto;
-        height: 50vh;
-        padding: 4%;
-        #perguntas{
-            border: 1px solid black;
-            >div{
-                padding: 4%;
-            }
-            p#question{
-                font-size: large;
-            }
-        }
+    #site{
+        flex-direction: column;
         >div{
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            border-bottom: 1px solid black;
+            padding: 1%;
+        }
+        #cxdiag{
             display: flex;
+            justify-content: center;
             flex-direction: column;
-            height: fit-content;
-            border: 1px solid black;
-            justify-content: space-evenly;
-            gap: 0%;
-            input{
-                width: 100%;
-            }
-            div#input{
-                padding: 10%;
-                #incorreto{
-                    color: red;
-                    visibility: hidden;
-                    opacity: 0;
+            align-items: center;
+            overflow-y: scroll;
+            height: 80vh;
+            overflow-y: auto;
+            #perguntas{
+                margin-top: 50%;
+                >div{
+                    padding: 4%;
+                }
+                p#question{
+                    font-size: large;
                 }
             }
-            #botoes{
+            >div{
                 display: flex;
-                padding: 10%;
-                justify-content: space-between;
+                flex-direction: column;
+                height: fit-content;
+                width: 70%;
+                border: 1px solid black;
+                justify-content: space-evenly;
+                gap: 0%;
+                input{
+                    width: 100%;
+                }
+                div#input{
+                    padding: 10%;
+                    #incorreto{
+                        color: red;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                }
+                #botoes{
+                    display: flex;
+                    padding: 10%;
+                    justify-content: space-between;
+                }
             }
-        }
-        button>p{
-            font-size: medium;
-        }
-    }
-    #error-txt{
-        height: 10vh;
-        width: 25vw;
-        display: flex;
-        align-items: center;
-        gap: 5%;
-        padding: 5%;
-        >img{
-            max-height: 63%;
+            button>p{
+                font-size: medium;
+            }
         }
     }
 }

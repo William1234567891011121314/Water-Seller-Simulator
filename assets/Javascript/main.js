@@ -14,7 +14,6 @@ const menuloja = nav.querySelector("#menuloja");
 const menumain = nav.querySelector("#menumain");
 const menutrofeus = nav.querySelector("#menutrofeus");
 const fatherpopup = body.querySelector("#fatherpopup");
-const sitediv = body.querySelector("#site");
 const precosbase = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 const contador = body.querySelector("#contador");
 const dinheirobutton = main.querySelector("#garrafa");
@@ -27,9 +26,6 @@ const menuaudio = new Audio("./assets/audios/Menus.mp3");
 const coinsaudio = new Audio("./assets/audios/Coins.mp3");
 const cashregistratoraudio = new Audio("./assets/audios/Cash-registrator.mp3");
 const erroraudio = new Audio("./assets/audios/Error-sound.mp3");
-const iframe = sitediv.querySelector("iframe");
-const iframeDocument = iframe.contentWindow.document;
-const iframenav = iframeDocument.querySelector('.title-bar');
 //variáveis
 var precos = [150, 1500, 10000, 50000, 1000000, 10000000, 100000000, 10**9, 10**10, 10**11, 10**12];
 var aux = [];
@@ -89,9 +85,9 @@ const atualizar = {
         const trofeus = await requesttrofeus.json();
         for (let n = 0; n < trofeus.length; n++){
             if(eval(trofeus[n]["condition"]) && auxtrofeu[n]){
-                document.classList.add("trofeu");
+                fatherpopup.classList.add("trofeu");
                 auxtrofeu[n] = false;
-                document.innerHTML += 
+                fatherpopup.innerHTML += 
                 `<div id="trofeu">
                     <img src=${trofeus[n]["endereço"]}>
                     <div>
@@ -102,16 +98,16 @@ const atualizar = {
                 let trofeudiv = body.querySelector("#trofeu");
                 setTimeout(() => {
                     trofeudiv.style.animationName = "deslizarinicio";
-                    document.classList.add("visivel");
+                    fatherpopup.classList.add("visivel");
                 }, 6000);
                 setTimeout(() => {
                     trofeudiv.style.animationName = "deslizarfim";
-                    document.classList.add("visivel");
+                    fatherpopup.classList.add("visivel");
                 }, 1000);
                 setTimeout(() => {
-                    document.removeChild(trofeudiv);
-                    document.classList.remove("visivel");
-                    document.classList.remove("trofeu");
+                    fatherpopup.removeChild(trofeudiv);
+                    fatherpopup.classList.remove("visivel");
+                    fatherpopup.classList.remove("trofeu");
                 },7000);
                 let conquista = conquistas.querySelector(`#${trofeus[n]["id"]}`);
                 let conquistatitulo = conquista.querySelector(".informationdiv>h3");
@@ -148,33 +144,33 @@ const atualizar = {
 }
 let popupaux = true;
 function errorbox(txt) {
-    document.classList.add("visivel");
-    document.innerHTML = `
+    fatherpopup.classList.add("visivel");
+    fatherpopup.innerHTML = `
     <div id="popup">
         <p>${txt}</p>
         <div>
             <button id="errorboxbutton">Ok</button>
         </div>
     </div>`;
-    const popup = document.querySelector("#popup");
+    const popup = fatherpopup.querySelector("#popup");
     const errorboxbutton = popup.querySelector("#errorboxbutton");
     const popuptext = popup.querySelector("p");
     popuptext.classList.add("visivel");
     popup.classList.add("visivel");
     errorboxbutton.classList.add("visivel");
     function visivel(){
-        document.classList.remove("visivel");
+        fatherpopup.classList.remove("visivel");
         popup.classList.remove("visivel");
         popuptext.classList.remove("visivel");
         errorboxbutton.classList.remove("visivel");
-        document.innerHTML = "";
+        fatherpopup.innerHTML = "";
     }
     erroraudio.play();
     errorboxbutton.addEventListener('click', () => {
         visivel();
     });
-    document.addEventListener('click', ev => {
-        if(ev.target==document){
+    fatherpopup.addEventListener('click', ev => {
+        if(ev.target==fatherpopup){
             visivel();
         }
     });
